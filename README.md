@@ -154,7 +154,3 @@ src/
 ## 📜 Licença
 
 © 2026 DASA Service Desk Automation PoC. Todos os direitos reservados.
-
----
-
-**Desenvolvido com Claude Code** - Apresentação interativa para transformar a gestão de tickets com IA
