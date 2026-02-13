@@ -40,16 +40,16 @@ export default function Documentation() {
       color: 'cyan',
       items: [
         {
-          title: 'Arquitetura Híbrida',
-          description: 'Sistema modular com backend Supabase (PostgreSQL + Edge Functions) integrando com ferramentas DASA. 4 camadas principais: Frontend, Edge Functions, Database & Storage, External APIs.',
+          title: 'Arquitetura 100% Azure',
+          description: 'Sistema modular com 7 camadas Azure: Frontend (React), Orchestration (Logic Apps), Serverless (Functions), Data (SQL Database), Security (AD + Secret Manager), Integration (APIs externas), Observability (Monitor + Power BI).',
         },
         {
           title: 'Stack Tecnológica',
-          description: 'Backend: Supabase (PostgreSQL + Edge Functions + RLS). IA: Vertex AI Agent Builder + GPT-4 (aprovado). Comunicação: Microsoft Teams via Graph API. Ticketing: Freshworks. Analytics: Power BI.',
+          description: 'Orquestração: Azure Logic Apps (workflows visuais). Serverless: Azure Functions. Dados: Azure SQL Database. IA: Vertex AI + GPT-4. Comunicação: Teams + Twilio. Ticketing: ServiceNow. Analytics: Power BI + Azure Monitor.',
         },
         {
           title: 'Integrações',
-          description: 'Freshworks API para gestão de tickets (já utilizado), Microsoft Teams via Graph API (já utilizado), Entra ID para autenticação (já utilizado), Power BI para dashboards executivos (já utilizado).',
+          description: 'ServiceNow API para gestão de tickets (já utilizado), Twilio para SMS/WhatsApp (já utilizado), Microsoft Teams via Graph API (já utilizado), Azure AD para autenticação (já utilizado), Power BI para dashboards (já utilizado).',
         },
       ],
     },
@@ -60,15 +60,15 @@ export default function Documentation() {
       items: [
         {
           title: 'Configuração do Ambiente',
-          description: 'Node.js 18+, npm/pnpm, credenciais Supabase, tokens ServiceNow e Teams. Clone o repositório e execute npm install.',
+          description: 'Node.js 18+, npm/pnpm, credenciais Azure (Logic Apps, Functions, SQL), tokens ServiceNow e Teams (Secret Manager), IA tokens (Vertex AI + OpenAI). Clone o repositório e execute npm install.',
         },
         {
           title: 'Estrutura de Pastas',
-          description: '/src/components (UI), /src/lib (utilitários), /supabase/functions (Edge Functions), /supabase/migrations (SQL schemas).',
+          description: '/src/components (UI), /src/lib (utilitários), /azure/functions (Azure Functions), /azure/logic-apps (Logic Apps definitions), /database/migrations (SQL schemas).',
         },
         {
           title: 'Desenvolvimento Local',
-          description: 'npm run dev para frontend, supabase start para ambiente local, npm run test para testes unitários.',
+          description: 'npm run dev para frontend, Azure Functions Core Tools para testar functions localmente, npm run test para testes unitários.',
         },
       ],
     },
@@ -78,16 +78,16 @@ export default function Documentation() {
       color: 'purple',
       items: [
         {
-          title: 'Schema Principal',
-          description: 'Tabelas: tickets, categorizations, follow_ups, analytics. RLS habilitado em todas as tabelas com políticas granulares.',
+          title: 'Schema Principal (Azure SQL Database)',
+          description: 'Tabelas: follow_up_events (histórico automações), automation_rules (configuráveis), audit_log (LGPD compliance), templates (email/SMS/Teams), tickets_cache (espelho ServiceNow), performance_metrics.',
         },
         {
           title: 'Migrations',
-          description: 'Sistema de versionamento de schema via migrations SQL. Cada alteração documentada e reversível.',
+          description: 'Sistema de versionamento de schema via migrations SQL. Cada alteração documentada e reversível. Deploy automatizado via Azure DevOps.',
         },
         {
           title: 'Backup e Recovery',
-          description: 'Backups automáticos diários via Supabase. Point-in-time recovery até 7 dias. Export manual disponível.',
+          description: 'Backups automáticos diários via Azure SQL Database (já configurado). Point-in-time recovery até 35 dias. Geo-redundância habilitada.',
         },
       ],
     },
@@ -97,16 +97,16 @@ export default function Documentation() {
       color: 'green',
       items: [
         {
-          title: 'Arquitetura Híbrida Aprovada',
-          description: 'Backend moderno em Supabase (open-source, sem vendor lock-in) + Integrações com ferramentas DASA já utilizadas: Freshworks, Microsoft Teams via Graph API, Entra ID, Power BI.',
+          title: 'Stack 100% Azure/DASA Aprovada',
+          description: 'Infraestrutura 100% Azure (Logic Apps + Functions + SQL Database já pagos pela DASA) + Integrações com ferramentas já utilizadas: ServiceNow, Twilio, Teams, Azure AD, Power BI.',
         },
         {
-          title: 'Redução de Custos de Sustentação',
-          description: 'Reutilização de ferramentas já licenciadas pela DASA (Freshworks, Teams, Entra ID, Power BI). Backend Supabase com custo previsível e escalável. Sem necessidade de novos contratos ou treinamentos.',
+          title: 'Zero Custo de Novas Licenças',
+          description: 'Reutilização de tecnologias Azure já pagas pela DASA + ferramentas corporativas já licenciadas. Sem necessidade de novos contratos, homologações ou treinamentos. TCO (Total Cost of Ownership) drasticamente reduzido.',
         },
         {
           title: 'Compliance e Auditoria',
-          description: 'RLS em todas as tabelas Supabase. Autenticação via Entra ID (já utilizado). Auditoria completa no Freshworks. Logs imutáveis. Conformidade LGPD garantida.',
+          description: 'RBAC com Azure AD (já configurado). Audit log LGPD-compliant em Azure SQL Database. Secret Manager para API keys. Logs imutáveis no Azure Monitor. Conformidade LGPD e segurança healthcare garantida.',
         },
       ],
     },
@@ -117,15 +117,15 @@ export default function Documentation() {
       items: [
         {
           title: 'Autenticação',
-          description: 'OAuth2 com Entra ID (Azure AD) para SSO corporativo. RBAC (Role-Based Access Control) com níveis: Admin, Analista, Viewer. Row Level Security (RLS) em todas as tabelas Supabase.',
+          description: 'OAuth2 com Azure AD / Entra ID para SSO corporativo (já utilizado). RBAC (Role-Based Access Control) com níveis: Admin, Analista, Viewer. Permissões por fila/automation.',
         },
         {
           title: 'Proteção de Dados',
-          description: 'Criptografia em trânsito (TLS 1.3) e em repouso (AES-256). Conformidade LGPD com auditoria completa. Secrets gerenciados via Supabase Vault.',
+          description: 'TLS 1.3 (transit + at-rest encryption). Dados sensíveis masked nos logs. Secret Manager para ServiceNow API keys, Twilio credentials, OpenAI/Vertex AI tokens, SMTP credentials.',
         },
         {
           title: 'Monitoramento de Segurança',
-          description: 'Logs completos de todas as operações. Alertas automáticos de anomalias. Auditoria de mudanças de dados. Conformidade com segurança healthcare.',
+          description: 'Azure Monitor para logs centralizados. Application Insights para performance tracing. Health checks endpoint /health a cada 60sec. Alertas via Slack + Teams + PagerDuty (on-call).',
         },
       ],
     },

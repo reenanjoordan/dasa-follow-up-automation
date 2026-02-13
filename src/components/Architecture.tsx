@@ -4,52 +4,84 @@ import { Server, Database, Cloud, Shield, GitBranch } from 'lucide-react';
 export default function Architecture() {
   const components = [
     {
-      layer: 'Frontend',
+      layer: 'Frontend Layer',
       icon: Cloud,
       items: [
-        'React Dashboard',
-        'Interactive PoC Site',
-        'Real-time Metrics',
+        'React + TypeScript',
+        'Dashboard Automação',
+        'Métricas Real-time',
       ],
       color: 'from-blue-600 to-blue-400',
     },
     {
-      layer: 'Edge Functions',
-      icon: Server,
+      layer: 'Orchestration Layer',
+      icon: GitBranch,
       items: [
-        'Teams Integration',
-        'Categorization Engine',
-        'Escalation Logic',
+        'Azure Logic Apps',
+        'Workflows Visuais',
+        'Retry Automático',
       ],
       color: 'from-cyan-600 to-cyan-400',
     },
     {
-      layer: 'Database & Storage',
-      icon: Database,
+      layer: 'Serverless Layer',
+      icon: Server,
       items: [
-        'Supabase PostgreSQL',
-        'RLS Policies',
-        'Event Logging',
+        'Azure Functions',
+        'ServiceNow Sync',
+        'IA Categorização',
       ],
       color: 'from-green-600 to-green-400',
     },
     {
-      layer: 'External APIs',
+      layer: 'Data Layer',
+      icon: Database,
+      items: [
+        'Azure SQL Database',
+        'Follow-up Events',
+        'Audit Log (LGPD)',
+      ],
+      color: 'from-purple-600 to-purple-400',
+    },
+    {
+      layer: 'Security Layer',
+      icon: Shield,
+      items: [
+        'Secret Manager',
+        'Azure AD / RBAC',
+        'TLS 1.3 Encryption',
+      ],
+      color: 'from-red-600 to-red-400',
+    },
+    {
+      layer: 'Integration Layer',
       icon: GitBranch,
       items: [
-        'Freshworks (Tickets)',
-        'Microsoft Teams',
-        'Entra ID / Azure AD',
+        'ServiceNow + Twilio',
+        'Teams + Graph API',
+        'Vertex AI + OpenAI',
       ],
       color: 'from-orange-600 to-orange-400',
+    },
+    {
+      layer: 'Observability Layer',
+      icon: Server,
+      items: [
+        'Azure Monitor',
+        'Power BI Dashboards',
+        'Application Insights',
+      ],
+      color: 'from-pink-600 to-pink-400',
     },
   ];
 
   const integrations = [
-    { name: 'Freshworks', status: 'Critical', icon: '🎫' },
+    { name: 'ServiceNow API', status: 'Critical', icon: '🎫' },
+    { name: 'Twilio (SMS/WhatsApp)', status: 'Critical', icon: '📱' },
     { name: 'Microsoft Teams', status: 'Critical', icon: '💬' },
-    { name: 'Entra ID (Azure AD)', status: 'Required', icon: '👥' },
-    { name: 'AI/ML Service (Vertex AI)', status: 'Critical', icon: '🧠' },
+    { name: 'Azure AD / Entra ID', status: 'Critical', icon: '👥' },
+    { name: 'Vertex AI + OpenAI', status: 'Critical', icon: '🧠' },
+    { name: 'Power BI', status: 'Required', icon: '📊' },
   ];
 
   return (
@@ -60,7 +92,7 @@ export default function Architecture() {
           <p className="text-xl text-slate-400">Infraestrutura e integrações de sistema</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
           {components.map((comp, idx) => {
             const Icon = comp.icon;
             return (
@@ -99,31 +131,31 @@ export default function Architecture() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <span className="text-green-400 font-bold flex-shrink-0">✓</span>
-                <span className="text-slate-300">Row Level Security (RLS) em todas as tabelas do Supabase</span>
+                <span className="text-slate-300">RBAC + OAuth2 com Azure AD (já configurado na DASA)</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-400 font-bold flex-shrink-0">✓</span>
-                <span className="text-slate-300">Criptografia de dados em trânsito e em repouso</span>
+                <span className="text-slate-300">Secret Manager para API keys (ServiceNow, Twilio, OpenAI)</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-400 font-bold flex-shrink-0">✓</span>
-                <span className="text-slate-300">Autenticação via Entra ID (Azure AD) já utilizado na DASA</span>
+                <span className="text-slate-300">TLS 1.3 encryption + dados sensíveis masked em logs</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-400 font-bold flex-shrink-0">✓</span>
-                <span className="text-slate-300">Auditoria completa de mudanças e conformidade LGPD</span>
+                <span className="text-slate-300">Audit log LGPD-compliant em Azure SQL Database</span>
               </li>
             </ul>
           </div>
 
           <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-8">
-            <h3 className="text-xl font-semibold text-white mb-6">Integrações Críticas</h3>
-            <div className="space-y-3">
+            <h3 className="text-xl font-semibold text-white mb-6">Integrações Críticas (já utilizadas na DASA)</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {integrations.map((integration, idx) => (
                 <div key={idx} className="flex items-center justify-between p-3 bg-slate-900/50 rounded-lg border border-slate-700">
                   <div className="flex items-center gap-3">
                     <span className="text-xl">{integration.icon}</span>
-                    <span className="text-slate-300 font-medium">{integration.name}</span>
+                    <span className="text-slate-300 font-medium text-sm">{integration.name}</span>
                   </div>
                   <span className={`text-xs px-2 py-1 rounded-full ${
                     integration.status === 'Critical'
@@ -142,21 +174,21 @@ export default function Architecture() {
           <h3 className="text-xl font-semibold text-white mb-4">Fluxo de Dados Simplificado</h3>
           <div className="bg-slate-900/50 rounded-lg p-6 font-mono text-sm text-slate-300 overflow-x-auto">
             <div className="flex items-center gap-4 flex-wrap">
-              <span>Freshworks</span>
+              <span>ServiceNow</span>
               <span className="text-cyan-400">→</span>
-              <span>Supabase Edge Fn</span>
+              <span>Azure Logic Apps</span>
               <span className="text-cyan-400">→</span>
-              <span>AI Categorization</span>
+              <span>Azure Functions (IA)</span>
               <span className="text-cyan-400">→</span>
-              <span>Teams Notification</span>
+              <span>Teams/Twilio</span>
               <span className="text-cyan-400">→</span>
-              <span>Escalation Logic</span>
+              <span>Azure SQL</span>
               <span className="text-cyan-400">→</span>
-              <span>Freshworks Update</span>
+              <span>Power BI</span>
             </div>
           </div>
           <p className="text-sm text-slate-400 mt-4">
-            <strong className="text-green-300">Arquitetura Híbrida:</strong> Backend em Supabase (moderno e eficiente) + Integrações com ferramentas DASA já utilizadas (Freshworks, Teams, Entra ID, Power BI)
+            <strong className="text-green-300">Stack 100% Azure/DASA:</strong> Toda infraestrutura em Azure (Logic Apps + Functions + SQL) + Ferramentas já licenciadas (ServiceNow, Twilio, Teams, Power BI)
           </p>
         </div>
       </div>

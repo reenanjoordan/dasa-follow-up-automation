@@ -79,16 +79,16 @@ export default function ExecutiveSummary() {
         <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 border border-green-700/50 rounded-xl p-8 mb-12">
           <div className="flex items-center gap-3 mb-4">
             <CheckCircle className="w-6 h-6 text-green-400" />
-            <h3 className="text-2xl font-bold text-white">Arquitetura Híbrida: Moderno + DASA</h3>
+            <h3 className="text-2xl font-bold text-white">Stack 100% Azure/DASA - Zero Custo de Novas Licenças</h3>
           </div>
           <p className="text-slate-300 mb-6">
-            Solução que <strong className="text-green-300">combina backend moderno (Supabase)</strong> com <strong className="text-green-300">ferramentas já utilizadas na DASA</strong>, garantindo eficiência operacional e redução de custos de sustentação:
+            Solução que utiliza <strong className="text-green-300">100% de tecnologias Azure já pagas pela DASA</strong> + <strong className="text-green-300">ferramentas corporativas já utilizadas</strong>, garantindo custo zero de novas licenças e redução drástica de sustentação:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-              <p className="text-sm text-slate-400 mb-2">Backend & Orquestração</p>
-              <p className="text-cyan-300 font-semibold">Supabase (PostgreSQL + Edge Functions)</p>
-              <span className="text-xs text-blue-400">✓ Moderno e eficiente</span>
+              <p className="text-sm text-slate-400 mb-2">Orquestração & Serverless</p>
+              <p className="text-cyan-300 font-semibold">Azure Logic Apps + Azure Functions</p>
+              <span className="text-xs text-green-400">✓ Já pago pela DASA</span>
             </div>
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
               <p className="text-sm text-slate-400 mb-2">IA Cognitiva</p>
@@ -96,13 +96,13 @@ export default function ExecutiveSummary() {
               <span className="text-xs text-blue-400">✓ Aprovado pela DASA</span>
             </div>
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-              <p className="text-sm text-slate-400 mb-2">Ticketing & Analytics</p>
-              <p className="text-cyan-300 font-semibold">Freshworks + Power BI</p>
+              <p className="text-sm text-slate-400 mb-2">Dados & Analytics</p>
+              <p className="text-cyan-300 font-semibold">Azure SQL + Power BI</p>
               <span className="text-xs text-green-400">✓ Já utilizados na DASA</span>
             </div>
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-              <p className="text-sm text-slate-400 mb-2">Comunicação & Identidade</p>
-              <p className="text-cyan-300 font-semibold">Teams (Graph API) + Entra ID</p>
+              <p className="text-sm text-slate-400 mb-2">Comunicação & Ticketing</p>
+              <p className="text-cyan-300 font-semibold">ServiceNow + Teams + Twilio</p>
               <span className="text-xs text-green-400">✓ Já utilizados na DASA</span>
             </div>
           </div>
