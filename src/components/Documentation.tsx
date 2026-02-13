@@ -40,16 +40,16 @@ export default function Documentation() {
       color: 'cyan',
       items: [
         {
-          title: 'Arquitetura Atemporal',
-          description: 'Sistema modular com cérebro (IA), mãos (orquestradores) e canais independentes. Permite troca de componentes sem reescrita completa do sistema.',
+          title: 'Arquitetura em Camadas',
+          description: '6 camadas: (1) Canais via Twilio/Teams, (2) IA Cognitiva com Vertex AI + GPT-4, (3) Orquestrador Azure Logic Apps, (4) Integrações Microsoft, (5) Infraestrutura Azure, (6) Observabilidade com Freshworks/Power BI.',
         },
         {
-          title: 'Stack Tecnológica',
-          description: 'Frontend: React + TypeScript + Tailwind CSS. Backend: Supabase (PostgreSQL + Edge Functions). IA: OpenAI GPT-4 (plugável para Gemini/Claude).',
+          title: 'Stack Tecnológica DASA',
+          description: 'Canais: Twilio + Microsoft Teams (já utilizados). IA: Vertex AI Agent Builder + OpenAI GPT-4 (aprovado). Orquestração: Azure Logic Apps (aprovado). Infraestrutura: Azure Functions + Secret Manager + RBAC OAuth2/JWT.',
         },
         {
-          title: 'Integrações',
-          description: 'ServiceNow API para gestão de tickets, Microsoft Teams Bot API para comunicação, Power BI para dashboards executivos.',
+          title: 'Integrações Aprovadas',
+          description: 'Microsoft Graph API, Entra ID (Azure AD), Intune, Freshworks para ticketing, Power BI para dashboards, Azure Monitor para logs e alertas. Todas as tecnologias alinhadas à governança DASA.',
         },
       ],
     },
@@ -92,21 +92,40 @@ export default function Documentation() {
       ],
     },
     {
+      title: 'Governança e Aprovações',
+      icon: CheckCircle2,
+      color: 'green',
+      items: [
+        {
+          title: 'Stacks Aprovadas pela DASA',
+          description: 'Twilio + Microsoft Teams (já utilizados), Vertex AI + OpenAI GPT-4 (aprovado com reserva B), Azure Logic Apps (aprovado, substitui n8n), Azure Functions + Secret Manager + RBAC OAuth2/JWT.',
+        },
+        {
+          title: 'Redução de Custos de Sustentação',
+          description: 'Uso exclusivo de tecnologias já licenciadas ou aprovadas pela DASA. Elimina necessidade de novos contratos, treinamentos ou processos de homologação. Reduz TCO (Total Cost of Ownership).',
+        },
+        {
+          title: 'Compliance e Auditoria',
+          description: 'Todas as integrações seguem políticas de segurança DASA. Logs centralizados no Azure Monitor. Auditoria completa de ações no Freshworks. Conformidade LGPD garantida.',
+        },
+      ],
+    },
+    {
       title: 'Segurança',
       icon: Shield,
       color: 'red',
       items: [
         {
           title: 'Autenticação',
-          description: 'OAuth2 com Azure AD para SSO corporativo. RBAC (Role-Based Access Control) com níveis: Admin, Analista, Viewer.',
+          description: 'RBAC OAuth2/JWT com Entra ID (Azure AD). SSO corporativo integrado. Secret Manager para credenciais. Níveis de acesso: Admin, Analista, Viewer.',
         },
         {
           title: 'Proteção de Dados',
-          description: 'Criptografia em trânsito (TLS 1.3) e em repouso (AES-256). Conformidade LGPD com auditoria completa de acessos.',
+          description: 'Criptografia em trânsito (TLS 1.3) e em repouso via Azure. Conformidade LGPD com auditoria completa. API Gateway para controle de acesso e throttling.',
         },
         {
-          title: 'Rate Limiting',
-          description: 'Proteção contra abuse: 100 req/min por usuário, 1000 req/min por API key. Throttling automático em edge functions.',
+          title: 'Monitoramento de Segurança',
+          description: 'Azure Monitor para detecção de anomalias. Alertas automáticos de tentativas de acesso não autorizado. Logs imutáveis para investigação forense.',
         },
       ],
     },

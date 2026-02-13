@@ -186,23 +186,42 @@ export default function InteractiveDemo() {
 
           <div className="space-y-4">
             <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6 backdrop-blur-sm">
-              <h4 className="font-semibold text-white mb-4">Fluxo de Processamento</h4>
+              <h4 className="font-semibold text-white mb-4">Fluxo com Stack DASA</h4>
               <ol className="space-y-3 text-sm">
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                  <span className="text-slate-300">Novo Ticket Recebido</span>
+                  <div className="flex-1">
+                    <p className="text-slate-300">Captura via Twilio/Teams</p>
+                    <p className="text-xs text-slate-500 mt-0.5">Azure Functions</p>
+                  </div>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-cyan-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                  <span className="text-slate-300">IA Categoriza Automaticamente</span>
+                  <div className="flex-1">
+                    <p className="text-slate-300">Análise por Vertex AI</p>
+                    <p className="text-xs text-slate-500 mt-0.5">+ GPT-4 (reserva B)</p>
+                  </div>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                  <span className="text-slate-300">Mensagem Enviada via Teams</span>
+                  <div className="flex-1">
+                    <p className="text-slate-300">Orquestração de Fluxo</p>
+                    <p className="text-xs text-slate-500 mt-0.5">Azure Logic Apps</p>
+                  </div>
                 </li>
                 <li className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
-                  <span className="text-slate-300">Ticket Processado</span>
+                  <span className="flex-shrink-0 w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                  <div className="flex-1">
+                    <p className="text-slate-300">Envio via Graph API</p>
+                    <p className="text-xs text-slate-500 mt-0.5">Entra ID + Teams</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold">5</span>
+                  <div className="flex-1">
+                    <p className="text-slate-300">Registro e Métricas</p>
+                    <p className="text-xs text-slate-500 mt-0.5">Freshworks + Power BI</p>
+                  </div>
                 </li>
               </ol>
             </div>

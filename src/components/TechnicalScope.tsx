@@ -6,75 +6,84 @@ export default function TechnicalScope() {
 
   const scopes = [
     {
-      id: 'automated-monitoring',
-      title: 'Monitoramento Automático de Tickets',
-      description: 'Sistema que identifica e monitora tickets antigos',
+      id: 'input-channels',
+      title: 'Canais de Entrada Multicanal',
+      description: 'Voz, Chat e Mensageria via tecnologias já utilizadas na DASA',
+      stack: 'Twilio (URA/WhatsApp) + Microsoft Teams',
       features: [
-        'Identificação de tickets com 7+ dias sem atualização',
-        'Análise de usuários inativos na rede',
-        'Trigger de escalação baseado em regras de negócio',
-        'Dashboard em tempo real com visibilidade de backlog',
-        'Integração com ServiceNow TSM',
+        'Integração com Twilio para URA e WhatsApp (já utilizados)',
+        'Microsoft Teams para comunicação interna (já utilizado)',
+        'Captura de tickets de múltiplos canais',
+        'Normalização de dados de entrada',
+        'Rastreamento de origem do contato',
       ],
     },
     {
-      id: 'smart-categorization',
-      title: 'Categorização Inteligente com IA',
-      description: 'Engine de IA para classificação automática',
+      id: 'cognitive-brain',
+      title: 'Cérebro Cognitivo (IA)',
+      description: 'Interpretação de intenção e decisão de ação com IA',
+      stack: 'Vertex AI Agent Builder + OpenAI GPT-4 (reserva B)',
       features: [
-        '92% de acurácia em categorização automática',
-        'Análise contextual de descrição do ticket',
+        'Vertex AI Agent Builder como motor principal (já aprovado)',
+        'OpenAI GPT-4 como fallback e reserva B',
+        '92% de acurácia em categorização de tickets',
+        'Análise contextual e detecção de intenção',
+        'Aprendizado contínuo com feedback humano',
         'Detecção de categorias ausentes no catálogo',
-        'Fila de revisão humana para 8% incertos',
-        'Aprendizado contínuo com feedback',
       ],
     },
     {
-      id: 'teams-integration',
-      title: 'Integração com Microsoft Teams',
-      description: 'Comunicação automática e rastreada',
+      id: 'orchestrator',
+      title: 'Orquestrador de Ações',
+      description: 'Execução de fluxos e integrações corporativas',
+      stack: 'Azure Logic Apps (aprovado, substitui n8n)',
       features: [
-        'Envio automático de mensagens via Teams',
-        'Mensagens padronizadas e personalizáveis',
-        'Rastreamento de evidências de contato',
-        'Resposta automática com contexto do ticket',
-        'Integração com Microsoft Graph API',
+        'Azure Logic Apps como orquestrador central',
+        'Automação de workflows complexos',
+        'Integração nativa com ecossistema Microsoft',
+        'Escalação baseada em regras de negócio',
+        'Monitoramento de SLA e tempo de resposta',
       ],
     },
     {
-      id: 'escalation-routing',
-      title: 'Roteamento e Escalação Inteligente',
-      description: 'Distribuição automática para grupos responsáveis',
+      id: 'microsoft-integrations',
+      title: 'Integrações Microsoft',
+      description: 'Execução de automações corporativas no ecossistema Microsoft',
+      stack: 'Graph API, Entra ID, Intune, Freshworks',
       features: [
-        'Roteamento baseado em criticidade do ticket',
-        'Escalação automática após 3 tentativas',
-        'Notificação do gestor da fila responsável',
-        'Rastreamento de SLA por grupo',
-        'Métricas de resposta por técnico (Teams)',
+        'Microsoft Graph API para Teams e Office 365',
+        'Entra ID (Azure AD) para autenticação e usuários',
+        'Intune para validação de dispositivos',
+        'Freshworks para ticketing e knowledge base',
+        'Sincronização automática de dados de usuários',
       ],
     },
     {
-      id: 'contact-attempts',
-      title: 'Gerenciamento de Tentativas de Contato',
-      description: 'Processo estruturado de 3 tentativas',
+      id: 'infrastructure-security',
+      title: 'Infraestrutura e Segurança',
+      description: 'Hospedagem, API Gateway, Secrets e IAM',
+      stack: 'Azure Functions, App Service, Secret Manager, RBAC OAuth2/JWT',
       features: [
-        '1 tentativa por dia útil, durante 3 dias',
-        'Horário comercial (08:00-18:00, exceto 12:00-14:00)',
-        'Contato via Teams e telefone',
-        'Registro de evidências no chamado',
-        'Encerramento automático após 3 tentativas sem retorno',
+        'Azure Functions para execução serverless',
+        'Azure App Service para hospedagem',
+        'Secret Manager para credenciais seguras',
+        'RBAC com OAuth2/JWT para controle de acesso',
+        'API Gateway para roteamento e throttling',
+        'Conformidade LGPD e segurança healthcare',
       ],
     },
     {
-      id: 'data-quality',
-      title: 'Qualidade de Dados e Limpeza',
-      description: 'Limpeza e validação contínua de dados',
+      id: 'observability-metrics',
+      title: 'Observabilidade e Métricas',
+      description: 'Logs, auditoria e KPIs de performance',
+      stack: 'Freshworks, Power BI, Azure Monitor',
       features: [
-        'Identificação de usuários inativos',
-        'Validação de categorias de ticket',
-        'Detecção de tickets em "limbo"',
-        'Sincronização com Active Directory',
-        'Auditoria de mudanças de status',
+        'Freshworks para rastreamento de tickets',
+        'Power BI para dashboards executivos',
+        'Azure Monitor para logs e alertas',
+        'Auditoria completa de ações e mudanças',
+        'KPIs em tempo real: automação, lead time, custo',
+        'Alertas proativos de degradação de performance',
       ],
     },
   ];
@@ -96,7 +105,11 @@ export default function TechnicalScope() {
               >
                 <div className="text-left flex-1">
                   <h3 className="text-xl font-semibold text-white mb-2">{scope.title}</h3>
-                  <p className="text-slate-400">{scope.description}</p>
+                  <p className="text-slate-400 mb-3">{scope.description}</p>
+                  <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-lg px-3 py-1.5">
+                    <span className="text-xs font-mono text-blue-300">Stack:</span>
+                    <span className="text-xs font-semibold text-blue-200">{scope.stack}</span>
+                  </div>
                 </div>
                 <ChevronDown
                   className={`w-6 h-6 text-cyan-400 flex-shrink-0 ml-4 transition-transform ${
@@ -121,13 +134,20 @@ export default function TechnicalScope() {
           ))}
         </div>
 
-        <div className="mt-12 bg-blue-900/20 border border-blue-800 rounded-xl p-6 flex items-start gap-4">
-          <AlertCircle className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" />
+        <div className="mt-12 bg-green-900/20 border border-green-700 rounded-xl p-6 flex items-start gap-4">
+          <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" />
           <div>
-            <h4 className="font-semibold text-blue-300 mb-2">Dependências e Integrações</h4>
-            <p className="text-blue-200 text-sm">
-              Requer acesso à API do ServiceNow, Microsoft Teams, Active Directory e base de conhecimento existente. Todas as integrações serão executadas via Edge Functions do Supabase com segurança de nível enterprise.
+            <h4 className="font-semibold text-green-300 mb-2">Governança e Aprovação DASA</h4>
+            <p className="text-green-200 text-sm mb-3">
+              Todas as tecnologias listadas estão <strong>alinhadas à governança DASA</strong> e já foram aprovadas ou estão em uso:
             </p>
+            <ul className="text-green-200 text-sm space-y-1.5">
+              <li>• Twilio + Microsoft Teams (já utilizados)</li>
+              <li>• Azure Logic Apps (aprovado como substituto do n8n)</li>
+              <li>• Vertex AI + OpenAI GPT-4 (aprovado com reserva B)</li>
+              <li>• Azure Functions + Secret Manager + RBAC OAuth2/JWT</li>
+              <li>• Freshworks, Power BI, Azure Monitor (já utilizados)</li>
+            </ul>
           </div>
         </div>
       </div>

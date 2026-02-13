@@ -24,73 +24,78 @@ export default function SolutionExplorer() {
   const steps = [
     {
       id: 1,
-      title: 'Captura de Tickets',
+      title: 'Captura Multicanal',
       icon: Database,
       color: 'blue',
-      description: 'Tickets são capturados automaticamente do ServiceNow via webhook em tempo real.',
+      description: 'Tickets capturados via Twilio (URA/WhatsApp) e Microsoft Teams em tempo real.',
       details: [
-        'Integração nativa com ServiceNow API',
-        'Webhook configurado para eventos de criação e atualização',
-        'Processamento assíncrono para alta performance',
-        'Validação e normalização de dados',
+        'Twilio para URA e WhatsApp (já utilizado na DASA)',
+        'Microsoft Teams para comunicação interna',
+        'Azure Functions para processamento serverless',
+        'Normalização automática de dados de entrada',
       ],
       metrics: { label: 'Tempo de captura', value: '< 2s' },
+      stack: 'Twilio + Microsoft Teams + Azure Functions',
     },
     {
       id: 2,
-      title: 'Análise por IA',
+      title: 'Análise por IA Cognitiva',
       icon: Bot,
       color: 'purple',
-      description: 'IA generativa analisa o conteúdo do ticket e identifica categoria, prioridade e ações recomendadas.',
+      description: 'Vertex AI Agent Builder analisa conteúdo, identifica intenção e decide ação.',
       details: [
-        'GPT-4 para análise semântica avançada',
-        'Classificação em 10+ categorias principais',
-        'Detecção automática de urgência e impacto',
-        'Extração de entidades (usuário, sistema, erro)',
+        'Vertex AI Agent Builder como motor principal',
+        'OpenAI GPT-4 como fallback (reserva B)',
+        '92% de acurácia em categorização',
+        'Detecção de urgência, impacto e entidades',
       ],
       metrics: { label: 'Acurácia', value: '92%' },
+      stack: 'Vertex AI + OpenAI GPT-4',
     },
     {
       id: 3,
-      title: 'Categorização Inteligente',
+      title: 'Orquestração de Fluxos',
       icon: Workflow,
       color: 'cyan',
-      description: 'Sistema categoriza automaticamente e define o fluxo de tratamento ideal para cada tipo de ticket.',
+      description: 'Azure Logic Apps executa workflows, integrações e automações corporativas.',
       details: [
-        'Regras de negócio configuráveis',
+        'Azure Logic Apps (aprovado, substitui n8n)',
         'Roteamento automático por categoria',
         'Priorização baseada em SLA',
-        'Sugestão de analista especializado',
+        'Integração nativa com ecossistema Microsoft',
       ],
-      metrics: { label: 'Categorias', value: '10+' },
+      metrics: { label: 'Fluxos ativos', value: '15+' },
+      stack: 'Azure Logic Apps',
     },
     {
       id: 4,
-      title: 'Follow-Up Automatizado',
+      title: 'Follow-Up via Teams',
       icon: MessageSquare,
       color: 'green',
-      description: 'Mensagens de follow-up são enviadas automaticamente via Teams após 7 dias sem resposta do usuário.',
+      description: 'Contato automático via Microsoft Teams com Graph API após 7 dias.',
       details: [
-        'Integração com Microsoft Teams Bot',
-        'Mensagens personalizadas por categoria',
+        'Microsoft Graph API para envio de mensagens',
+        'Entra ID (Azure AD) para autenticação',
         'Até 3 tentativas de contato',
-        'Escalation automático se sem resposta',
+        'Registro em Freshworks para auditoria',
       ],
       metrics: { label: 'Taxa de resposta', value: '68%' },
+      stack: 'Graph API + Entra ID + Freshworks',
     },
     {
       id: 5,
-      title: 'Monitoramento e Analytics',
+      title: 'Observabilidade e KPIs',
       icon: BarChart3,
       color: 'orange',
-      description: 'Dashboard em tempo real monitora KPIs, tendências e eficiência do sistema de automação.',
+      description: 'Dashboards em Power BI, logs no Azure Monitor e auditoria no Freshworks.',
       details: [
-        'Dashboards executivos em Power BI',
-        'Métricas em tempo real',
-        'Alertas configuráveis',
-        'Relatórios automáticos diários/semanais',
+        'Power BI para dashboards executivos',
+        'Azure Monitor para logs e alertas',
+        'Freshworks para rastreamento de tickets',
+        'KPIs em tempo real: automação, lead time, custo',
       ],
       metrics: { label: 'Economia de tempo', value: '89%' },
+      stack: 'Power BI + Azure Monitor + Freshworks',
     },
   ];
 
@@ -249,11 +254,17 @@ export default function SolutionExplorer() {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
-                        <p className="text-slate-300 mb-4">{step.description}</p>
-                        <div className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
-                          <TrendingUp className={`w-4 h-4 ${colorClasses.text}`} />
-                          <span className="text-sm text-slate-400">{step.metrics.label}:</span>
-                          <span className={`text-sm font-bold ${colorClasses.text}`}>{step.metrics.value}</span>
+                        <p className="text-slate-300 mb-3">{step.description}</p>
+                        <div className="flex flex-wrap items-center gap-3 mb-4">
+                          <div className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
+                            <TrendingUp className={`w-4 h-4 ${colorClasses.text}`} />
+                            <span className="text-sm text-slate-400">{step.metrics.label}:</span>
+                            <span className={`text-sm font-bold ${colorClasses.text}`}>{step.metrics.value}</span>
+                          </div>
+                          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-lg px-3 py-1.5">
+                            <Zap className="w-3.5 h-3.5 text-blue-400" />
+                            <span className="text-xs font-mono text-blue-300">{step.stack}</span>
+                          </div>
                         </div>
                       </div>
                     </div>

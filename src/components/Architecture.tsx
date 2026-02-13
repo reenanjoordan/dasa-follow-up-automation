@@ -4,52 +4,74 @@ import { Server, Database, Cloud, Shield, GitBranch } from 'lucide-react';
 export default function Architecture() {
   const components = [
     {
-      layer: 'Frontend',
+      layer: 'Canais de Entrada',
       icon: Cloud,
       items: [
-        'React Dashboard',
-        'Interactive PoC Site',
-        'Real-time Metrics',
+        'Twilio (URA/WhatsApp)',
+        'Microsoft Teams',
+        'Voz, Chat, Mensageria',
       ],
       color: 'from-blue-600 to-blue-400',
     },
     {
-      layer: 'Edge Functions',
+      layer: 'Cérebro (IA Cognitiva)',
       icon: Server,
       items: [
-        'Teams Integration',
-        'Categorization Engine',
-        'Escalation Logic',
+        'Vertex AI Agent Builder',
+        'OpenAI GPT-4 (reserva B)',
+        'Interpretação e decisão',
       ],
       color: 'from-cyan-600 to-cyan-400',
     },
     {
-      layer: 'Database & Storage',
-      icon: Database,
+      layer: 'Orquestrador',
+      icon: GitBranch,
       items: [
-        'Supabase PostgreSQL',
-        'RLS Policies',
-        'Event Logging',
+        'Azure Logic Apps',
+        'Fluxos e integrações',
+        'Automação corporativa',
       ],
       color: 'from-green-600 to-green-400',
     },
     {
-      layer: 'External APIs',
-      icon: GitBranch,
+      layer: 'Integrações Microsoft',
+      icon: Database,
       items: [
-        'ServiceNow TSM',
-        'Microsoft Teams',
-        'Active Directory',
+        'Graph API, Entra ID',
+        'Intune, Freshworks',
+        'Automações corporativas',
+      ],
+      color: 'from-orange-600 to-orange-400',
+    },
+    {
+      layer: 'Infraestrutura',
+      icon: Shield,
+      items: [
+        'Azure Functions',
+        'Secret Manager',
+        'RBAC OAuth2/JWT',
+      ],
+      color: 'from-red-600 to-red-400',
+    },
+    {
+      layer: 'Observabilidade',
+      icon: Server,
+      items: [
+        'Freshworks, Power BI',
+        'Azure Monitor',
+        'Logs, auditoria, KPIs',
       ],
       color: 'from-purple-600 to-purple-400',
     },
   ];
 
   const integrations = [
-    { name: 'ServiceNow', status: 'Critical', icon: '🔗' },
-    { name: 'Microsoft Teams', status: 'Critical', icon: '💬' },
-    { name: 'Active Directory', status: 'Required', icon: '👥' },
-    { name: 'AI/ML Service', status: 'Critical', icon: '🧠' },
+    { name: 'Twilio (URA/WhatsApp)', status: 'Em uso', icon: '📞' },
+    { name: 'Vertex AI + OpenAI GPT-4', status: 'Aprovado', icon: '🧠' },
+    { name: 'Azure Logic Apps', status: 'Aprovado', icon: '⚙️' },
+    { name: 'Microsoft Graph API', status: 'Em uso', icon: '🔗' },
+    { name: 'Freshworks', status: 'Em uso', icon: '🎫' },
+    { name: 'Power BI', status: 'Em uso', icon: '📊' },
   ];
 
   return (
@@ -60,7 +82,7 @@ export default function Architecture() {
           <p className="text-xl text-slate-400">Infraestrutura e integrações de sistema</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {components.map((comp, idx) => {
             const Icon = comp.icon;
             return (
@@ -80,11 +102,6 @@ export default function Architecture() {
                     ))}
                   </ul>
                 </div>
-                {idx < components.length - 1 && (
-                  <div className="hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2">
-                    <div className="w-6 h-0.5 bg-gradient-to-r from-slate-700 to-slate-600" />
-                  </div>
-                )}
               </div>
             );
           })}
@@ -126,9 +143,9 @@ export default function Architecture() {
                     <span className="text-slate-300 font-medium">{integration.name}</span>
                   </div>
                   <span className={`text-xs px-2 py-1 rounded-full ${
-                    integration.status === 'Critical'
-                      ? 'bg-red-500/20 text-red-300'
-                      : 'bg-yellow-500/20 text-yellow-300'
+                    integration.status === 'Em uso'
+                      ? 'bg-green-500/20 text-green-300'
+                      : 'bg-blue-500/20 text-blue-300'
                   }`}>
                     {integration.status}
                   </span>
@@ -139,22 +156,25 @@ export default function Architecture() {
         </div>
 
         <div className="bg-gradient-to-r from-cyan-600/20 to-blue-600/20 border border-cyan-700/50 rounded-xl p-8">
-          <h3 className="text-xl font-semibold text-white mb-4">Fluxo de Dados Simplificado</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">Fluxo de Automação Completo</h3>
           <div className="bg-slate-900/50 rounded-lg p-6 font-mono text-sm text-slate-300 overflow-x-auto">
-            <div className="flex items-center gap-4 flex-wrap">
-              <span>ServiceNow</span>
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-blue-300">Twilio/Teams</span>
               <span className="text-cyan-400">→</span>
-              <span>Supabase Edge Fn</span>
+              <span className="text-cyan-300">Vertex AI</span>
               <span className="text-cyan-400">→</span>
-              <span>AI Categorization</span>
+              <span className="text-green-300">Azure Logic Apps</span>
               <span className="text-cyan-400">→</span>
-              <span>Teams Notification</span>
+              <span className="text-orange-300">Graph API</span>
               <span className="text-cyan-400">→</span>
-              <span>Escalation Logic</span>
+              <span className="text-orange-300">Freshworks</span>
               <span className="text-cyan-400">→</span>
-              <span>ServiceNow Update</span>
+              <span className="text-purple-300">Power BI</span>
             </div>
           </div>
+          <p className="text-sm text-slate-400 mt-4">
+            Todas as integrações protegidas por <span className="text-red-300 font-semibold">Azure Functions</span>, <span className="text-red-300 font-semibold">Secret Manager</span> e <span className="text-red-300 font-semibold">RBAC OAuth2/JWT</span>
+          </p>
         </div>
       </div>
     </div>
