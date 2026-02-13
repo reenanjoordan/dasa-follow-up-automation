@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Zap, TrendingUp, Clock, FileDown, Search, BookOpen } from 'lucide-react';
+import { Zap, TrendingUp, Clock, FileDown, Search, BookOpen, ClipboardList } from 'lucide-react';
 
 export default function Hero() {
   const [ticketCount, setTicketCount] = useState(0);
@@ -78,13 +78,6 @@ export default function Hero() {
             Explorar a Solução
           </button>
           <button
-            onClick={() => document.getElementById('cronograma')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all flex items-center gap-2 justify-center"
-          >
-            <FileDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-            Cronograma Completo
-          </button>
-          <button
             onClick={() => document.getElementById('documentation')?.scrollIntoView({ behavior: 'smooth' })}
             className="group px-8 py-4 bg-gradient-to-r from-slate-700 to-slate-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-slate-500/25 transition-all flex items-center gap-2 justify-center border border-slate-500"
           >
@@ -92,13 +85,22 @@ export default function Hero() {
             Documentação Técnica
           </button>
           <a
-            href="/DASA_Service_Desk_Follow-Up_Automation_PoC_Site.pdf"
+            href="/Proposta_Comercial_DASA_Leega_2026.html"
             target="_blank"
             rel="noopener noreferrer"
             className="group px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-500/25 transition-all flex items-center gap-2 justify-center"
           >
             <FileDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-            Proposta Comercial em PDF
+            Proposta Comercial
+          </a>
+          <a
+            href="/Estimativa_Horas_DASA_Azure_2026.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all flex items-center gap-2 justify-center"
+          >
+            <ClipboardList className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+            Estimativa de Horas
           </a>
         </div>
 

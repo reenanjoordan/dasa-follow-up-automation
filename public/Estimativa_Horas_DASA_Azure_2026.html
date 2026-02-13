@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analise de Estimativa de Horas - Projeto DASA | Stack 100% Azure</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1e293b;
+    line-height: 1.6;
+    background: #fff;
+    font-size: 13px;
+  }
+
+  @media print {
+    body { font-size: 11px; }
+    .page-break { page-break-before: always; }
+    .no-print { display: none; }
+    .cover { min-height: 100vh; }
+    table { font-size: 10px; }
+  }
+
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #164e63 50%, #0f172a 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 40% 40%, rgba(6,182,212,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 60% 60%, rgba(16,185,129,0.08) 0%, transparent 50%);
+  }
+
+  .cover-content { position: relative; z-index: 1; max-width: 700px; }
+  .cover-badge {
+    display: inline-block;
+    padding: 8px 24px;
+    background: rgba(6,182,212,0.15);
+    border: 1px solid rgba(6,182,212,0.3);
+    border-radius: 24px;
+    font-size: 12px;
+    color: #67e8f9;
+    font-weight: 500;
+    margin-bottom: 40px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .cover h1 {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 0%, #a5f3fc 50%, #6ee7b7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cover-subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .cover-stats {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .cover-stat {
+    text-align: center;
+    padding: 16px 24px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+  }
+
+  .cover-stat .num {
+    font-size: 28px;
+    font-weight: 800;
+    color: #67e8f9;
+  }
+
+  .cover-stat .lbl {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .cover-footer {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #475569;
+    font-size: 12px;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #0891b2;
+    display: inline-block;
+  }
+
+  h2 .sn { color: #0891b2; margin-right: 8px; }
+
+  .section-intro {
+    color: #475569;
+    font-size: 14px;
+    margin: 12px 0 28px;
+    line-height: 1.7;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 28px 0 14px;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    margin: 20px 0 10px;
+  }
+
+  p { margin-bottom: 10px; color: #334155; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 20px;
+    font-size: 12px;
+  }
+
+  th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+  }
+
+  tr:hover td { background: #f8fafc; }
+
+  .total-row td {
+    background: #f0f9ff;
+    font-weight: 700;
+    color: #0369a1;
+    border-top: 2px solid #0ea5e9;
+  }
+
+  .subtotal-row td {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .phase-row td {
+    background: #ecfdf5;
+    font-weight: 600;
+    color: #065f46;
+  }
+
+  .card-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .stat-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .stat-card .stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 4px;
+  }
+
+  .stat-card .stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .stat-card .stat-desc {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 2px;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .highlight-box.green {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-color: #86efac;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 6px 0;
+    padding-left: 24px;
+    position: relative;
+    color: #334155;
+    font-size: 12px;
+  }
+
+  .check-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: 700;
+  }
+
+  .tech-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 10px;
+    font-size: 10px;
+    color: #0369a1;
+    margin: 2px;
+  }
+
+  .phase-bar {
+    display: flex;
+    gap: 3px;
+    margin: 20px 0;
+    height: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .phase-bar .phase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 0 6px;
+  }
+
+  .note-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 12px;
+    color: #92400e;
+  }
+
+  .team-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 6px 0;
+  }
+
+  .team-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .gantt-container { margin: 20px 0; overflow-x: auto; }
+  .gantt-table { min-width: 100%; }
+  .gantt-table th { font-size: 10px; padding: 6px 4px; text-align: center; min-width: 50px; }
+  .gantt-table td { padding: 6px 8px; font-size: 11px; }
+  .gantt-bar {
+    height: 20px;
+    border-radius: 4px;
+    min-width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-content">
+    <div class="cover-badge">Estimativa de Horas v2.0 - Stack Azure/DASA</div>
+    <h1>Analise de Estimativa de Horas</h1>
+    <p class="cover-subtitle">Projeto DASA - Automacao Inteligente do Follow-Up<br>Stack 100% Azure-DASA</p>
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="num">806h</div>
+        <div class="lbl">Horas Totais</div>
+      </div>
+      <div class="cover-stat">
+        <div class="num">12 sem</div>
+        <div class="lbl">Duracao</div>
+      </div>
+      <div class="cover-stat">
+        <div class="num">3</div>
+        <div class="lbl">Profissionais</div>
+      </div>
+      <div class="cover-stat">
+        <div class="num">5</div>
+        <div class="lbl">Fases</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">Leega Tecnologia | Confidencial | Fevereiro 2026</div>
+</div>
+
+<!-- RESUMO EXECUTIVO -->
+<div class="container">
+  <h2><span class="sn">01</span> Resumo Executivo</h2>
+  <p class="section-intro">
+    Este documento apresenta a analise detalhada de estimativa de horas para o projeto de Automacao Inteligente do Follow-Up da DASA, utilizando <strong>Stack 100% Azure-DASA</strong> (Azure Logic Apps + Azure Functions + Azure SQL Database + Azure OpenAI GPT-4o).
+  </p>
+
+  <div class="card-row">
+    <div class="stat-card">
+      <div class="stat-label">Esforco Total</div>
+      <div class="stat-value">806h</div>
+      <div class="stat-desc">desenvolvimento</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Duracao</div>
+      <div class="stat-value">12 sem</div>
+      <div class="stat-desc">~3 meses</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Equipe</div>
+      <div class="stat-value">3</div>
+      <div class="stat-desc">2 Devs + 1 GP</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Modulos</div>
+      <div class="stat-value">6+3</div>
+      <div class="stat-desc">core + transversais</div>
+    </div>
+  </div>
+
+  <h3>Stack Tecnologico Atualizado</h3>
+  <table>
+    <tr><th>Componente</th><th>Tecnologia Azure/DASA</th><th>Funcao</th></tr>
+    <tr><td>Orquestracao</td><td>Azure Logic Apps</td><td>Workflows visuais, triggers, conectores nativos</td></tr>
+    <tr><td>Serverless</td><td>Azure Functions (5)</td><td>Logica de negocio event-driven</td></tr>
+    <tr><td>IA Cognitiva</td><td>Azure OpenAI GPT-4o</td><td>Categorizacao com 92% acuracia</td></tr>
+    <tr><td>Banco de Dados</td><td>Azure SQL Database (S3-S4)</td><td>Persistencia, auditoria LGPD</td></tr>
+    <tr><td>Seguranca</td><td>Azure AD/Entra ID + Key Vault</td><td>RBAC, secrets, SSO</td></tr>
+    <tr><td>Frontend</td><td>React 18 + TypeScript</td><td>Dashboard operacional</td></tr>
+    <tr><td>Analytics</td><td>Power BI + Azure Monitor</td><td>Dashboards executivos, APM</td></tr>
+    <tr><td>Integracoes</td><td>ServiceNow TSM + Teams Graph + Twilio</td><td>APIs externas</td></tr>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- EQUIPE -->
+<div class="container">
+  <h2><span class="sn">02</span> Equipe e Alocacao</h2>
+  <p class="section-intro">3 profissionais dedicados 100% ao projeto durante 12 semanas.</p>
+
+  <div class="team-row">
+    <div class="team-avatar" style="background: #059669;">FF</div>
+    <div>
+      <strong>Flamarion Fogaca</strong> - Gerente de Projetos / Tech Lead<br>
+      <span style="color: #64748b; font-size: 12px;">Gestao, lideranca tecnica, alinhamento com stakeholders DASA, revisao de codigo</span>
+    </div>
+  </div>
+  <div class="team-row">
+    <div class="team-avatar" style="background: #0369a1;">RJ</div>
+    <div>
+      <strong>Renan Jordao</strong> - Desenvolvedor Full-Stack Senior | <strong>403h</strong><br>
+      <span style="color: #64748b; font-size: 12px;">Azure Architecture, Backend, Engine IA (Azure OpenAI GPT-4o), ServiceNow TSM + Teams Graph API</span>
+    </div>
+  </div>
+  <div class="team-row">
+    <div class="team-avatar" style="background: #0891b2;">JD</div>
+    <div>
+      <strong>Jhonathan Ducatti</strong> - Desenvolvedor Full-Stack Senior | <strong>403h</strong><br>
+      <span style="color: #64748b; font-size: 12px;">Frontend React, Dashboard, Azure Functions, Integracoes (Twilio, Azure AD), Power BI embarcado</span>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <strong style="font-size: 14px;">Carga Total de Desenvolvimento</strong><br>
+        <span style="color: #64748b; font-size: 12px;">403h x 2 desenvolvedores = 806h | Dedicacao 100% por 12 semanas</span>
+      </div>
+      <div style="font-size: 32px; font-weight: 800; color: #0369a1;">806h</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- WBS DETALHADO -->
+<div class="container">
+  <h2><span class="sn">03</span> WBS - Detalhamento de Horas por Modulo</h2>
+  <p class="section-intro">Estrutura Analitica do Projeto (WBS) com detalhamento completo de atividades, horas e responsaveis.</p>
+
+  <!-- M1 -->
+  <h3>M1 - Monitoramento Automatico de Tickets e Backlog</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Analise de requisitos e mapeamento ServiceNow TSM API</td><td>8h</td><td>Renan</td><td>ServiceNow API</td></tr>
+    <tr><td>Configuracao Azure Logic Apps - Trigger diario (cron 8am)</td><td>12h</td><td>Renan</td><td>Azure Logic Apps</td></tr>
+    <tr><td>Desenvolvimento conector ServiceNow TSM (leitura tickets)</td><td>16h</td><td>Renan</td><td>Azure Logic Apps + REST</td></tr>
+    <tr><td>Logica de deteccao de tickets antigos (7+ dias)</td><td>12h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Integracao Azure AD - deteccao usuarios inativos</td><td>10h</td><td>Jhonathan</td><td>Azure AD / Entra ID</td></tr>
+    <tr><td>Dashboard monitoramento em tempo real (React)</td><td>16h</td><td>Jhonathan</td><td>React + TypeScript</td></tr>
+    <tr><td>Testes unitarios e integracao</td><td>8h</td><td>Ambos</td><td>Jest + Postman</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal M1</strong></td><td><strong>82h</strong></td><td></td><td></td></tr>
+  </table>
+
+  <!-- M2 -->
+  <h3>M2 - Categorizacao Inteligente com IA</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Analise de categorias existentes e treinamento de dados</td><td>12h</td><td>Renan</td><td>Data Analysis</td></tr>
+    <tr><td>Configuracao Azure OpenAI GPT-4o (deployment + fine-tuning)</td><td>16h</td><td>Renan</td><td>Azure OpenAI GPT-4o</td></tr>
+    <tr><td>Desenvolvimento Azure Function: ticket-analyzer</td><td>24h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Prompt engineering e otimizacao de acuracia</td><td>20h</td><td>Renan</td><td>Azure OpenAI GPT-4o</td></tr>
+    <tr><td>Sistema de confianca e fila de revisao humana (8%)</td><td>12h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Feedback loop e aprendizado continuo</td><td>12h</td><td>Renan</td><td>Azure SQL + Functions</td></tr>
+    <tr><td>Interface de revisao humana (React)</td><td>16h</td><td>Jhonathan</td><td>React + TypeScript</td></tr>
+    <tr><td>Testes de acuracia e validacao (benchmark 92%)</td><td>12h</td><td>Ambos</td><td>Test Suite</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal M2</strong></td><td><strong>124h</strong></td><td></td><td></td></tr>
+  </table>
+
+  <div class="note-box">
+    <strong>Nota sobre IA:</strong> A categorizacao utiliza exclusivamente Azure OpenAI GPT-4o, garantindo stack 100% Azure, menor latencia e maxima performance. Meta de 92% de acuracia com feedback loop contInuo.
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<div class="container">
+  <!-- M3 -->
+  <h3>M3 - Integracao Multicanal (Teams, SMS, WhatsApp)</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Configuracao Microsoft Teams Graph API (App Registration)</td><td>10h</td><td>Jhonathan</td><td>Teams Graph API</td></tr>
+    <tr><td>Desenvolvimento Azure Function: team-contact</td><td>20h</td><td>Jhonathan</td><td>Azure Functions</td></tr>
+    <tr><td>Templates de mensagem personalizaveis por categoria</td><td>8h</td><td>Jhonathan</td><td>Azure SQL + Templates</td></tr>
+    <tr><td>Integracao Twilio API (SMS fallback)</td><td>12h</td><td>Jhonathan</td><td>Twilio API</td></tr>
+    <tr><td>Sistema de rastreamento de evidencias</td><td>10h</td><td>Jhonathan</td><td>Azure SQL Database</td></tr>
+    <tr><td>Workflow Azure Logic Apps - orquestracao multicanal</td><td>12h</td><td>Renan</td><td>Azure Logic Apps</td></tr>
+    <tr><td>Testes de entrega e fallback</td><td>8h</td><td>Ambos</td><td>Test Suite</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal M3</strong></td><td><strong>80h</strong></td><td></td><td></td></tr>
+  </table>
+
+  <!-- M4 -->
+  <h3>M4 - Roteamento e Escalacao Inteligente</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Modelagem de regras de roteamento (categoria, prioridade, SLA)</td><td>10h</td><td>Renan</td><td>Business Rules</td></tr>
+    <tr><td>Desenvolvimento Azure Function: escalation-engine</td><td>24h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Logica de escalacao 3 niveis (24h/48h/72h)</td><td>16h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Busca automatica de gestores no Azure AD</td><td>12h</td><td>Jhonathan</td><td>Azure AD / Entra ID</td></tr>
+    <tr><td>Workflow Azure Logic Apps - orquestracao de escalacao</td><td>14h</td><td>Renan</td><td>Azure Logic Apps</td></tr>
+    <tr><td>Notificacoes inteligentes (Teams + Email)</td><td>10h</td><td>Jhonathan</td><td>Teams Graph API</td></tr>
+    <tr><td>Atualizacao automatica ServiceNow TSM</td><td>10h</td><td>Renan</td><td>ServiceNow API</td></tr>
+    <tr><td>Testes E2E de fluxo de escalacao</td><td>8h</td><td>Ambos</td><td>Test Suite</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal M4</strong></td><td><strong>104h</strong></td><td></td><td></td></tr>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<div class="container">
+  <!-- M5 -->
+  <h3>M5 - Gerenciamento de Tentativas de Contato</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Modelagem de fluxo 3 tentativas (progressivo multicanal)</td><td>8h</td><td>Renan</td><td>Business Rules</td></tr>
+    <tr><td>Logica de horario inteligente (08-18h, exceto 12-14h)</td><td>8h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Workflow Azure Logic Apps - orquestracao de tentativas</td><td>16h</td><td>Renan</td><td>Azure Logic Apps</td></tr>
+    <tr><td>Sistema de aguardo e retry (24h, 48h, 72h)</td><td>12h</td><td>Renan</td><td>Azure Logic Apps</td></tr>
+    <tr><td>Fechamento automatico pos 3 tentativas</td><td>8h</td><td>Jhonathan</td><td>ServiceNow API</td></tr>
+    <tr><td>Registro de evidencias no ServiceNow (anexos)</td><td>10h</td><td>Jhonathan</td><td>ServiceNow API</td></tr>
+    <tr><td>Dashboard de acompanhamento de tentativas</td><td>10h</td><td>Jhonathan</td><td>React + TypeScript</td></tr>
+    <tr><td>Testes de fluxo completo</td><td>8h</td><td>Ambos</td><td>Test Suite</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal M5</strong></td><td><strong>80h</strong></td><td></td><td></td></tr>
+  </table>
+
+  <!-- M6 -->
+  <h3>M6 - Qualidade de Dados e Limpeza (Data Hygiene)</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Sincronizacao diaria Azure AD/Entra ID</td><td>12h</td><td>Jhonathan</td><td>Azure AD / Entra ID</td></tr>
+    <tr><td>Deteccao de usuarios inativos (90+ dias)</td><td>8h</td><td>Jhonathan</td><td>Azure AD + SQL</td></tr>
+    <tr><td>Logica de limpeza de tickets orfaos ("limbo")</td><td>12h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Auditoria de categorias incorretas/duplicadas</td><td>8h</td><td>Renan</td><td>Azure SQL Database</td></tr>
+    <tr><td>Implementacao audit log LGPD completo</td><td>16h</td><td>Renan</td><td>Azure SQL Audit</td></tr>
+    <tr><td>User cache otimizado (Azure AD)</td><td>8h</td><td>Jhonathan</td><td>Azure SQL Database</td></tr>
+    <tr><td>Testes de integridade e validacao</td><td>6h</td><td>Ambos</td><td>Test Suite</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal M6</strong></td><td><strong>70h</strong></td><td></td><td></td></tr>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ATIVIDADES TRANSVERSAIS -->
+<div class="container">
+  <h2><span class="sn">04</span> Atividades Transversais</h2>
+  <p class="section-intro">Atividades que permeiam todos os modulos e fases do projeto.</p>
+
+  <!-- Infraestrutura -->
+  <h3>T1 - Infraestrutura e DevOps Azure</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Provisionamento Azure (Resource Group, Service Plan)</td><td>8h</td><td>Renan</td><td>Azure Portal / ARM</td></tr>
+    <tr><td>Configuracao Azure Logic Apps (Standard)</td><td>8h</td><td>Renan</td><td>Azure Logic Apps</td></tr>
+    <tr><td>Setup Azure Functions (Premium Plan, 5 functions)</td><td>8h</td><td>Jhonathan</td><td>Azure Functions</td></tr>
+    <tr><td>Azure SQL Database - Design de schemas e indices</td><td>12h</td><td>Renan</td><td>Azure SQL Database</td></tr>
+    <tr><td>Azure Key Vault - Configuracao de secrets</td><td>4h</td><td>Renan</td><td>Azure Key Vault</td></tr>
+    <tr><td>Azure AD/Entra ID - RBAC e App Registrations</td><td>6h</td><td>Jhonathan</td><td>Azure AD / Entra ID</td></tr>
+    <tr><td>CI/CD Pipeline (Azure DevOps)</td><td>8h</td><td>Jhonathan</td><td>Azure DevOps</td></tr>
+    <tr><td>Azure Monitor + Application Insights (setup)</td><td>6h</td><td>Jhonathan</td><td>Azure Monitor</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal T1</strong></td><td><strong>60h</strong></td><td></td><td></td></tr>
+  </table>
+
+  <!-- Dashboard -->
+  <h3>T2 - Dashboard e Analytics (Power BI + React)</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Design UI/UX do dashboard (wireframes + prototipos)</td><td>12h</td><td>Jhonathan</td><td>Figma + React</td></tr>
+    <tr><td>Desenvolvimento dashboard operacional (React)</td><td>24h</td><td>Jhonathan</td><td>React + TypeScript</td></tr>
+    <tr><td>Azure Function: metrics-aggregator</td><td>16h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Azure Function: sla-monitor</td><td>12h</td><td>Renan</td><td>Azure Functions</td></tr>
+    <tr><td>Integracao Power BI embarcado</td><td>16h</td><td>Jhonathan</td><td>Power BI Embedded</td></tr>
+    <tr><td>KPIs em tempo real (SLA, NPS, categorizacao)</td><td>12h</td><td>Jhonathan</td><td>React + Azure SQL</td></tr>
+    <tr><td>Testes de performance e usabilidade</td><td>8h</td><td>Ambos</td><td>Lighthouse + Manual</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal T2</strong></td><td><strong>100h</strong></td><td></td><td></td></tr>
+  </table>
+
+  <!-- Testes e QA -->
+  <h3>T3 - Testes e QA</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Responsavel</th><th>Tecnologia</th></tr>
+    <tr><td>Testes unitarios (todas as Azure Functions)</td><td>16h</td><td>Ambos</td><td>Jest + xUnit</td></tr>
+    <tr><td>Testes de integracao E2E</td><td>20h</td><td>Ambos</td><td>Postman + Cypress</td></tr>
+    <tr><td>Testes de carga e performance</td><td>12h</td><td>Renan</td><td>Azure Load Testing</td></tr>
+    <tr><td>Testes de seguranca (OWASP, LGPD, RBAC)</td><td>12h</td><td>Renan</td><td>Security Audit</td></tr>
+    <tr><td>Bug fixes e otimizacoes</td><td>20h</td><td>Ambos</td><td>All</td></tr>
+    <tr><td>Documentacao tecnica e runbooks</td><td>16h</td><td>Ambos</td><td>Confluence</td></tr>
+    <tr><td>Treinamento equipe DASA (16h tecnico + 8h usuario)</td><td>10h</td><td>Ambos</td><td>Presencial/Online</td></tr>
+    <tr class="subtotal-row"><td><strong>Subtotal T3</strong></td><td><strong>106h</strong></td><td></td><td></td></tr>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- CONSOLIDACAO -->
+<div class="container">
+  <h2><span class="sn">05</span> Consolidacao de Horas</h2>
+  <p class="section-intro">Visao consolidada de todas as horas por modulo e atividade transversal.</p>
+
+  <table>
+    <tr><th>Codigo</th><th>Modulo / Atividade</th><th>Horas</th><th>% Total</th></tr>
+    <tr><td>M1</td><td>Monitoramento Automatico de Tickets e Backlog</td><td>82h</td><td>10.2%</td></tr>
+    <tr><td>M2</td><td>Categorizacao Inteligente com IA (Azure OpenAI GPT-4o)</td><td>124h</td><td>15.4%</td></tr>
+    <tr><td>M3</td><td>Integracao Multicanal (Teams, SMS, WhatsApp)</td><td>80h</td><td>9.9%</td></tr>
+    <tr><td>M4</td><td>Roteamento e Escalacao Inteligente</td><td>104h</td><td>12.9%</td></tr>
+    <tr><td>M5</td><td>Gerenciamento de Tentativas de Contato</td><td>80h</td><td>9.9%</td></tr>
+    <tr><td>M6</td><td>Qualidade de Dados e Limpeza (Data Hygiene)</td><td>70h</td><td>8.7%</td></tr>
+    <tr class="subtotal-row"><td></td><td><strong>Subtotal Modulos Core</strong></td><td><strong>540h</strong></td><td><strong>67.0%</strong></td></tr>
+    <tr><td>T1</td><td>Infraestrutura e DevOps Azure</td><td>60h</td><td>7.4%</td></tr>
+    <tr><td>T2</td><td>Dashboard e Analytics (Power BI + React)</td><td>100h</td><td>12.4%</td></tr>
+    <tr><td>T3</td><td>Testes, QA, Documentacao e Treinamento</td><td>106h</td><td>13.2%</td></tr>
+    <tr class="subtotal-row"><td></td><td><strong>Subtotal Transversais</strong></td><td><strong>266h</strong></td><td><strong>33.0%</strong></td></tr>
+    <tr class="total-row"><td></td><td><strong>TOTAL GERAL</strong></td><td><strong>806h</strong></td><td><strong>100%</strong></td></tr>
+  </table>
+
+  <h3>Distribuicao por Responsavel</h3>
+  <table>
+    <tr><th>Profissional</th><th>Funcao</th><th>Horas Estimadas</th><th>Dedicacao</th></tr>
+    <tr><td>Flamarion Fogaca</td><td>GP / Tech Lead</td><td>Gestao integral</td><td>100%</td></tr>
+    <tr><td>Renan Jordao</td><td>Dev Full-Stack Senior</td><td>403h</td><td>100%</td></tr>
+    <tr><td>Jhonathan Ducatti</td><td>Dev Full-Stack Senior</td><td>403h</td><td>100%</td></tr>
+    <tr class="total-row"><td colspan="2"><strong>TOTAL DESENVOLVIMENTO</strong></td><td><strong>806h</strong></td><td></td></tr>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- CRONOGRAMA POR FASES -->
+<div class="container">
+  <h2><span class="sn">06</span> Cronograma por Fases</h2>
+  <p class="section-intro">5 fases com entregaveis claros e distribuicao de esforco ao longo de 12 semanas.</p>
+
+  <div class="phase-bar">
+    <div class="phase" style="flex: 2; background: #0ea5e9;">F1 (2 sem)</div>
+    <div class="phase" style="flex: 5; background: #0369a1;">F2 (5 sem)</div>
+    <div class="phase" style="flex: 2; background: #059669;">F3 (2 sem)</div>
+    <div class="phase" style="flex: 2; background: #d97706;">F4 (2 sem)</div>
+    <div class="phase" style="flex: 1; background: #dc2626;">F5 (1 sem)</div>
+  </div>
+
+  <!-- Fase 1 -->
+  <h3>Fase 1: Descoberta e Design (Semanas 1-2) - 104h</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Semana</th></tr>
+    <tr><td>Kick-off e alinhamento com stakeholders DASA</td><td>8h</td><td>S1</td></tr>
+    <tr><td>Analise detalhada de requisitos (ServiceNow, Teams, Azure AD)</td><td>16h</td><td>S1</td></tr>
+    <tr><td>Design da arquitetura Azure-DASA completa</td><td>20h</td><td>S1-S2</td></tr>
+    <tr><td>Prototipacao de interfaces (dashboard, revisao humana)</td><td>16h</td><td>S2</td></tr>
+    <tr><td>Planejamento de infraestrutura e seguranca</td><td>12h</td><td>S2</td></tr>
+    <tr><td>Setup ambiente desenvolvimento Azure</td><td>16h</td><td>S2</td></tr>
+    <tr><td>Backlog priorizado e planejamento de sprints</td><td>16h</td><td>S2</td></tr>
+    <tr class="phase-row"><td><strong>Total Fase 1</strong></td><td><strong>104h</strong></td><td><strong>13% do total</strong></td></tr>
+  </table>
+
+  <!-- Fase 2 -->
+  <h3>Fase 2: Desenvolvimento Core (Semanas 3-7) - 416h</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Semana</th></tr>
+    <tr><td>M1 - Monitoramento (Logic Apps + ServiceNow)</td><td>82h</td><td>S3-S4</td></tr>
+    <tr><td>M2 - Categorizacao IA (Azure OpenAI GPT-4o + Function)</td><td>124h</td><td>S3-S5</td></tr>
+    <tr><td>M3 - Integracao Multicanal (Teams + Twilio)</td><td>80h</td><td>S5-S6</td></tr>
+    <tr><td>M4 - Roteamento e Escalacao (Function + Logic Apps)</td><td>60h</td><td>S6-S7</td></tr>
+    <tr><td>T1 - Infraestrutura Azure (parcial)</td><td>40h</td><td>S3-S4</td></tr>
+    <tr><td>T2 - Dashboard React (parcial)</td><td>30h</td><td>S5-S7</td></tr>
+    <tr class="phase-row"><td><strong>Total Fase 2</strong></td><td><strong>416h</strong></td><td><strong>52% do total</strong></td></tr>
+  </table>
+
+  <!-- Fase 3 -->
+  <h3>Fase 3: Integracao e Testes (Semanas 8-9) - 156h</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Semana</th></tr>
+    <tr><td>M5 - Gerenciamento de Tentativas (Logic Apps)</td><td>40h</td><td>S8</td></tr>
+    <tr><td>M6 - Qualidade de Dados (Azure AD + SQL)</td><td>36h</td><td>S8</td></tr>
+    <tr><td>T3 - Testes E2E, carga, seguranca</td><td>48h</td><td>S8-S9</td></tr>
+    <tr><td>T2 - Dashboard e Power BI (finalizacao)</td><td>20h</td><td>S9</td></tr>
+    <tr><td>Bug fixes e otimizacoes</td><td>12h</td><td>S9</td></tr>
+    <tr class="phase-row"><td><strong>Total Fase 3</strong></td><td><strong>156h</strong></td><td><strong>19% do total</strong></td></tr>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<div class="container">
+  <!-- Fase 4 -->
+  <h3>Fase 4: Piloto com Grupo Select (Semanas 10-11) - 78h</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Semana</th></tr>
+    <tr><td>Deploy em ambiente de homologacao Azure</td><td>10h</td><td>S10</td></tr>
+    <tr><td>Treinamento do grupo piloto Follow-Up</td><td>12h</td><td>S10</td></tr>
+    <tr><td>Testes com usuarios reais (10-15 pessoas)</td><td>20h</td><td>S10-S11</td></tr>
+    <tr><td>Coleta de feedback e ajustes</td><td>16h</td><td>S11</td></tr>
+    <tr><td>Validacao de metricas e KPIs</td><td>12h</td><td>S11</td></tr>
+    <tr><td>Relatorio de piloto e plano de rollout</td><td>8h</td><td>S11</td></tr>
+    <tr class="phase-row"><td><strong>Total Fase 4</strong></td><td><strong>78h</strong></td><td><strong>10% do total</strong></td></tr>
+  </table>
+
+  <!-- Fase 5 -->
+  <h3>Fase 5: Deploy e Go-Live (Semana 12) - 52h</h3>
+  <table>
+    <tr><th>Atividade</th><th>Horas</th><th>Semana</th></tr>
+    <tr><td>Deploy em producao Azure</td><td>10h</td><td>S12</td></tr>
+    <tr><td>Monitoramento intensivo (Azure Monitor)</td><td>12h</td><td>S12</td></tr>
+    <tr><td>Ajustes em tempo real e fine-tuning</td><td>10h</td><td>S12</td></tr>
+    <tr><td>Treinamento equipe sustentacao DASA</td><td>8h</td><td>S12</td></tr>
+    <tr><td>Documentacao final e handover</td><td>12h</td><td>S12</td></tr>
+    <tr class="phase-row"><td><strong>Total Fase 5</strong></td><td><strong>52h</strong></td><td><strong>6% do total</strong></td></tr>
+  </table>
+
+  <h3>Resumo de Fases</h3>
+  <table>
+    <tr><th>Fase</th><th>Duracao</th><th>Horas</th><th>%</th><th>Entregaveis</th></tr>
+    <tr><td>F1: Descoberta e Design</td><td>2 semanas</td><td>104h</td><td>13%</td><td>Arquitetura, prototipos, backlog</td></tr>
+    <tr><td>F2: Desenvolvimento Core</td><td>5 semanas</td><td>416h</td><td>52%</td><td>Logic Apps, Functions, SQL, dashboard</td></tr>
+    <tr><td>F3: Integracao e Testes</td><td>2 semanas</td><td>156h</td><td>19%</td><td>Sistema integrado, relatorios testes</td></tr>
+    <tr><td>F4: Piloto</td><td>2 semanas</td><td>78h</td><td>10%</td><td>Sistema validado, relatorio piloto</td></tr>
+    <tr><td>F5: Deploy e Go-Live</td><td>1 semana</td><td>52h</td><td>6%</td><td>Sistema em producao, documentacao</td></tr>
+    <tr class="total-row"><td><strong>TOTAL</strong></td><td><strong>12 semanas</strong></td><td><strong>806h</strong></td><td><strong>100%</strong></td><td></td></tr>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SUSTENTACAO -->
+<div class="container">
+  <h2><span class="sn">07</span> Sustentacao Pos-PoC</h2>
+  <p class="section-intro">Custos recorrentes otimizados com stack 100% Azure-DASA apos o go-live.</p>
+
+  <table>
+    <tr><th>Categoria</th><th>Item</th><th>Custo Mensal</th><th>Custo Anual</th></tr>
+    <tr><td rowspan="4">Infraestrutura Azure</td><td>Azure Functions (consumo)</td><td>R$ 0</td><td>R$ 0</td></tr>
+    <tr><td>Azure Logic Apps</td><td>R$ 0</td><td>R$ 0</td></tr>
+    <tr><td>Azure SQL Database (S3)</td><td>R$ 0</td><td>R$ 0</td></tr>
+    <tr><td>Azure Monitor + Insights</td><td>R$ 0</td><td>R$ 0</td></tr>
+    <tr class="subtotal-row"><td colspan="2"><strong>Subtotal Infraestrutura</strong></td><td><strong>R$ 0</strong></td><td><strong>R$ 0</strong></td></tr>
+    <tr><td>IA</td><td>Azure OpenAI GPT-4o (~400K tokens/dia)</td><td>R$ 2.500</td><td>R$ 30.000</td></tr>
+    <tr><td rowspan="2">Suporte</td><td>Suporte Tecnico On-Demand (20h/mes)</td><td>R$ 4.000</td><td>R$ 48.000</td></tr>
+    <tr><td>Monitoramento Automatico</td><td>R$ 1.000</td><td>R$ 12.000</td></tr>
+    <tr class="subtotal-row"><td colspan="2"><strong>Subtotal Suporte</strong></td><td><strong>R$ 5.000</strong></td><td><strong>R$ 60.000</strong></td></tr>
+    <tr class="total-row"><td colspan="2"><strong>TOTAL SUSTENTACAO</strong></td><td><strong>R$ 7.500/mes</strong></td><td><strong>R$ 90.000/ano</strong></td></tr>
+  </table>
+
+  <div class="highlight-box green">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <strong>Economia vs Modelo Original</strong><br>
+        <span style="font-size: 12px; color: #475569;">De R$ 21.400/mes para R$ 7.500/mes = <strong>-65% reducao</strong></span>
+      </div>
+      <div style="font-size: 28px; font-weight: 800; color: #059669;">-R$ 166.800/ano</div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Nota importante:</strong> A infraestrutura Azure (Logic Apps, Functions, SQL, Monitor) esta <strong>inclusa na subscription Azure existente da DASA</strong>, resultando em ZERO custo adicional de licencas. Os unicos custos recorrentes sao Azure OpenAI GPT-4o e suporte tecnico.
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- PREMISSAS E RISCOS -->
+<div class="container">
+  <h2><span class="sn">08</span> Premissas e Consideracoes</h2>
+
+  <h3>Premissas da Estimativa</h3>
+  <ul class="check-list">
+    <li>Equipe de 3 profissionais (2 Devs Senior + 1 GP/Tech Lead) dedicados 100%</li>
+    <li>DASA provisionara acessos Azure, ServiceNow e Teams dentro de 2 semanas</li>
+    <li>Stack 100% Azure-DASA: Azure Logic Apps + Azure Functions + Azure SQL + Azure OpenAI GPT-4o</li>
+    <li>Sprints de 2 semanas com entregas incrementais (metodologia Scrum)</li>
+    <li>806h de esforco de desenvolvimento (403h por desenvolvedor)</li>
+    <li>Azure OpenAI GPT-4o para categorizacao com meta de 92% acuracia</li>
+    <li>Integracoes: ServiceNow TSM API, Microsoft Teams Graph API, Twilio API</li>
+    <li>Dashboard operacional React + Power BI embarcado</li>
+    <li>Sustentacao otimizada: R$ 7.500/mes (vs R$ 21.400 modelo original)</li>
+  </ul>
+
+  <h3>Fatores de Risco e Mitigacao</h3>
+  <table>
+    <tr><th>Risco</th><th>Probabilidade</th><th>Impacto</th><th>Mitigacao</th></tr>
+    <tr><td>Atraso no provisionamento de acessos</td><td>Media</td><td>Alto</td><td>Solicitar acessos na semana 1, fallback com dados mock</td></tr>
+    <tr><td>Acuracia IA abaixo de 85%</td><td>Baixa</td><td>Alto</td><td>Prompt engineering iterativo, fine-tuning, revisao humana</td></tr>
+    <tr><td>Limitacoes API ServiceNow TSM</td><td>Media</td><td>Medio</td><td>PoC de integracao na Fase 1, rate limiting configurado</td></tr>
+    <tr><td>Mudanca de escopo durante projeto</td><td>Media</td><td>Medio</td><td>Change control formal, backlog gerenciado</td></tr>
+    <tr><td>Performance Azure Functions</td><td>Baixa</td><td>Medio</td><td>Premium Plan, testes de carga na Fase 3</td></tr>
+  </table>
+
+  <div class="divider" style="height: 1px; background: #e2e8f0; margin: 40px 0;"></div>
+
+  <p style="text-align: center; color: #94a3b8; font-size: 12px;">
+    Este documento e confidencial e destina-se exclusivamente a DASA.<br>
+    Analise de Estimativa de Horas v2.0 - Stack 100% Azure-DASA<br>
+    &copy; 2026 Leega Tecnologia. Todos os direitos reservados.
+  </p>
+</div>
+
+</body>
+</html>

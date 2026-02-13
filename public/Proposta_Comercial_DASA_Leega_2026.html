@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial - Automacao Inteligente do Follow-Up | Leega + DASA</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1e293b;
+    line-height: 1.6;
+    background: #fff;
+    font-size: 14px;
+  }
+
+  @media print {
+    body { font-size: 12px; }
+    .page-break { page-break-before: always; }
+    .no-print { display: none; }
+    .cover { min-height: 100vh; }
+  }
+
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(6,182,212,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(59,130,246,0.1) 0%, transparent 50%);
+  }
+
+  .cover-content { position: relative; z-index: 1; max-width: 700px; }
+  .cover-badge {
+    display: inline-block;
+    padding: 8px 24px;
+    background: rgba(6,182,212,0.15);
+    border: 1px solid rgba(6,182,212,0.3);
+    border-radius: 24px;
+    font-size: 13px;
+    color: #67e8f9;
+    font-weight: 500;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .cover h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 0%, #93c5fd 50%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cover-subtitle {
+    font-size: 20px;
+    color: #94a3b8;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+
+  .cover-meta-item {
+    text-align: center;
+  }
+
+  .cover-meta-item .label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item .value {
+    font-size: 16px;
+    color: #e2e8f0;
+    font-weight: 600;
+  }
+
+  .cover-footer {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #475569;
+    font-size: 12px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0ea5e9;
+    display: inline-block;
+  }
+
+  h2 .section-num {
+    color: #0ea5e9;
+    margin-right: 8px;
+  }
+
+  .section-intro {
+    color: #475569;
+    font-size: 15px;
+    margin: 16px 0 32px;
+    line-height: 1.7;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 32px 0 16px;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #334155;
+    margin: 24px 0 12px;
+  }
+
+  p { margin-bottom: 12px; color: #334155; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13px;
+  }
+
+  th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+  }
+
+  tr:hover td { background: #f8fafc; }
+
+  .highlight-row td {
+    background: #f0f9ff;
+    font-weight: 600;
+    color: #0369a1;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    background: #fff;
+  }
+
+  .card-accent {
+    border-left: 4px solid #0ea5e9;
+  }
+
+  .card .card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 4px;
+  }
+
+  .card .card-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+
+  .card .card-desc {
+    font-size: 12px;
+    color: #64748b;
+  }
+
+  .metric-highlight {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .metric-highlight .big-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: #0369a1;
+    line-height: 1;
+  }
+
+  .metric-highlight .big-label {
+    font-size: 14px;
+    color: #0c4a6e;
+    margin-top: 8px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    color: #334155;
+    font-size: 13px;
+  }
+
+  .check-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .module-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 12px 0;
+    border-left: 4px solid #0ea5e9;
+  }
+
+  .module-card h4 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    color: #0f172a;
+  }
+
+  .module-card p {
+    font-size: 13px;
+    color: #475569;
+    margin: 0;
+  }
+
+  .module-card .tech-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    font-size: 11px;
+    color: #0369a1;
+    margin-top: 8px;
+    margin-right: 4px;
+  }
+
+  .phase-bar {
+    display: flex;
+    gap: 4px;
+    margin: 24px 0;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .phase-bar .phase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 8px;
+  }
+
+  .team-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 8px 0;
+  }
+
+  .team-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .team-info h4 { margin: 0; font-size: 15px; color: #0f172a; }
+  .team-info p { margin: 2px 0 0; font-size: 13px; color: #64748b; }
+
+  .scenario-card {
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .scenario-card.recommended {
+    border-color: #0ea5e9;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    position: relative;
+  }
+
+  .scenario-card.recommended::before {
+    content: 'RECOMENDADO';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0ea5e9;
+    color: #fff;
+    padding: 4px 16px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .scenario-card .price {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 12px 0 8px;
+  }
+
+  .scenario-card .price-desc {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 16px;
+  }
+
+  .divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 48px 0;
+  }
+
+  .footer-section {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 40px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .footer-section strong { color: #e2e8f0; }
+
+  .toc { margin: 32px 0; }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px dotted #cbd5e1;
+    font-size: 14px;
+    color: #334155;
+  }
+  .toc-item:hover { color: #0ea5e9; }
+  .toc-num { color: #0ea5e9; font-weight: 600; margin-right: 12px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-content">
+    <div class="cover-badge">Proposta Comercial v2.0</div>
+    <h1>Automacao Inteligente do Follow-Up</h1>
+    <p class="cover-subtitle">Transformacao do Service Desk DASA com IA Generativa e Stack 100% Azure</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="label">Apresentado por</div>
+        <div class="value">Leega Tecnologia</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">Cliente</div>
+        <div class="value">DASA</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">Data</div>
+        <div class="value">Fevereiro 2026</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">Validade</div>
+        <div class="value">30 dias</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">Confidencial - Leega Tecnologia &copy; 2026</div>
+</div>
+
+<div class="container">
+  <h2>Sumario</h2>
+  <div class="toc">
+    <div class="toc-item"><span><span class="toc-num">01</span> Apresentacao da Leega</span></div>
+    <div class="toc-item"><span><span class="toc-num">02</span> Contexto e Desafios da DASA</span></div>
+    <div class="toc-item"><span><span class="toc-num">03</span> Solucao Proposta</span></div>
+    <div class="toc-item"><span><span class="toc-num">04</span> Escopo Tecnico e Funcional (7 Modulos)</span></div>
+    <div class="toc-item"><span><span class="toc-num">05</span> Arquitetura e Tecnologia - Stack 100% Azure/DASA</span></div>
+    <div class="toc-item"><span><span class="toc-num">06</span> Cronograma e Metodologia (5 Fases / 12 Semanas)</span></div>
+    <div class="toc-item"><span><span class="toc-num">07</span> Equipe Leega Dedicada</span></div>
+    <div class="toc-item"><span><span class="toc-num">08</span> Investimento</span></div>
+    <div class="toc-item"><span><span class="toc-num">09</span> Retorno sobre Investimento (ROI)</span></div>
+    <div class="toc-item"><span><span class="toc-num">10</span> Sustentacao Pos-PoC</span></div>
+    <div class="toc-item"><span><span class="toc-num">11</span> Condicoes Comerciais</span></div>
+    <div class="toc-item"><span><span class="toc-num">12</span> Proximos Passos</span></div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 1 -->
+<div class="container">
+  <h2><span class="section-num">01</span> Apresentacao da Leega</h2>
+  <p class="section-intro">
+    A Leega e uma empresa especializada em solucoes de automacao inteligente e IA generativa para otimizacao de processos corporativos. Nossa expertise esta em transformar operacoes manuais repetitivas em sistemas automatizados que geram impacto mensuravel em eficiencia, custo e satisfacao.
+  </p>
+
+  <h3>Nossa Proposta de Valor</h3>
+  <ul class="check-list">
+    <li><strong>Stack 100% Azure/DASA</strong>: Zero custo de novas licencas, aproveitamento total da infraestrutura existente</li>
+    <li><strong>Arquitetura Enterprise</strong>: Azure Logic Apps + Azure Functions + Azure SQL Database</li>
+    <li><strong>Foco em ROI demonstravel</strong>: Payback em 6-8 semanas, ROI de 1.098% em 3 anos</li>
+    <li><strong>Reutilizacao de Ferramentas</strong>: ServiceNow TSM, Teams, Power BI, Twilio ja utilizados pela DASA</li>
+    <li><strong>Escalabilidade</strong>: De PoC (52% automacao) a Plataforma Enterprise (95% automacao)</li>
+  </ul>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 2 -->
+<div class="container">
+  <h2><span class="section-num">02</span> Contexto e Desafios da DASA</h2>
+  <p class="section-intro">Dados reais do cenario atual do Service Desk DASA que justificam a necessidade de automacao inteligente.</p>
+
+  <div class="card-grid">
+    <div class="card card-accent">
+      <div class="card-label">Volume Mensal</div>
+      <div class="card-value">7.800</div>
+      <div class="card-desc">tickets/mes (260/dia)</div>
+    </div>
+    <div class="card card-accent">
+      <div class="card-label">Backlog Critico</div>
+      <div class="card-value">140.000</div>
+      <div class="card-desc">tickets antigos (7+ dias)</div>
+    </div>
+    <div class="card card-accent">
+      <div class="card-label">Tempo Manual</div>
+      <div class="card-value">45 min</div>
+      <div class="card-desc">por ticket (100% manual)</div>
+    </div>
+  </div>
+
+  <h3>Desafios Identificados</h3>
+  <table>
+    <tr><th>Desafio</th><th>Impacto</th><th>Metrica Atual</th></tr>
+    <tr><td>Backlog massivo de tickets</td><td>Atraso critico em resolucoes</td><td>140.000 tickets</td></tr>
+    <tr><td>Categorizacao 100% manual</td><td>Erros e retrabalho</td><td>0% automacao</td></tr>
+    <tr><td>Baixa efetividade de contato</td><td>Tickets sem resolucao</td><td>10-15% resposta Teams</td></tr>
+    <tr><td>Escalacoes manuais</td><td>Processo lento e inconsistente</td><td>0% automacao</td></tr>
+    <tr><td>Falta de visibilidade</td><td>Decisoes sem dados</td><td>Relatorios semanais</td></tr>
+    <tr><td>SLA abaixo da meta</td><td>Penalidades contratuais</td><td>60% compliance</td></tr>
+  </table>
+
+  <div class="metric-highlight">
+    <div class="big-number">5.850h</div>
+    <div class="big-label">horas/mes gastas em processos manuais de follow-up</div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 3 -->
+<div class="container">
+  <h2><span class="section-num">03</span> Solucao Proposta</h2>
+  <p class="section-intro">
+    Sistema de automacao inteligente para Service Desk utilizando <strong>100% Stack Azure/DASA</strong> que integra IA generativa (Azure OpenAI GPT-4o), orquestracao visual de processos (Azure Logic Apps), funcoes serverless (Azure Functions), banco de dados empresarial (Azure SQL Database) e comunicacao automatizada multicanal (Teams, SMS, WhatsApp).
+  </p>
+
+  <h3>Objetivos Mensuraveis (To Be)</h3>
+  <table>
+    <tr><th>Metrica</th><th>Atual</th><th>Projetado</th><th>Melhoria</th></tr>
+    <tr><td>Categorizacao Automatica</td><td>0%</td><td>92%</td><td>+92%</td></tr>
+    <tr><td>Tempo Manual/Ticket</td><td>45 min</td><td>5 min</td><td>-89%</td></tr>
+    <tr><td>Tickets Processados/Dia</td><td>260</td><td>520+</td><td>+100%</td></tr>
+    <tr><td>Taxa Resposta Teams</td><td>10-15%</td><td>85-90%</td><td>+75%</td></tr>
+    <tr><td>Escalacoes Automaticas</td><td>0%</td><td>100%</td><td>+100%</td></tr>
+    <tr><td>Tickets em "Limbo"</td><td>~2.000</td><td>&lt;50</td><td>-97%</td></tr>
+    <tr><td>SLA Compliance</td><td>60%</td><td>95%+</td><td>+35%</td></tr>
+    <tr><td>NPS</td><td>65 pontos</td><td>85 pontos</td><td>+20 pts</td></tr>
+    <tr><td>Horas Manuais/Mes</td><td>5.850h</td><td>~772h</td><td>-87%</td></tr>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 4 -->
+<div class="container">
+  <h2><span class="section-num">04</span> Escopo Tecnico e Funcional</h2>
+  <p class="section-intro">7 modulos integrados cobrindo todo o ciclo de vida do follow-up de tickets.</p>
+
+  <div class="module-card">
+    <h4>M1 - Monitoramento Automatico de Tickets e Backlog</h4>
+    <p>Deteccao automatica de 140.000+ tickets com 7+ dias sem atualizacao. Dashboard em tempo real com filtros por prioridade, categoria e SLA. Trigger automatizado via Azure Logic Apps com agendamento diario (8am) + webhooks sob demanda.</p>
+    <span class="tech-tag">Azure Logic Apps</span>
+    <span class="tech-tag">ServiceNow TSM API</span>
+    <span class="tech-tag">Azure AD</span>
+  </div>
+
+  <div class="module-card">
+    <h4>M2 - Categorizacao Inteligente com IA (Azure OpenAI GPT-4o)</h4>
+    <p>92% de acuracia garantida com Azure OpenAI GPT-4o. Analise contextual de descricao, historico e anexos do ticket. 8% de tickets incertos direcionados para revisao humana. Feedback loop para melhoria continua do modelo.</p>
+    <span class="tech-tag">Azure OpenAI GPT-4o</span>
+    <span class="tech-tag">Azure Function: ticket-analyzer</span>
+  </div>
+
+  <div class="module-card">
+    <h4>M3 - Integracao Multicanal (Teams, SMS, WhatsApp)</h4>
+    <p>Envio automatico de mensagens via Microsoft Teams Graph API (principal), Twilio API para SMS urgentes (fallback), templates personalizaveis por categoria e criticidade. Log completo de todas as tentativas de contato.</p>
+    <span class="tech-tag">Teams Graph API</span>
+    <span class="tech-tag">Twilio API</span>
+    <span class="tech-tag">Azure Function: team-contact</span>
+  </div>
+
+  <div class="module-card">
+    <h4>M4 - Roteamento e Escalacao Inteligente</h4>
+    <p>Roteamento automatico baseado em categoria, prioridade e SLA. Escalacao em 3 niveis (24h, 48h, 72h) com intensificacao. Busca automatica de gestores no Azure AD. Workflow visual via Azure Logic Apps.</p>
+    <span class="tech-tag">Azure Logic Apps</span>
+    <span class="tech-tag">Azure AD / Entra ID</span>
+    <span class="tech-tag">Azure Function: escalation-engine</span>
+  </div>
+
+  <div class="module-card">
+    <h4>M5 - Gerenciamento de Tentativas de Contato</h4>
+    <p>Estrategia 3 tentativas: 1/dia util durante 3 dias. Horario inteligente 08:00-18:00 (exceto 12:00-14:00). Multicanal progressivo: Teams (24h) - Teams+Email (48h) - Teams+SMS (72h). Fechamento automatico apos 3 tentativas sem resposta.</p>
+    <span class="tech-tag">Azure Logic Apps</span>
+    <span class="tech-tag">ServiceNow API</span>
+  </div>
+
+  <div class="module-card">
+    <h4>M6 - Qualidade de Dados e Limpeza (Data Hygiene)</h4>
+    <p>Sincronizacao diaria com Azure AD/Entra ID. Deteccao de usuarios inativos (90+ dias). Resolucao automatica de tickets orfaos. Auditoria de categorias incorretas. Rastreabilidade completa LGPD.</p>
+    <span class="tech-tag">Azure AD / Entra ID</span>
+    <span class="tech-tag">Azure SQL Audit Log</span>
+  </div>
+
+  <div class="module-card">
+    <h4>M7 - Analytics e Metricas em Tempo Real</h4>
+    <p>Dashboards executivos Power BI integrados nativamente. Azure Monitor com logs centralizados. Application Insights para APM e tracing distribuido. Metricas automaticas de categorizacao, resposta, SLA e NPS.</p>
+    <span class="tech-tag">Power BI</span>
+    <span class="tech-tag">Azure Monitor</span>
+    <span class="tech-tag">Azure Function: metrics-aggregator</span>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 5 -->
+<div class="container">
+  <h2><span class="section-num">05</span> Arquitetura e Tecnologia</h2>
+  <p class="section-intro">Stack 100% Azure/DASA com 7 camadas arquiteturais e zero custo de novas licencas.</p>
+
+  <h3>Stack Tecnologico (7 Camadas)</h3>
+  <table>
+    <tr><th>Camada</th><th>Tecnologia</th><th>Funcao</th></tr>
+    <tr><td>Frontend</td><td>React 18 + TypeScript + Tailwind CSS</td><td>Dashboard operacional e executivo</td></tr>
+    <tr><td>Orquestracao</td><td>Azure Logic Apps</td><td>Workflows visuais drag-and-drop</td></tr>
+    <tr><td>Serverless</td><td>Azure Functions (5 funcoes)</td><td>Logica de negocio serverless</td></tr>
+    <tr><td>Dados</td><td>Azure SQL Database (S3-S4)</td><td>Persistencia e auditoria</td></tr>
+    <tr><td>Seguranca</td><td>Azure Key Vault + Azure AD/Entra ID</td><td>Secrets, RBAC, TLS 1.3</td></tr>
+    <tr><td>Integracao</td><td>ServiceNow, Teams, Twilio, Azure OpenAI</td><td>APIs externas e IA</td></tr>
+    <tr><td>Observabilidade</td><td>Azure Monitor + App Insights + Power BI</td><td>Logs, metricas, dashboards</td></tr>
+  </table>
+
+  <h3>5 Azure Functions</h3>
+  <table>
+    <tr><th>#</th><th>Nome</th><th>Responsabilidade</th></tr>
+    <tr><td>1</td><td>ticket-analyzer</td><td>Analise e categorizacao com IA (Azure OpenAI GPT-4o)</td></tr>
+    <tr><td>2</td><td>team-contact</td><td>Disparo de mensagens multicanal (Teams, SMS, WhatsApp)</td></tr>
+    <tr><td>3</td><td>escalation-engine</td><td>Logica de escalacao inteligente com busca Azure AD</td></tr>
+    <tr><td>4</td><td>metrics-aggregator</td><td>Agregacao de metricas em tempo real</td></tr>
+    <tr><td>5</td><td>sla-monitor</td><td>Monitoramento de SLA e alertas automaticos</td></tr>
+  </table>
+
+  <h3>Seguranca e Compliance LGPD</h3>
+  <div class="two-col">
+    <div>
+      <h4>Seguranca Multicamadas</h4>
+      <ul class="check-list">
+        <li>Azure AD / Entra ID com SSO</li>
+        <li>RBAC granular por funcao</li>
+        <li>TLS 1.3 obrigatorio</li>
+        <li>Azure SQL encryption</li>
+        <li>Azure Key Vault para credenciais</li>
+        <li>Azure Firewall + NSG</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Conformidade LGPD</h4>
+      <ul class="check-list">
+        <li>Audit log completo</li>
+        <li>Dados senssiveis anonimizados</li>
+        <li>Direito de exclusao</li>
+        <li>Registro de consentimento</li>
+        <li>Politicas de retencao</li>
+        <li>Privacy by Design</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 6 -->
+<div class="container">
+  <h2><span class="section-num">06</span> Cronograma e Metodologia</h2>
+  <p class="section-intro">5 fases em 12 semanas (~3 meses) com metodologia Scrum e entregas incrementais.</p>
+
+  <div class="phase-bar">
+    <div class="phase" style="flex: 2; background: #0ea5e9;">F1 - 2 sem</div>
+    <div class="phase" style="flex: 5; background: #0369a1;">F2 - 5 sem</div>
+    <div class="phase" style="flex: 2; background: #059669;">F3 - 2 sem</div>
+    <div class="phase" style="flex: 2; background: #d97706;">F4 - 2 sem</div>
+    <div class="phase" style="flex: 1; background: #dc2626;">F5 - 1 sem</div>
+  </div>
+
+  <table>
+    <tr><th>Fase</th><th>Duracao</th><th>Horas</th><th>Entregaveis</th></tr>
+    <tr><td><strong>F1: Descoberta e Design</strong></td><td>2 semanas</td><td>104h</td><td>Documento de arquitetura Azure-DASA, prototipos, backlog</td></tr>
+    <tr><td><strong>F2: Desenvolvimento Core</strong></td><td>5 semanas</td><td>416h</td><td>Azure Logic Apps, Functions, SQL schemas, dashboard</td></tr>
+    <tr><td><strong>F3: Integracao e Testes</strong></td><td>2 semanas</td><td>156h</td><td>Sistema integrado, relatorios de testes, documentacao</td></tr>
+    <tr><td><strong>F4: Piloto com Grupo Select</strong></td><td>2 semanas</td><td>78h</td><td>Sistema validado em homologacao, relatorio piloto</td></tr>
+    <tr><td><strong>F5: Deploy e Go-Live</strong></td><td>1 semana</td><td>52h</td><td>Sistema em producao, documentacao completa</td></tr>
+    <tr class="highlight-row"><td><strong>TOTAL</strong></td><td><strong>12 semanas</strong></td><td><strong>806h</strong></td><td></td></tr>
+  </table>
+
+  <h3>Metodologia</h3>
+  <div class="card-grid" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="card" style="text-align: center;">
+      <div class="card-value" style="font-size: 18px;">Scrum</div>
+      <div class="card-desc">Framework agil</div>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="card-value" style="font-size: 18px;">2 sem</div>
+      <div class="card-desc">Sprints</div>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="card-value" style="font-size: 18px;">Daily</div>
+      <div class="card-desc">Stand-ups</div>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="card-value" style="font-size: 18px;">Semanal</div>
+      <div class="card-desc">Status stakeholders</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 7 -->
+<div class="container">
+  <h2><span class="section-num">07</span> Equipe Leega Dedicada</h2>
+  <p class="section-intro">3 profissionais dedicados ao projeto DASA: 2 Desenvolvedores Senior + 1 GP/Tech Lead.</p>
+
+  <div class="team-card">
+    <div class="team-avatar" style="background: #059669;">FF</div>
+    <div class="team-info">
+      <h4>Flamarion Fogaca</h4>
+      <p>Gerente de Projetos / Tech Lead - Gestao e lideranca tecnica</p>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <div class="team-avatar" style="background: #0369a1;">RJ</div>
+    <div class="team-info">
+      <h4>Renan Jordao</h4>
+      <p>Desenvolvedor Full-Stack Senior - Azure Architecture + Backend + Engine IA | 403h</p>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <div class="team-avatar" style="background: #0891b2;">JD</div>
+    <div class="team-info">
+      <h4>Jhonathan Ducatti</h4>
+      <p>Desenvolvedor Full-Stack Senior - Frontend React + Azure Functions + Power BI | 403h</p>
+    </div>
+  </div>
+
+  <div class="metric-highlight">
+    <div class="big-number">806h</div>
+    <div class="big-label">esforco total de desenvolvimento (403h x 2 desenvolvedores) | Dedicacao 100% durante 12 semanas</div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 8 -->
+<div class="container">
+  <h2><span class="section-num">08</span> Investimento</h2>
+  <p class="section-intro">Tres cenarios de investimento para atender diferentes necessidades e objetivos.</p>
+
+  <div class="card-grid">
+    <div class="scenario-card recommended">
+      <h4>Cenario 1: Conservador</h4>
+      <div class="price">R$ 385.000</div>
+      <div class="price-desc">7.8k tickets/mes | 52% automacao | 16 semanas | Payback 6-8 semanas</div>
+      <ul class="check-list" style="text-align: left;">
+        <li>Implementacao completa</li>
+        <li>60 dias suporte pos go-live</li>
+        <li>Documentacao e treinamento</li>
+      </ul>
+    </div>
+    <div class="scenario-card">
+      <h4>Cenario 2: Medio</h4>
+      <div class="price">R$ 425.000</div>
+      <div class="price-desc">10k tickets/mes | 65% automacao | 18 semanas | Payback 7 semanas</div>
+      <ul class="check-list" style="text-align: left;">
+        <li>Tudo do cenario 1</li>
+        <li>Integracao WhatsApp</li>
+        <li>90 dias suporte</li>
+      </ul>
+    </div>
+    <div class="scenario-card">
+      <h4>Cenario 3: Otimista</h4>
+      <div class="price">R$ 475.000</div>
+      <div class="price-desc">12k+ tickets/mes | 80% automacao | 20 semanas | Payback 6 semanas</div>
+      <ul class="check-list" style="text-align: left;">
+        <li>Tudo do cenario 2</li>
+        <li>Multi-idioma</li>
+        <li>120 dias suporte</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>O Que Esta Incluido</h3>
+  <div class="two-col">
+    <div>
+      <ul class="check-list">
+        <li>5 Azure Functions desenvolvidas e testadas</li>
+        <li>5+ Azure Logic Apps workflows configurados</li>
+        <li>Azure SQL Database schemas e otimizacoes</li>
+        <li>Dashboard React com Power BI embarcado</li>
+        <li>Integracoes: ServiceNow, Teams, Twilio, Azure OpenAI GPT-4o</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="check-list">
+        <li>Infraestrutura Azure (4 meses)</li>
+        <li>Documentacao tecnica completa</li>
+        <li>Treinamento (24h total)</li>
+        <li>Codigo-fonte com licenca perpetua</li>
+        <li>Garantia de performance (85%+ acuracia IA)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 9 -->
+<div class="container">
+  <h2><span class="section-num">09</span> Retorno sobre Investimento (ROI)</h2>
+  <p class="section-intro">Analise financeira detalhada demonstrando o retorno excepcional do investimento.</p>
+
+  <div class="two-col">
+    <div class="metric-highlight">
+      <div class="big-number" style="font-size: 36px;">R$ 253.900</div>
+      <div class="big-label">economia mensal estimada</div>
+    </div>
+    <div class="metric-highlight">
+      <div class="big-number" style="font-size: 36px;">6-8 sem</div>
+      <div class="big-label">payback do investimento</div>
+    </div>
+  </div>
+
+  <h3>Calculo de Economia</h3>
+  <table>
+    <tr><th>Cenario</th><th>Horas/Mes</th><th>Custo/Mes</th></tr>
+    <tr><td>Atual (100% manual): 7.800 tickets x 45 min</td><td>5.850h</td><td>R$ 292.500</td></tr>
+    <tr><td>Futuro (92% automacao): 7.176 auto + 624 manual</td><td>~772h</td><td>R$ 38.600</td></tr>
+    <tr class="highlight-row"><td><strong>Economia Mensal</strong></td><td><strong>5.078h</strong></td><td><strong>R$ 253.900</strong></td></tr>
+  </table>
+
+  <h3>ROI em 3 Anos (Cenario Conservador)</h3>
+  <table>
+    <tr><th>Componente</th><th>Valor</th></tr>
+    <tr><td>Economia total 3 anos (R$ 3.046.800/ano x 3)</td><td>R$ 9.140.400</td></tr>
+    <tr><td>Investimento inicial</td><td>R$ 385.000</td></tr>
+    <tr><td>Custos recorrentes 3 anos (R$ 10.500/mes x 36)</td><td>R$ 378.000</td></tr>
+    <tr><td>Investimento total 3 anos</td><td>R$ 763.000</td></tr>
+    <tr class="highlight-row"><td><strong>ROI Liquido 3 Anos</strong></td><td><strong>R$ 8.377.400 (1.098%)</strong></td></tr>
+  </table>
+
+  <div class="metric-highlight">
+    <div class="big-number">1.098%</div>
+    <div class="big-label">ROI em 3 anos = Retorno de 11x o investimento</div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 10 -->
+<div class="container">
+  <h2><span class="section-num">10</span> Sustentacao Pos-PoC</h2>
+  <p class="section-intro">Custos recorrentes otimizados com stack 100% Azure-DASA.</p>
+
+  <table>
+    <tr><th>Categoria</th><th>Valor Mensal</th><th>Valor Anual</th><th>Observacao</th></tr>
+    <tr><td>Infraestrutura Azure</td><td><strong>R$ 0</strong></td><td><strong>R$ 0</strong></td><td>Incluso na subscription DASA</td></tr>
+    <tr><td>Azure OpenAI GPT-4o</td><td>R$ 2.500</td><td>R$ 30.000</td><td>~400K tokens/dia</td></tr>
+    <tr><td>Suporte Tecnico On-Demand (20h/mes)</td><td>R$ 4.000</td><td>R$ 48.000</td><td>Desenvolvedor sob demanda</td></tr>
+    <tr><td>Monitoramento Automatico</td><td>R$ 1.000</td><td>R$ 12.000</td><td>Azure Monitor + alertas</td></tr>
+    <tr class="highlight-row"><td><strong>TOTAL</strong></td><td><strong>R$ 7.500</strong></td><td><strong>R$ 90.000</strong></td><td></td></tr>
+  </table>
+
+  <div class="two-col">
+    <div class="card card-accent">
+      <div class="card-label">Modelo Original</div>
+      <div class="card-value" style="font-size: 20px;">R$ 21.400/mes</div>
+      <div class="card-desc">R$ 256.800/ano</div>
+    </div>
+    <div class="card" style="border-left: 4px solid #059669;">
+      <div class="card-label">Modelo Otimizado</div>
+      <div class="card-value" style="font-size: 20px; color: #059669;">R$ 7.500/mes</div>
+      <div class="card-desc">R$ 90.000/ano (-65% economia)</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 11 -->
+<div class="container">
+  <h2><span class="section-num">11</span> Condicoes Comerciais</h2>
+  <p class="section-intro">Opcoes de pagamento flexiveis para o Cenario Conservador (R$ 385.000).</p>
+
+  <h3>Opcao 1: Pagamento Tradicional (3 parcelas) - Recomendado</h3>
+  <table>
+    <tr><th>Parcela</th><th>%</th><th>Valor</th><th>Condicao</th></tr>
+    <tr><td>1a Parcela</td><td>30%</td><td>R$ 115.500</td><td>Assinatura do contrato + Kick-off</td></tr>
+    <tr><td>2a Parcela</td><td>40%</td><td>R$ 154.000</td><td>Conclusao da Fase 3 (Testes)</td></tr>
+    <tr><td>3a Parcela</td><td>30%</td><td>R$ 115.500</td><td>Go-Live em Producao</td></tr>
+  </table>
+
+  <h3>Opcao 2: Pagamento por Milestone (5 parcelas)</h3>
+  <table>
+    <tr><th>Parcela</th><th>%</th><th>Valor</th><th>Condicao</th></tr>
+    <tr><td>1a Parcela</td><td>20%</td><td>R$ 77.000</td><td>Assinatura + Fase 1</td></tr>
+    <tr><td>2a Parcela</td><td>25%</td><td>R$ 96.250</td><td>Fase 2 concluida</td></tr>
+    <tr><td>3a Parcela</td><td>20%</td><td>R$ 77.000</td><td>Fase 3 concluida</td></tr>
+    <tr><td>4a Parcela</td><td>20%</td><td>R$ 77.000</td><td>Fase 4 concluida</td></tr>
+    <tr><td>5a Parcela</td><td>15%</td><td>R$ 57.750</td><td>Go-Live + 30 dias estavel</td></tr>
+  </table>
+
+  <h3>Opcao 3: Pagamento a Vista</h3>
+  <div class="metric-highlight" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-color: #86efac;">
+    <div class="big-number" style="color: #059669;">R$ 354.200</div>
+    <div class="big-label" style="color: #166534;">Desconto de 8% (economia de R$ 30.800)</div>
+  </div>
+
+  <h3>Garantias Contratuais</h3>
+  <ul class="check-list">
+    <li><strong>Garantia de Qualidade</strong>: 60 dias de correcao de bugs sem custo (24h criticos, 48h medios)</li>
+    <li><strong>Acuracia IA</strong>: Minimo 85%, meta 92% - ajustes sem custo ate atingir</li>
+    <li><strong>Performance</strong>: &lt;2s para 95% das requisicoes</li>
+    <li><strong>Disponibilidade</strong>: 99.9% uptime (max 43 min downtime/mes)</li>
+    <li><strong>Codigo-fonte</strong>: Licenca perpetua para DASA</li>
+    <li><strong>Treinamento extra</strong>: Ate 8h adicionais sem custo se necessario</li>
+  </ul>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 12 -->
+<div class="container">
+  <h2><span class="section-num">12</span> Proximos Passos</h2>
+  <p class="section-intro">Timeline proposta para aprovacao e inicio do projeto.</p>
+
+  <h3>Decisoes Pendentes</h3>
+  <table>
+    <tr><th>Decisao</th><th>Responsavel</th><th>Status</th></tr>
+    <tr><td>Aprovar escopo tecnico e timeline</td><td>Olavo, Daniel, Fabio, Jonatan</td><td>Pendente</td></tr>
+    <tr><td>Aprovar orcamento R$ 385.000</td><td>Gestao DASA</td><td>Pendente</td></tr>
+    <tr><td>Definir modelo de pagamento</td><td>Financeiro DASA</td><td>Pendente</td></tr>
+    <tr><td>Alocar equipe Leega (2 Devs + 1 GP)</td><td>Leega</td><td>Confirmado</td></tr>
+    <tr><td>Provisionar acessos Azure</td><td>DevOps DASA</td><td>Pendente</td></tr>
+  </table>
+
+  <h3>Contato</h3>
+  <div class="card card-accent">
+    <p style="margin: 0;"><strong>Leega Tecnologia</strong></p>
+    <p style="margin: 4px 0 0;">Email: contato@leega.com.br</p>
+    <p style="margin: 4px 0 0;">Disponibilidade: Segunda a Sexta, 9h-18h</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <p style="text-align: center; color: #94a3b8; font-size: 12px; margin-top: 40px;">
+    Este documento e confidencial e destina-se exclusivamente a DASA.<br>
+    &copy; 2026 Leega Tecnologia. Todos os direitos reservados.
+  </p>
+</div>
+
+</body>
+</html>
