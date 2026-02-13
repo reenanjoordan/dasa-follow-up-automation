@@ -92,8 +92,8 @@ export default function ExecutiveSummary() {
             </div>
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
               <p className="text-sm text-slate-400 mb-2">IA Cognitiva</p>
-              <p className="text-cyan-300 font-semibold">Vertex AI + OpenAI GPT-4</p>
-              <span className="text-xs text-blue-400">✓ Aprovado pela DASA</span>
+              <p className="text-cyan-300 font-semibold">Azure OpenAI GPT-4o</p>
+              <span className="text-xs text-green-400">✓ 100% Azure - Máxima performance</span>
             </div>
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
               <p className="text-sm text-slate-400 mb-2">Dados & Analytics</p>

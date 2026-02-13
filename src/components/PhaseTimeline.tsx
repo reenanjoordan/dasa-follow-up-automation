@@ -29,7 +29,7 @@ export default function PhaseTimeline() {
       hours: '416h',
       color: 'purple',
       activities: [
-        'Azure Functions e integrações (ServiceNow, Teams, AD, OpenAI)',
+        'Azure Functions e integrações (ServiceNow, Teams, AD, Azure OpenAI GPT-4o)',
         'Azure Logic Apps workflows visuais',
         'Dashboard operacional centralizado e telas de gestão',
         'Módulos 1-6: monitoramento, categorização IA, Teams, escalação, contatos, qualidade',
@@ -157,7 +157,7 @@ export default function PhaseTimeline() {
                 </div>
                 <div className="text-right">
                   <div className="text-slate-400 text-xs">Equipe</div>
-                  <div className="text-white text-xl font-bold">2 devs</div>
+                  <div className="text-white text-xl font-bold">2 devs + 1 GP</div>
                 </div>
               </div>
             </div>
@@ -233,10 +233,10 @@ export default function PhaseTimeline() {
           })}
         </div>
 
-        <div className="mt-12 grid lg:grid-cols-2 gap-8">
+        <div className="mt-12">
           <div className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-xl p-8 border border-slate-600">
             <h3 className="text-xl font-bold text-white mb-6">Metodologia Ágil (Scrum)</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { label: 'Sprints', value: '2 semanas', icon: '🔄' },
                 { label: 'Daily Standups', value: '15 min/dia', icon: '☀️' },
@@ -249,64 +249,6 @@ export default function PhaseTimeline() {
                   <div className="text-white font-semibold text-sm">{item.value}</div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-xl p-8 border border-cyan-700/50">
-            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              Equipe e Alocação
-            </h3>
-            <div className="space-y-4">
-              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-600">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-600 to-blue-500 flex items-center justify-center text-white font-bold text-sm">
-                    1
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-white font-semibold">Flamarion Fogaça</div>
-                    <div className="text-cyan-400 text-sm">Desenvolvedor Full-Stack Sênior</div>
-                  </div>
-                </div>
-                <div className="mt-3 flex items-center gap-2 text-cyan-400 text-sm">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  403h totais
-                </div>
-              </div>
-              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-600">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-600 to-blue-500 flex items-center justify-center text-white font-bold text-sm">
-                    2
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-white font-semibold">Renan Jordão</div>
-                    <div className="text-cyan-400 text-sm">Desenvolvedor Full-Stack Sênior</div>
-                  </div>
-                </div>
-                <div className="mt-3 flex items-center gap-2 text-cyan-400 text-sm">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  403h totais
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 bg-slate-900/50 rounded-lg p-5 border border-slate-700">
-              <div className="text-slate-400 text-sm font-medium mb-2">Total da Equipe</div>
-              <div className="text-3xl font-bold text-white mb-2">806 horas</div>
-              <div className="text-slate-400 text-sm mb-4">2 profissionais seniores em tempo integral durante 12 semanas (~3 meses)</div>
-              <div className="flex items-center gap-3">
-                <div className="text-slate-400 text-sm">Dedicação 100% ao projeto DASA</div>
-                <div className="flex-1 h-2 bg-slate-700 rounded-full overflow-hidden">
-                  <div className="h-full w-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
-                </div>
-                <div className="text-cyan-400 text-sm font-semibold">100%</div>
-              </div>
             </div>
           </div>
         </div>

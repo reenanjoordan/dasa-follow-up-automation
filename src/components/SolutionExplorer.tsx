@@ -44,13 +44,13 @@ export default function SolutionExplorer() {
       color: 'purple',
       description: 'IA generativa analisa o conteúdo do ticket e identifica categoria, prioridade e ações.',
       details: [
-        'Vertex AI Agent Builder para análise semântica',
-        'OpenAI GPT-4 como fallback (reserva B)',
+        'Azure OpenAI GPT-4o para análise semântica',
+        'Modelo otimizado para máxima performance',
         '92% de acurácia em categorização',
         'Detecção automática de urgência e impacto',
       ],
       metrics: { label: 'Acurácia', value: '92%' },
-      stack: 'Vertex AI + GPT-4 + Azure Functions',
+      stack: 'Azure OpenAI GPT-4o + Azure Functions',
     },
     {
       id: 3,

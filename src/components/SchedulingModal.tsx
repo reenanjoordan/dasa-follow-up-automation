@@ -11,7 +11,7 @@ export default function SchedulingModal({ isOpen, onClose }: SchedulingModalProp
     date: '',
     time: '',
     duration: '60',
-    agenda: 'Revisão do escopo técnico e funcional\nAprovação do cronograma de 16 semanas\nConfirmação de alocação de recursos (3 desenvolvedores)\nDefinição de orçamento e data de go-live',
+    agenda: 'Revisão do escopo técnico e funcional\nAprovação do cronograma de 12 semanas\nConfirmação de alocação de recursos (2 Devs + 1 GP/Tech Lead)\nDefinição de orçamento e data de go-live',
     notes: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,7 +20,7 @@ export default function SchedulingModal({ isOpen, onClose }: SchedulingModalProp
   const dasaTeam = [
     { name: 'Flamarion Fogaça', email: 'flamarion.fogaca@leega.com.br' },
     { name: 'Renan Jordão', email: 'renan.jordao@leega.com.br' },
-    { name: 'Jhonattan Reis', email: 'jhonatta.reis@leega.com.br' },
+    { name: 'Jhonathan Ducatti', email: 'jhonathan.ducatti@leega.com.br' },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -55,7 +55,7 @@ export default function SchedulingModal({ isOpen, onClose }: SchedulingModalProp
           date: '',
           time: '',
           duration: '60',
-          agenda: 'Revisão do escopo técnico e funcional\nAprovação do cronograma de 16 semanas\nConfirmação de alocação de recursos (3 desenvolvedores)\nDefinição de orçamento e data de go-live',
+          agenda: 'Revisão do escopo técnico e funcional\nAprovação do cronograma de 12 semanas\nConfirmação de alocação de recursos (2 Devs + 1 GP/Tech Lead)\nDefinição de orçamento e data de go-live',
           notes: '',
         });
       }, 2000);

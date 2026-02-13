@@ -199,7 +199,7 @@ export default function InteractiveDemo() {
                   <span className="flex-shrink-0 w-6 h-6 bg-cyan-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
                   <div className="flex-1">
                     <p className="text-slate-300">IA Categoriza</p>
-                    <p className="text-xs text-slate-500 mt-0.5">Vertex AI via Azure Function</p>
+                    <p className="text-xs text-slate-500 mt-0.5">Azure OpenAI GPT-4o via Azure Function</p>
                   </div>
                 </li>
                 <li className="flex gap-3">

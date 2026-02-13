@@ -8,7 +8,6 @@ import WorkflowDiagram from './components/WorkflowDiagram';
 import KPIsDashboard from './components/KPIsDashboard';
 import ROICalculator from './components/ROICalculator';
 import InteractiveDemo from './components/InteractiveDemo';
-import EffortEstimate from './components/EffortEstimate';
 import EffortEstimateAzure from './components/EffortEstimateAzure';
 import PhaseTimeline from './components/PhaseTimeline';
 import PostPoC from './components/PostPoC';

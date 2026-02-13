@@ -22,7 +22,7 @@ export default function WorkflowDiagram() {
       frequency: 'Sob demanda (child flow)',
       module: 'Módulo 2',
       color: 'green',
-      description: 'Vertex AI + Azure OpenAI GPT-4 (92% acurácia)'
+      description: 'Azure OpenAI GPT-4o (92% acurácia)'
     },
     {
       id: 3,
@@ -102,19 +102,19 @@ export default function WorkflowDiagram() {
         <div className="mb-12 bg-slate-800/50 rounded-xl p-8 border border-slate-700">
           <h3 className="text-xl font-semibold text-white mb-6">CADEIA DE EXECUÇÃO DOS FLUXOS</h3>
           <div className="flex items-center justify-between flex-wrap gap-4">
-            {['ServiceNow', 'Monitoramento', 'IA (Vertex+GPT-4)', 'Teams', 'Escalação', 'ServiceNow'].map((step, idx, arr) => (
+            {['ServiceNow', 'Monitoramento', 'IA (Azure OpenAI)', 'Teams', 'Escalação', 'ServiceNow'].map((step, idx, arr) => (
               <div key={idx} className="flex items-center">
                 <div className={`px-6 py-3 rounded-lg font-medium ${
                   step === 'ServiceNow' ? 'bg-blue-600 text-white' :
                   step === 'Monitoramento' ? 'bg-blue-600 text-white' :
-                  step === 'IA (Vertex+GPT-4)' ? 'bg-emerald-600 text-white' :
+                  step === 'IA (Azure OpenAI)' ? 'bg-emerald-600 text-white' :
                   step === 'Teams' ? 'bg-cyan-600 text-white' :
                   step === 'Escalação' ? 'bg-amber-600 text-white' :
                   'bg-blue-600 text-white'
                 }`}>
                   {step}
                   {step === 'Monitoramento' && <span className="block text-xs mt-1">Fluxo 1</span>}
-                  {step === 'IA (Vertex+GPT-4)' && <span className="block text-xs mt-1">Fluxo 2</span>}
+                  {step === 'IA (Azure OpenAI)' && <span className="block text-xs mt-1">Fluxo 2</span>}
                   {step === 'Teams' && <span className="block text-xs mt-1">Fluxos 3-4</span>}
                   {step === 'Escalação' && <span className="block text-xs mt-1">Fluxo 5</span>}
                 </div>

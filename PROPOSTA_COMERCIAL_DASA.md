@@ -52,7 +52,7 @@ A **Leega** é uma empresa especializada em soluções de automação inteligent
 ## 3. SOLUÇÃO PROPOSTA
 
 ### Visão Geral
-Sistema de automação inteligente para Service Desk utilizando **100% Stack Azure/DASA** que integra IA generativa (Vertex AI + Azure OpenAI GPT-4), orquestração visual de processos (Azure Logic Apps), funções serverless (Azure Functions), banco de dados empresarial (Azure SQL Database) e comunicação automatizada multicanal (Teams, SMS, WhatsApp), com foco em reduzir drasticamente o tempo de resolução, eliminar o backlog de 140.000 tickets e aumentar a satisfação do cliente.
+Sistema de automação inteligente para Service Desk utilizando **100% Stack Azure/DASA** que integra IA generativa (Azure OpenAI GPT-4o), orquestração visual de processos (Azure Logic Apps), funções serverless (Azure Functions), banco de dados empresarial (Azure SQL Database) e comunicação automatizada multicanal (Teams, SMS, WhatsApp), com foco em reduzir drasticamente o tempo de resolução, eliminar o backlog de 140.000 tickets e aumentar a satisfação do cliente.
 
 ### Objetivos Mensuráveis (To Be) - Dados Validados
 - **Taxa de Categorização Automática**: 92% de acurácia alcançada (↑92% vs 0% atual)
@@ -77,8 +77,8 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - **Análise de Usuários**: Integração com Azure AD para detectar usuários inativos na rede
 - **Integração ServiceNow TSM**: Leitura e escrita de tickets via API REST
 
-### 4.2 Categorização Inteligente com IA Híbrida
-- **92% de Acurácia Garantida**: Vertex AI + Azure OpenAI GPT-4 (análise híbrida)
+### 4.2 Categorização Inteligente com IA (Azure OpenAI GPT-4o)
+- **92% de Acurácia Garantida**: Azure OpenAI GPT-4o (máxima performance)
 - **Análise Contextual**: Processamento de descrição, histórico e anexos do ticket
 - **Detecção de Anomalias**: Identificação de categorias ausentes no catálogo
 - **Fila de Revisão Humana**: 8% de tickets incertos direcionados para revisão manual
@@ -150,10 +150,10 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
   - Microsoft Teams (Graph API mensagens)
   - Twilio (SMS/WhatsApp)
   - Azure SQL Database
-  - Vertex AI / Azure OpenAI
+  - Azure OpenAI GPT-4o
 
 #### Camada 3: Serverless Layer (5 Azure Functions)
-1. **ticket-analyzer**: Análise e categorização com IA (Vertex AI + GPT-4)
+1. **ticket-analyzer**: Análise e categorização com IA (Azure OpenAI GPT-4o)
 2. **team-contact**: Disparo de mensagens multicanal (Teams, SMS, WhatsApp)
 3. **escalation-engine**: Lógica de escalação inteligente com busca Azure AD
 4. **metrics-aggregator**: Agregação de métricas em tempo real
@@ -177,8 +177,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - **ServiceNow TSM API**: Leitura/escrita de tickets (REST API)
 - **Microsoft Teams Graph API**: Mensagens e notificações
 - **Twilio API**: SMS/WhatsApp fallback
-- **Vertex AI (Google Cloud)**: Categorização com 92% acurácia
-- **Azure OpenAI (GPT-4)**: Análise semântica avançada
+- **Azure OpenAI GPT-4o**: Categorização com 92% acurácia + Análise semântica avançada (100% Azure)
 
 #### Camada 7: Observability Layer
 - **Azure Monitor**: Logs e métricas centralizadas
@@ -193,7 +192,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 3. **Serverless-First**: Escala automática, pagamento por uso, zero manutenção de servidores
 4. **API-First**: RESTful com autenticação OAuth2 / Azure AD
 5. **Observability**: Logs, métricas e tracing completos desde o dia 1
-6. **IA Plugável**: Trocar entre Vertex AI e Azure OpenAI sem reescrever sistema
+6. **IA Unificada**: Azure OpenAI GPT-4o consolidado para máxima performance
 7. **Escalabilidade Horizontal**: De PoC (7.8k tickets/mês) para Produção (20k+ tickets/mês) sem refatoração
 
 ### 5.3 Segurança e Compliance LGPD
@@ -293,24 +292,30 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 
 ## 7. EQUIPE LEEGA
 
-### Time Dedicado (2 Desenvolvedores Full-Stack Sênior)
+### Time Dedicado (2 Devs Senior + 1 GP/Tech Lead)
 
-- **Flamarion Fogaça** - Desenvolvedor Full-Stack Sênior
+- **Flamarion Fogaca** - Gerente de Projetos / Tech Lead
+  - Gestao e lideranca tecnica do projeto
+  - Definicao de arquitetura e padroes
+  - Alinhamento com stakeholders DASA
+  - Revisao de codigo e qualidade
+
+- **Renan Jordao** - Desenvolvedor Full-Stack Senior
   - Azure Architecture + Backend (Azure Logic Apps, Functions, SQL)
-  - Desenvolvimento engine IA (Azure OpenAI GPT-4)
-  - Integração ServiceNow TSM + Teams Graph API
+  - Desenvolvimento engine IA (Azure OpenAI GPT-4o)
+  - Integracao ServiceNow TSM + Teams Graph API
   - **403h totais**
 
-- **Renan Jordão** - Desenvolvedor Full-Stack Sênior
+- **Jhonathan Ducatti** - Desenvolvedor Full-Stack Senior
   - Frontend React + Dashboard operacional
-  - Azure Functions + Integrações (Twilio, Azure AD)
+  - Azure Functions + Integracoes (Twilio, Azure AD)
   - Power BI embarcado + Analytics
   - **403h totais**
 
 ### Carga Total
-- **806 horas** de esforço total (403h x 2 desenvolvedores)
-- **2 profissionais seniores dedicados** ao projeto DASA
-- **Dedicação 100%** em tempo integral durante 12 semanas (~3 meses)
+- **806 horas** de esforco de desenvolvimento (403h x 2 desenvolvedores)
+- **3 profissionais dedicados** ao projeto DASA (2 Devs + 1 GP/Tech Lead)
+- **Dedicacao 100%** em tempo integral durante 12 semanas (~3 meses)
 
 ### Expertise do Time
 
@@ -331,12 +336,12 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - ServiceNow TSM API (REST)
 - Microsoft Graph API (Teams, Azure AD)
 - Twilio API (SMS, WhatsApp)
-- Vertex AI / Azure OpenAI (IA generativa)
+- Azure OpenAI GPT-4o (IA generativa)
 - Power BI (dashboards embedded)
 
 #### IA/ML e Automação
 - Implementação de IA generativa em produção
-- Fine-tuning de modelos (GPT-4, Vertex AI)
+- Fine-tuning de modelos (Azure OpenAI GPT-4o)
 - Avaliação de acurácia e performance
 - Prompt engineering avançado
 
@@ -372,8 +377,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 | Azure Functions (Premium) | R$ 2.200 | R$ 8.800 | 5 funções serverless |
 | Azure SQL Database (S3-S4) | R$ 2.500 | R$ 10.000 | Tier empresarial |
 | Azure Monitor + App Insights | R$ 800 | R$ 3.200 | Observability |
-| Vertex AI API (Google Cloud) | R$ 2.800 | R$ 11.200 | Categorização IA |
-| Azure OpenAI (GPT-4) | R$ 1.500 | R$ 6.000 | Análise semântica |
+| Azure OpenAI GPT-4o | R$ 2.500 | R$ 10.000 | Categorização + Análise IA |
 | Ferramentas Dev/Testes | R$ 600 | R$ 2.400 | CI/CD, testes |
 | **Subtotal Infraestrutura** | | | **R$ 48.800** |
 
@@ -426,7 +430,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - 5+ Azure Logic Apps workflows configurados
 - Azure SQL Database schemas e otimizações
 - Dashboard React com Power BI embarcado
-- Integrações: ServiceNow TSM, Teams, Twilio, Vertex AI
+- Integrações: ServiceNow TSM, Teams, Twilio, Azure OpenAI GPT-4o
 
 ✅ **Infraestrutura Azure (4 Meses)**
 - Ambiente de desenvolvimento completo
@@ -467,12 +471,11 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 #### APIs Externas (Consumo) - CUSTO VARIÁVEL
 | Item | Custo Estimado/Mês | Observação |
 |------|-------------------|------------|
-| Vertex AI API | R$ 4.000 - R$ 6.000 | Baseado em 7.8k-12k tickets/mês |
-| Azure OpenAI (GPT-4) | R$ 2.000 - R$ 3.000 | Análise semântica adicional |
+| Azure OpenAI GPT-4o | R$ 2.500 | ~400K tokens/dia - Categorização + Análise |
 | Twilio (SMS/WhatsApp) | R$ 800 - R$ 1.500 | Apenas fallback (uso baixo) |
-| **Total APIs Externas** | **R$ 6.800 - R$ 10.500** | **Variável por volume** |
+| **Total APIs Externas** | **R$ 3.300 - R$ 4.000** | **Variável por volume** |
 
-***Observação Importante**: A infraestrutura Azure (Logic Apps, Functions, SQL, Monitor) está **inclusa na subscription Azure existente da DASA**, resultando em **ZERO custo adicional de licenças**. Os únicos custos recorrentes são as APIs externas (Vertex AI, Azure OpenAI, Twilio) que são proporcionais ao volume de uso.
+***Observação Importante**: A infraestrutura Azure (Logic Apps, Functions, SQL, Monitor) está **inclusa na subscription Azure existente da DASA**, resultando em **ZERO custo adicional de licenças**. Os únicos custos recorrentes são as APIs externas (Azure OpenAI GPT-4o, Twilio) que são proporcionais ao volume de uso.
 
 ### 8.6 Economia com Stack Azure vs Alternativas
 
@@ -835,7 +838,7 @@ Taxa de resposta: 85-90% (processo padronizado e insistente)
 - 5+ Azure Logic Apps workflows configurados e testados
 - Azure SQL Database: schemas, índices, otimizações
 - Dashboard React responsivo com Power BI embarcado
-- Todas as integrações: ServiceNow TSM, Teams, Twilio, Vertex AI, Azure OpenAI
+- Todas as integrações: ServiceNow TSM, Teams, Twilio, Azure OpenAI GPT-4o
 
 ✅ **Infraestrutura Azure (4 Meses)**
 - Ambiente de desenvolvimento completo
@@ -878,10 +881,9 @@ Taxa de resposta: 85-90% (processo padronizado e insistente)
 - Custos inclusos na subscription Azure existente da DASA
 
 ❌ **APIs Externas de Consumo Variável**
-- Vertex AI API: R$ 4.000-6.000/mês (proporcional ao volume)
-- Azure OpenAI (GPT-4): R$ 2.000-3.000/mês
+- Azure OpenAI GPT-4o: R$ 2.500/mês (~400K tokens/dia)
 - Twilio (SMS/WhatsApp): R$ 800-1.500/mês
-- **Total: R$ 6.800-10.500/mês** (variável conforme uso)
+- **Total: R$ 3.300-4.000/mês** (variável conforme uso)
 
 ❌ **Licenças Microsoft e ServiceNow**
 - Microsoft 365 (Teams, Azure AD) → Responsabilidade DASA (já pago)
@@ -974,13 +976,13 @@ Após o go-live, será necessário manter a infraestrutura e o suporte técnico 
 | Azure Monitor + Insights | **R$ 0** | Incluso na subscription DASA |
 | **Subtotal Infraestrutura** | **R$ 0/mês** | *DASA já possui 100% Azure* |
 
-#### Azure OpenAI (IA Unificada)
-| Item | Custo Mensal | Descrição |
+#### Azure OpenAI GPT-4o (IA Unificada)
+| Item | Custo Mensal | Descricao |
 |------|--------------|-----------|
-| Azure OpenAI GPT-4 | R$ 2.500/mês | ~400K tokens/dia - Categorização + Análise |
-| **Subtotal IA** | **R$ 2.500/mês** | *IA consolidada em Azure OpenAI* |
+| Azure OpenAI GPT-4o | R$ 2.500/mes | ~400K tokens/dia - Categorizacao + Analise |
+| **Subtotal IA** | **R$ 2.500/mes** | *IA consolidada em Azure OpenAI GPT-4o* |
 
-**Nota sobre IA**: Consolidamos em uma única solução (Azure OpenAI) ao invés de duas (GPT-4 + Vertex AI), pois a DASA já possui 100% Azure. Isso simplifica a arquitetura, reduz custos e mantém toda a stack unificada.
+**Nota sobre IA**: Consolidamos em Azure OpenAI GPT-4o (modelo de maxima performance dentro do ecossistema Azure). Isso garante menor latencia, maior performance e stack 100% unificada na Azure-DASA.
 
 #### Suporte e Manutenção (Otimizado para Excelência)
 | Item | Custo Mensal | Descrição |
@@ -1065,7 +1067,7 @@ Após o go-live, será necessário manter a infraestrutura e o suporte técnico 
 - **Pagamento**: Parcela 2 se Opção 2 escolhida
 
 #### Semana 6-11 (23/03 - 03/05) - Fase 2: Desenvolvimento
-- Desenvolvimento engine IA (Vertex AI + GPT-4)
+- Desenvolvimento engine IA (Azure OpenAI GPT-4o)
 - Configuração Azure Logic Apps (workflows)
 - Desenvolvimento Azure Functions (5 funções)
 - Integração ServiceNow + Teams + Twilio
@@ -1151,7 +1153,7 @@ Após o go-live, será necessário manter a infraestrutura e o suporte técnico 
 | Aprovar escopo técnico e timeline | Olavo, Daniel, Fabio, Jônatan | 17/02 | ⏳ Pendente |
 | Aprovar orçamento R$ 385.000 | Gestão DASA | 17/02 | ⏳ Pendente |
 | Definir modelo de pagamento | Financeiro DASA | 17/02 | ⏳ Pendente |
-| Alocar 3 desenvolvedores Leega | Leega (automático) | 17/02 | ✅ Confirmado |
+| Alocar equipe Leega (2 Devs + 1 GP) | Leega (automático) | 17/02 | ✅ Confirmado |
 | Definir grupo piloto Follow-Up | Daniel + Jônatan | 19/02 | ⏳ Pendente |
 | Provisionar acessos Azure | DevOps DASA | 24/02 | ⏳ Pendente |
 | Data de go-live objetivo | Todos | 17/02 | ⏳ Proposta: 29/06 |
@@ -1190,7 +1192,7 @@ Este projeto não é apenas um PoC isolado. É o **primeiro passo de uma jornada
 - ✅ 92% acurácia em categorização IA
 - ✅ 55% redução de tempo (45min → 5min)
 - ✅ Eliminação de backlog 140.000 tickets
-- ✅ Integração: ServiceNow, Teams, Twilio, Vertex AI
+- ✅ Integração: ServiceNow, Teams, Twilio, Azure OpenAI GPT-4o
 
 **Métricas de Sucesso**:
 - Payback < 2 meses ✅

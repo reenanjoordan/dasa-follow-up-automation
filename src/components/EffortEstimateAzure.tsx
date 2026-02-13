@@ -12,8 +12,8 @@ export default function EffortEstimateAzure() {
     {
       icon: Users,
       label: 'Equipe',
-      value: '2 devs',
-      subtitle: '806h totais',
+      value: '3 profissionais',
+      subtitle: '2 Devs + 1 GP/Tech Lead',
       color: 'cyan'
     },
     {
@@ -61,12 +61,18 @@ export default function EffortEstimateAzure() {
   const team = [
     {
       name: 'Flamarion Fogaça',
+      role: 'Gerente de Projetos / Tech Lead',
+      hours: 'Gestão e liderança técnica',
+      color: 'green'
+    },
+    {
+      name: 'Renan Jordão',
       role: 'Desenvolvedor Full-Stack Sênior',
       hours: '403h totais',
       color: 'blue'
     },
     {
-      name: 'Renan Jordão',
+      name: 'Jhonathan Ducatti',
       role: 'Desenvolvedor Full-Stack Sênior',
       hours: '403h totais',
       color: 'cyan'
@@ -170,7 +176,7 @@ export default function EffortEstimateAzure() {
                 <div className="text-white font-bold text-lg mb-2">Total da Equipe</div>
                 <div className="text-3xl font-bold text-blue-400 mb-2">806 horas</div>
                 <div className="text-slate-300 text-sm">
-                  2 profissionais seniores em tempo integral durante 12 semanas (~3 meses)
+                  2 desenvolvedores seniores + 1 GP/Tech Lead durante 12 semanas (~3 meses)
                 </div>
                 <div className="mt-4 pt-4 border-t border-blue-500/30">
                   <div className="text-slate-400 text-sm mb-2">Dedicação 100% ao projeto DASA</div>
@@ -193,7 +199,7 @@ export default function EffortEstimateAzure() {
               { label: 'Orchestration', value: 'Azure Logic Apps', icon: '🔄' },
               { label: 'Serverless', value: 'Azure Functions (5)', icon: '⚡' },
               { label: 'Database', value: 'Azure SQL Database', icon: '🗄️' },
-              { label: 'IA', value: 'Vertex AI + GPT-4', icon: '🤖' },
+              { label: 'IA', value: 'Azure OpenAI GPT-4o', icon: '🤖' },
               { label: 'Frontend', value: 'React + TypeScript', icon: '⚛️' },
               { label: 'Integration', value: 'ServiceNow + Teams', icon: '🔗' },
               { label: 'Security', value: 'Azure AD + Key Vault', icon: '🔐' },

@@ -68,7 +68,7 @@ export default function NextSteps() {
         owner: 'Equipe de Desenvolvimento',
         deadline: 'Semana 1-2',
         priority: 'MÉDIA',
-        description: 'Validar modelo Azure OpenAI GPT-4 para categorização com dados reais',
+        description: 'Validar modelo Azure OpenAI GPT-4o para categorização com dados reais',
       },
       {
         id: 8,

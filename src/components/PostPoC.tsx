@@ -165,12 +165,12 @@ export default function PostPoC() {
       note: 'DASA já possui 100% Azure',
     },
     {
-      category: 'Azure OpenAI (IA Unificada)',
+      category: 'Azure OpenAI GPT-4o (IA Unificada)',
       items: [
-        { name: 'Azure OpenAI GPT-4', cost: 'R$ 2.500/mês', description: '~400K tokens/dia - Categorização + Análise' },
+        { name: 'Azure OpenAI GPT-4o', cost: 'R$ 2.500/mês', description: '~400K tokens/dia - Categorização + Análise' },
       ],
       subtotal: 'R$ 2.500/mês',
-      note: 'IA consolidada em Azure OpenAI',
+      note: 'IA consolidada em Azure OpenAI GPT-4o',
     },
     {
       category: 'Suporte e Manutenção (Otimizado)',
@@ -262,7 +262,7 @@ export default function PostPoC() {
               <div className="text-sm">
                 <p className="text-emerald-300 font-semibold mb-1">ROI Otimizado com Stack 100% Azure-DASA</p>
                 <p className="text-slate-300">
-                  Com infraestrutura Azure 100% absorvida pela DASA e IA unificada em Azure OpenAI, o custo de sustentação foi <strong className="text-emerald-400">reduzido de R$ 21.400 para R$ 7.500/mês</strong> (-65%).
+                  Com infraestrutura Azure 100% absorvida pela DASA e IA unificada em Azure OpenAI GPT-4o, o custo de sustentação foi <strong className="text-emerald-400">reduzido de R$ 21.400 para R$ 7.500/mês</strong> (-65%).
                   Economia de <strong className="text-cyan-400">~195 horas/mês</strong> de trabalho manual representa <strong className="text-green-400">ROI positivo imediato</strong>.
                 </p>
               </div>

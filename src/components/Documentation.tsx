@@ -45,7 +45,7 @@ export default function Documentation() {
         },
         {
           title: 'Stack Tecnológica',
-          description: 'Orquestração: Azure Logic Apps (workflows visuais). Serverless: Azure Functions. Dados: Azure SQL Database. IA: Vertex AI + GPT-4. Comunicação: Teams + Twilio. Ticketing: ServiceNow. Analytics: Power BI + Azure Monitor.',
+          description: 'Orquestração: Azure Logic Apps (workflows visuais). Serverless: Azure Functions. Dados: Azure SQL Database. IA: Azure OpenAI GPT-4o. Comunicação: Teams + Twilio. Ticketing: ServiceNow. Analytics: Power BI + Azure Monitor.',
         },
         {
           title: 'Integrações',
@@ -60,7 +60,7 @@ export default function Documentation() {
       items: [
         {
           title: 'Configuração do Ambiente',
-          description: 'Node.js 18+, npm/pnpm, credenciais Azure (Logic Apps, Functions, SQL), tokens ServiceNow e Teams (Secret Manager), IA tokens (Vertex AI + OpenAI). Clone o repositório e execute npm install.',
+          description: 'Node.js 18+, npm/pnpm, credenciais Azure (Logic Apps, Functions, SQL), tokens ServiceNow e Teams (Secret Manager), IA tokens (Azure OpenAI). Clone o repositório e execute npm install.',
         },
         {
           title: 'Estrutura de Pastas',
@@ -121,7 +121,7 @@ export default function Documentation() {
         },
         {
           title: 'Proteção de Dados',
-          description: 'TLS 1.3 (transit + at-rest encryption). Dados sensíveis masked nos logs. Secret Manager para ServiceNow API keys, Twilio credentials, OpenAI/Vertex AI tokens, SMTP credentials.',
+          description: 'TLS 1.3 (transit + at-rest encryption). Dados sensíveis masked nos logs. Secret Manager para ServiceNow API keys, Twilio credentials, Azure OpenAI tokens, SMTP credentials.',
         },
         {
           title: 'Monitoramento de Segurança',

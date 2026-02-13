@@ -22,7 +22,7 @@ export default function TechnicalScope() {
       id: 'smart-categorization',
       title: 'Categorização Inteligente com IA',
       description: 'Engine de IA para classificação automática',
-      stack: 'Azure Functions + Vertex AI + OpenAI GPT-4',
+      stack: 'Azure Functions + Azure OpenAI GPT-4o',
       features: [
         '92% de acurácia em categorização automática',
         'Análise contextual de descrição do ticket',
@@ -147,7 +147,7 @@ export default function TechnicalScope() {
               <li>• <strong>Orquestração:</strong> Azure Logic Apps (workflows visuais, já pago)</li>
               <li>• <strong>Serverless:</strong> Azure Functions (processamento, já pago)</li>
               <li>• <strong>Dados:</strong> Azure SQL Database (já pago)</li>
-              <li>• <strong>IA:</strong> Vertex AI Agent Builder + OpenAI GPT-4 (aprovado)</li>
+              <li>• <strong>IA:</strong> Azure OpenAI GPT-4o (100% Azure, máxima performance)</li>
               <li>• <strong>Comunicação:</strong> Twilio + Microsoft Teams via Graph API (já utilizados)</li>
               <li>• <strong>Ticketing:</strong> ServiceNow TSM (já utilizado)</li>
               <li>• <strong>Identidade:</strong> Azure AD / Entra ID (já utilizado)</li>

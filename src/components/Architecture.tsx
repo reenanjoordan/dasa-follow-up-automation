@@ -59,7 +59,7 @@ export default function Architecture() {
       items: [
         'ServiceNow + Twilio',
         'Teams + Graph API',
-        'Vertex AI + OpenAI',
+        'Azure OpenAI GPT-4o',
       ],
       color: 'from-orange-600 to-orange-400',
     },
@@ -80,7 +80,7 @@ export default function Architecture() {
     { name: 'Twilio (SMS/WhatsApp)', status: 'Critical', icon: '📱' },
     { name: 'Microsoft Teams', status: 'Critical', icon: '💬' },
     { name: 'Azure AD / Entra ID', status: 'Critical', icon: '👥' },
-    { name: 'Vertex AI + OpenAI', status: 'Critical', icon: '🧠' },
+    { name: 'Azure OpenAI GPT-4o', status: 'Critical', icon: '🧠' },
     { name: 'Power BI', status: 'Required', icon: '📊' },
   ];
 
@@ -135,7 +135,7 @@ export default function Architecture() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-400 font-bold flex-shrink-0">✓</span>
-                <span className="text-slate-300">Secret Manager para API keys (ServiceNow, Twilio, OpenAI)</span>
+                <span className="text-slate-300">Secret Manager para API keys (ServiceNow, Twilio, Azure OpenAI)</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-400 font-bold flex-shrink-0">✓</span>
