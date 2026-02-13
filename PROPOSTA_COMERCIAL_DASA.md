@@ -49,7 +49,7 @@ A **Leega** é uma empresa especializada em soluções de automação inteligent
 
 ---
 
-## 3. SOLUÇÃO PROPOSTA - Stack 100% Azure/DASA
+## 3. SOLUÇÃO PROPOSTA
 
 ### Visão Geral
 Sistema de automação inteligente para Service Desk utilizando **100% Stack Azure/DASA** que integra IA generativa (Vertex AI + Azure OpenAI GPT-4), orquestração visual de processos (Azure Logic Apps), funções serverless (Azure Functions), banco de dados empresarial (Azure SQL Database) e comunicação automatizada multicanal (Teams, SMS, WhatsApp), com foco em reduzir drasticamente o tempo de resolução, eliminar o backlog de 140.000 tickets e aumentar a satisfação do cliente.
