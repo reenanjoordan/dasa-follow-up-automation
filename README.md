@@ -20,7 +20,7 @@ Site de apresentação interativa para o projeto de automação inteligente do F
 12. **Próximos Passos** - Ações imediatas e decisões pendentes
 13. **Documentação** - Guias técnicos e diagramas
 
-### Stack Tecnológica 100% Azure/DASA
+### Stack Tecnológica
 
 #### Frontend Layer
 - **Framework**: React 18 + TypeScript
