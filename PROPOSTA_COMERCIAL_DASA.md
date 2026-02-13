@@ -237,43 +237,51 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 
 ## 6. CRONOGRAMA E METODOLOGIA
 
-### Duração Total: 16 semanas (4 meses)
+### Duração Total: 12 semanas (3 meses)
 
-#### Fase 1: Descoberta e Design (2 semanas)
+#### Fase 1: Descoberta e Design (2 semanas) - 180h
 - Análise detalhada dos requisitos
-- Definição da arquitetura técnica
+- Definição da arquitetura técnica Azure-DASA
 - Prototipação de interfaces
+- Planejamento de infraestrutura e segurança
 - Planejamento de sprints
-- **Entregáveis**: Documento de arquitetura, Protótipos UI/UX, Backlog priorizado
+- **Entregáveis**: Documento de arquitetura Azure-DASA, Protótipos UI/UX, Backlog priorizado
 
-#### Fase 2: Desenvolvimento Core (6 semanas)
+#### Fase 2: Desenvolvimento Core (5 semanas) - 620h
 - Desenvolvimento engine IA (Vertex AI + Azure OpenAI GPT-4)
-- Configuração Azure Logic Apps (5+ workflows visuais)
+- Configuração Azure Logic Apps (workflows visuais)
 - Desenvolvimento Azure Functions (5 funções serverless)
+- Módulos 1-6: monitoramento, categorização IA, Teams, escalação, contatos, qualidade
+- Infraestrutura Azure SQL Database + Secret Manager
 - Integração ServiceNow TSM + Teams Graph API + Twilio
 - Implementação dashboard React com Power BI embarcado
-- **Entregáveis**: Azure Logic Apps configurado, 5 Azure Functions funcionais, Azure SQL schemas criados, Integração ServiceNow/Teams/Twilio
+- **Entregáveis**: Azure Logic Apps configurado, Azure Functions completas, Azure SQL schemas criados, Dashboard operacional completo
 
-#### Fase 3: Integração e Testes (4 semanas)
-- Testes de integração
-- Testes de performance
-- Testes de segurança
-- Ajustes e refinamentos
-- **Entregáveis**: Sistema integrado, Relatórios de testes, Documentação técnica
+#### Fase 3: Integração e Testes (2 semanas) - 220h
+- Testes de integração E2E completos
+- Testes de carga e performance
+- Testes de segurança (LGPD/RBAC)
+- Bug fixes e otimizações
+- Documentação técnica completa
+- **Entregáveis**: Sistema integrado e validado, Relatórios de testes, Documentação técnica completa
 
-#### Fase 4: Piloto e Validação (2 semanas)
+#### Fase 4: Piloto com Grupo Select (2 semanas) - 160h
 - Deploy em ambiente de homologação
+- Treinamento do grupo piloto
 - Testes com usuários reais
-- Coleta de feedback
-- Ajustes finais
-- **Entregáveis**: Sistema validado, Relatório de piloto, Plano de rollout
+- Coleta de feedback e ajustes
+- Validação de métricas e KPIs
+- **Entregáveis**: Sistema validado em homologação, Relatório de piloto com métricas, Plano de rollout detalhado
 
-#### Fase 5: Deploy e Go-Live (2 semanas)
+#### Fase 5: Deploy e Go-Live (1 semana) - 103h
 - Deploy em produção
-- Monitoramento intensivo
+- Monitoramento intensivo 24/7
+- Ajustes em tempo real
 - Suporte ao usuário
-- Otimizações pós-lançamento
-- **Entregáveis**: Sistema em produção, Documentação completa, Plano de suporte
+- Treinamento equipe de sustentação
+- **Entregáveis**: Sistema em produção, Documentação completa, Plano de suporte e sustentação
+
+**Esforço Total: 1,283 horas** (180h + 620h + 220h + 160h + 103h)
 
 ### Metodologia
 - **Framework**: Scrum (sprints de 2 semanas)
@@ -285,16 +293,28 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 
 ## 7. EQUIPE LEEGA
 
-### Time Dedicado (3 Desenvolvedores Full-Time)
-- **Desenvolvedor Full-Stack Sênior 1** - Azure Architecture + Backend (640h)
-- **Desenvolvedor Full-Stack Sênior 2** - Azure Functions + Integrations (640h)
-- **Desenvolvedor Full-Stack Sênior 3** - Frontend React + Power BI (640h)
+### Time Dedicado (3 Profissionais)
+
+- **Flamarion Fogaça** - Project Manager / Tech Lead
+  - Gerenciamento ágil do projeto (Scrum)
+  - Arquitetura técnica e decisões estratégicas
+  - Ponto focal com stakeholders DASA
+  - Revisão de código e garantia de qualidade
+
+- **Renan Jordão** - Desenvolvedor Full Stack Sênior
+  - Azure Architecture + Backend (Azure Logic Apps, Functions, SQL)
+  - Desenvolvimento engine IA (Vertex AI + Azure OpenAI GPT-4)
+  - Integração ServiceNow TSM + Teams Graph API
+
+- **Jhonathan Ducatti** - Desenvolvedor Full Stack Sênior
+  - Frontend React + Dashboard operacional
+  - Azure Functions + Integrações (Twilio, Azure AD)
+  - Power BI embarcado + Analytics
 
 ### Carga Total
-- **1.920 horas** de desenvolvimento (640h × 3 desenvolvedores)
-- **2.000+ horas totais** incluindo testes, integração e deploy
-- **3 profissionais seniores** em tempo integral durante 16 semanas (4 meses)
-- **Dedicação 100%** ao projeto DASA
+- **1,283 horas** de esforço total (distribuídas em 12 semanas)
+- **3 profissionais dedicados** ao projeto DASA
+- **Dedicação em tempo integral** durante 12 semanas (3 meses)
 
 ### Expertise do Time
 
@@ -943,9 +963,65 @@ Taxa de resposta: 85-90% (processo padronizado e insistente)
 
 ---
 
+## 13.1. SUSTENTAÇÃO PÓS-POC - CUSTOS RECORRENTES
+
+Após o go-live, será necessário manter a infraestrutura e o suporte técnico para garantir a operação contínua e evolução da plataforma.
+
+### Composição de Custos Mensais de Sustentação
+
+#### Infraestrutura Azure
+| Item | Custo Mensal | Descrição |
+|------|--------------|-----------|
+| Azure Functions (consumo) | R$ 800/mês | ~1M execuções/mês |
+| Azure Logic Apps | R$ 1.200/mês | ~50K workflows/mês |
+| Azure SQL Database (S3) | R$ 1.500/mês | 100 DTUs, 250GB |
+| Azure Monitor + Insights | R$ 400/mês | Logs e telemetria |
+| **Subtotal Infraestrutura** | **R$ 3.900/mês** | |
+
+#### Serviços de IA
+| Item | Custo Mensal | Descrição |
+|------|--------------|-----------|
+| OpenAI GPT-4 API | R$ 2.000/mês | ~300K tokens/dia |
+| Vertex AI Agent Builder | R$ 1.500/mês | Categorização IA |
+| **Subtotal IA** | **R$ 3.500/mês** | |
+
+#### Suporte e Manutenção Técnica
+| Item | Custo Mensal | Descrição |
+|------|--------------|-----------|
+| Suporte Técnico (40h/mês) | R$ 8.000/mês | Desenvolvedor dedicado |
+| Gerenciamento de Projeto | R$ 4.000/mês | 20h/mês PM/Tech Lead |
+| Monitoramento e Incidentes | R$ 2.000/mês | On-call 8x5 |
+| **Subtotal Suporte** | **R$ 14.000/mês** | |
+
+### Investimento Total de Sustentação
+
+| Categoria | Valor Mensal | Valor Anual |
+|-----------|--------------|-------------|
+| Infraestrutura Azure | R$ 3.900 | R$ 46.800 |
+| Serviços de IA | R$ 3.500 | R$ 42.000 |
+| Suporte e Manutenção | R$ 14.000 | R$ 168.000 |
+| **TOTAL** | **R$ 21.400/mês** | **R$ 256.800/ano** |
+
+### Análise de ROI com Sustentação
+
+**Economia Mensal com Automação**: R$ 253.900/mês
+**Custo de Sustentação**: R$ 21.400/mês
+**Economia Líquida Mensal**: R$ 232.500/mês (R$ 2.790.000/ano)
+
+**Benefícios**:
+- ✅ Processamento de ~260 tickets/dia automaticamente
+- ✅ Redução de 45 minutos/ticket → economia de ~195 horas/mês
+- ✅ ROI positivo sustentado: cada R$ 1 investido em sustentação gera R$ 11,85 de economia
+- ✅ Monitoramento 24/7 e suporte dedicado
+- ✅ Evolução contínua da plataforma
+
+**Observação Importante**: Os custos de infraestrutura Azure (Logic Apps, Functions, SQL, Monitor) podem ser absorvidos pela subscription Azure existente da DASA, reduzindo potencialmente o custo de sustentação em até R$ 3.900/mês.
+
+---
+
 ## 14. PRÓXIMOS PASSOS E CRONOGRAMA
 
-### 14.1 Timeline Proposta (20 Semanas Total)
+### 14.1 Timeline Proposta (12 Semanas de Execução + 2 Semanas de Aprovação = 14 Semanas Total)
 
 #### Semana 1 (17/02 - 23/02) - Aprovação
 - **DASA**: Análise e aprovação da proposta com stakeholders

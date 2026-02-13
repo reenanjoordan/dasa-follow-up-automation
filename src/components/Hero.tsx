@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Zap, TrendingUp, Clock, FileDown } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, Clock, FileDown, Calendar } from 'lucide-react';
 
 export default function Hero() {
   const [ticketCount, setTicketCount] = useState(0);
@@ -69,19 +69,20 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
           <button
-            onClick={() => document.getElementById('solution-explorer')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all flex items-center gap-2 justify-center"
+            onClick={() => document.getElementById('cronograma')?.scrollIntoView({ behavior: 'smooth' })}
+            className="group px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all flex items-center gap-2 justify-center"
           >
-            Explorar Solução
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <FileDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+            Cronograma Completo
           </button>
           <button
-            onClick={() => document.getElementById('documentation')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 bg-slate-800/50 border border-slate-700 text-slate-300 font-semibold rounded-xl hover:border-slate-600 hover:bg-slate-800 transition-all"
+            onClick={() => document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' })}
+            className="group px-8 py-4 bg-slate-800 text-white font-semibold rounded-xl border border-cyan-500/30 hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/10 transition-all flex items-center gap-2 justify-center"
           >
-            Ver Documentação
+            <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            Timeline do Projeto
           </button>
           <a
             href="/DASA_Service_Desk_Follow-Up_Automation_PoC_Site.pdf"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rocket, TrendingUp, Users, Zap, Globe, Shield, Target, Sparkles, ArrowRight } from 'lucide-react';
+import { Rocket, TrendingUp, Users, Zap, Globe, Shield, Target, Sparkles, ArrowRight, DollarSign, Server } from 'lucide-react';
 
 export default function PostPoC() {
   const evolutionPhases = [
@@ -152,20 +152,118 @@ export default function PostPoC() {
     return colors[impact as keyof typeof colors] || colors['Média'];
   };
 
+  const sustainabilityCosts = [
+    {
+      category: 'Infraestrutura Azure',
+      items: [
+        { name: 'Azure Functions (consumo)', cost: 'R$ 800/mês', description: '~1M execuções/mês' },
+        { name: 'Azure Logic Apps', cost: 'R$ 1.200/mês', description: '~50K workflows/mês' },
+        { name: 'Azure SQL Database (S3)', cost: 'R$ 1.500/mês', description: '100 DTUs, 250GB' },
+        { name: 'Azure Monitor + Insights', cost: 'R$ 400/mês', description: 'Logs e telemetria' },
+      ],
+      subtotal: 'R$ 3.900/mês',
+    },
+    {
+      category: 'Serviços de IA',
+      items: [
+        { name: 'OpenAI GPT-4 API', cost: 'R$ 2.000/mês', description: '~300K tokens/dia' },
+        { name: 'Vertex AI Agent Builder', cost: 'R$ 1.500/mês', description: 'Categorização IA' },
+      ],
+      subtotal: 'R$ 3.500/mês',
+    },
+    {
+      category: 'Suporte e Manutenção',
+      items: [
+        { name: 'Suporte Técnico (40h/mês)', cost: 'R$ 8.000/mês', description: 'Desenvolvedor dedicado' },
+        { name: 'Gerenciamento de Projeto', cost: 'R$ 4.000/mês', description: '20h/mês PM/Tech Lead' },
+        { name: 'Monitoramento e Incidentes', cost: 'R$ 2.000/mês', description: 'On-call 8x5' },
+      ],
+      subtotal: 'R$ 14.000/mês',
+    },
+  ];
+
+  const totalMonthlyCost = 21400;
+  const totalYearlyCost = totalMonthlyCost * 12;
+
   return (
     <section id="post-poc" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-green-600/10 border border-green-500/20 rounded-full px-4 py-2 mb-4">
             <Rocket className="w-4 h-4 text-green-400" />
-            <span className="text-sm font-medium text-green-400">Roadmap Futuro</span>
+            <span className="text-sm font-medium text-green-400">Sustentação Pós-PoC</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Evolução Pós-PoC
+            Sustentação e Evolução Pós-PoC
           </h2>
           <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-            Visão estratégica de expansão e evolução da plataforma ao longo dos próximos 24 meses
+            Custos de sustentação da plataforma e visão estratégica de expansão ao longo dos próximos 24 meses
           </p>
+        </div>
+
+        <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700 rounded-xl p-8 mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-lg">
+              <DollarSign className="w-6 h-6 text-green-400" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-white">Custo de Sustentação Mensal</h3>
+              <p className="text-slate-400 text-sm">Investimento necessário para manter a operação pós-PoC</p>
+            </div>
+          </div>
+
+          <div className="space-y-6 mb-6">
+            {sustainabilityCosts.map((section, idx) => (
+              <div key={idx} className="bg-slate-900/50 border border-slate-700 rounded-lg p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-lg font-semibold text-white flex items-center gap-2">
+                    <Server className="w-5 h-5 text-cyan-400" />
+                    {section.category}
+                  </h4>
+                  <span className="text-xl font-bold text-green-400">{section.subtotal}</span>
+                </div>
+                <div className="space-y-3">
+                  {section.items.map((item, itemIdx) => (
+                    <div key={itemIdx} className="flex items-center justify-between text-sm border-l-2 border-cyan-600/30 pl-4 py-2">
+                      <div className="flex-1">
+                        <p className="text-slate-300 font-medium">{item.name}</p>
+                        <p className="text-slate-500 text-xs">{item.description}</p>
+                      </div>
+                      <span className="text-slate-300 font-mono font-semibold">{item.cost}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t border-slate-700 pt-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 border border-green-700/50 rounded-lg p-6">
+                <p className="text-sm text-green-300 mb-2 font-medium">Custo Total Mensal</p>
+                <p className="text-4xl font-bold text-green-400 mb-1">R$ {totalMonthlyCost.toLocaleString('pt-BR')}</p>
+                <p className="text-xs text-slate-400">~260 tickets/dia processados automaticamente</p>
+              </div>
+              <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-700/50 rounded-lg p-6">
+                <p className="text-sm text-blue-300 mb-2 font-medium">Custo Total Anual</p>
+                <p className="text-4xl font-bold text-blue-400 mb-1">R$ {totalYearlyCost.toLocaleString('pt-BR')}</p>
+                <p className="text-xs text-slate-400">~95.000 tickets/ano com automação 92%+</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 bg-cyan-900/20 border border-cyan-700/50 rounded-lg p-4">
+            <div className="flex items-start gap-3">
+              <Shield className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <div className="text-sm">
+                <p className="text-cyan-300 font-semibold mb-1">ROI Esperado</p>
+                <p className="text-slate-300">
+                  Redução de <strong className="text-cyan-400">45 minutos/ticket</strong> equivale a economia de <strong className="text-cyan-400">~195 horas/mês</strong> de trabalho manual,
+                  representando <strong className="text-green-400">ROI positivo em 4-6 meses</strong> considerando custo/hora de analista.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid gap-8 mb-12">

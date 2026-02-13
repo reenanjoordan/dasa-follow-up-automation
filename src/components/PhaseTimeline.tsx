@@ -6,17 +6,18 @@ export default function PhaseTimeline() {
       id: 1,
       name: 'Fase 1: Descoberta e Design',
       duration: '2 semanas',
-      hours: '104h',
+      hours: '180h',
       color: 'blue',
       activities: [
         'Levantamento e análise de requisitos',
-        'Definição da arquitetura técnica',
+        'Definição da arquitetura técnica Azure-DASA',
         'Prototipação de interfaces (UI/UX)',
         'Planejamento de sprints e backlog',
+        'Planejamento de infraestrutura e segurança',
         'Reuniões e alinhamentos'
       ],
       deliverables: [
-        'Documento de arquitetura',
+        'Documento de arquitetura Azure-DASA',
         'Protótipos UI/UX',
         'Backlog priorizado'
       ]
@@ -25,73 +26,80 @@ export default function PhaseTimeline() {
       id: 2,
       name: 'Fase 2: Desenvolvimento Core',
       duration: '5 semanas',
-      hours: '416h',
+      hours: '620h',
       color: 'purple',
       activities: [
-        'Edge Functions e integrações (ServiceNow, Teams, AD, OpenAI)',
-        'Dashboard operacional e telas de gestão',
-        'Prototipação de interfaces (UI/UX)',
-        'Autenticação OAuth2 e RBAC',
+        'Azure Functions e integrações (ServiceNow, Teams, AD, OpenAI)',
+        'Azure Logic Apps workflows visuais',
+        'Dashboard operacional centralizado e telas de gestão',
+        'Módulos 1-6: monitoramento, categorização IA, Teams, escalação, contatos, qualidade',
+        'Infraestrutura Azure SQL Database + Secret Manager',
+        'Autenticação OAuth2 e RBAC com Azure AD',
         'Testes unitários (cobertura >80%)'
       ],
       deliverables: [
-        'API funcional',
-        'Dashboard operacional',
-        'Integração ServiceNow/Teams'
+        'Azure Functions funcionais',
+        'Dashboard operacional completo',
+        'Integração ServiceNow/Teams/Twilio',
+        'Infraestrutura Azure provisionada'
       ]
     },
     {
       id: 3,
       name: 'Fase 3: Integração e Testes',
       duration: '2 semanas',
-      hours: '156h',
+      hours: '220h',
       color: 'cyan',
       activities: [
         'Testes de integração E2E',
-        'Testes de carga e segurança (LGPD)',
+        'Testes de carga e performance',
+        'Testes de segurança (LGPD/RBAC)',
         'Bug fixes e otimizações',
-        'Documentação técnica'
+        'Documentação técnica completa',
+        'Validação de todos os módulos'
       ],
       deliverables: [
-        'Sistema integrado',
+        'Sistema integrado e validado',
         'Relatórios de testes',
-        'Documentação técnica'
+        'Documentação técnica completa'
       ]
     },
     {
       id: 4,
       name: 'Fase 4: Piloto com Grupo Select',
       duration: '2 semanas',
-      hours: '78h',
+      hours: '160h',
       color: 'green',
       activities: [
-        'Deploy em homologação',
+        'Deploy em ambiente de homologação',
         'Treinamento do grupo piloto',
-        'Monitoramento e coleta de feedback',
-        'Ajustes baseados em feedback'
+        'Monitoramento intensivo e coleta de feedback',
+        'Ajustes baseados em feedback real',
+        'Validação de métricas e KPIs'
       ],
       deliverables: [
-        'Sistema validado',
-        'Relatório de piloto',
-        'Plano de rollout'
+        'Sistema validado em homologação',
+        'Relatório de piloto com métricas',
+        'Plano de rollout detalhado'
       ]
     },
     {
       id: 5,
       name: 'Fase 5: Deploy e Go-Live',
       duration: '1 semana',
-      hours: '52h',
+      hours: '103h',
       color: 'amber',
       activities: [
         'Deploy em produção',
-        'Monitoramento intensivo',
+        'Monitoramento intensivo 24/7',
         'Ajustes em tempo real',
-        'Documentação final e handover'
+        'Documentação final e handover',
+        'Treinamento equipe de sustentação'
       ],
       deliverables: [
         'Sistema em produção',
         'Documentação completa',
-        'Plano de suporte'
+        'Plano de suporte e sustentação'
       ]
     }
   ];
@@ -105,7 +113,7 @@ export default function PhaseTimeline() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
+    <section id="cronograma" className="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -145,11 +153,11 @@ export default function PhaseTimeline() {
                 </div>
                 <div className="text-right">
                   <div className="text-slate-400 text-xs">Esforço Total</div>
-                  <div className="text-white text-xl font-bold">806h</div>
+                  <div className="text-white text-xl font-bold">1,283h</div>
                 </div>
                 <div className="text-right">
                   <div className="text-slate-400 text-xs">Equipe</div>
-                  <div className="text-white text-xl font-bold">2 devs</div>
+                  <div className="text-white text-xl font-bold">3 pessoas</div>
                 </div>
               </div>
             </div>
@@ -225,21 +233,62 @@ export default function PhaseTimeline() {
           })}
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-slate-800 to-slate-700 rounded-xl p-8 border border-slate-600">
-          <h3 className="text-xl font-bold text-white mb-6">Metodologia Ágil (Scrum)</h3>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { label: 'Sprints', value: '2 semanas', icon: '🔄' },
-              { label: 'Daily Standups', value: '15 min/dia', icon: '☀️' },
-              { label: 'Reviews', value: 'Fim de sprint', icon: '🎯' },
-              { label: 'Retrospectivas', value: 'Melhoria contínua', icon: '💡' }
-            ].map((item, index) => (
-              <div key={index} className="bg-slate-800/50 rounded-lg p-4 border border-slate-600">
-                <div className="text-3xl mb-2">{item.icon}</div>
-                <div className="text-slate-400 text-sm font-medium mb-1">{item.label}</div>
-                <div className="text-white font-semibold">{item.value}</div>
+        <div className="mt-12 grid lg:grid-cols-2 gap-8">
+          <div className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-xl p-8 border border-slate-600">
+            <h3 className="text-xl font-bold text-white mb-6">Metodologia Ágil (Scrum)</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: 'Sprints', value: '2 semanas', icon: '🔄' },
+                { label: 'Daily Standups', value: '15 min/dia', icon: '☀️' },
+                { label: 'Reviews', value: 'Fim de sprint', icon: '🎯' },
+                { label: 'Retrospectivas', value: 'Melhoria contínua', icon: '💡' }
+              ].map((item, index) => (
+                <div key={index} className="bg-slate-800/50 rounded-lg p-4 border border-slate-600">
+                  <div className="text-3xl mb-2">{item.icon}</div>
+                  <div className="text-slate-400 text-sm font-medium mb-1">{item.label}</div>
+                  <div className="text-white font-semibold text-sm">{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-xl p-8 border border-cyan-700/50">
+            <h3 className="text-xl font-bold text-white mb-6">Equipe do Projeto</h3>
+            <div className="space-y-4">
+              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-600">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-600 to-blue-500 flex items-center justify-center text-white font-bold">
+                    FG
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold">Flamarion Fogaça</div>
+                    <div className="text-cyan-400 text-sm">Project Manager / Tech Lead</div>
+                  </div>
+                </div>
               </div>
-            ))}
+              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-600">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center text-white font-bold">
+                    RJ
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold">Renan Jordão</div>
+                    <div className="text-purple-400 text-sm">Desenvolvedor Full Stack</div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-600">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 to-emerald-500 flex items-center justify-center text-white font-bold">
+                    JD
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold">Jhonathan Ducatti</div>
+                    <div className="text-green-400 text-sm">Desenvolvedor Full Stack</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
