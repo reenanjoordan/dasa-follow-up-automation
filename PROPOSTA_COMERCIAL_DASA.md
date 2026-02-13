@@ -1226,25 +1226,6 @@ Após a conclusão bem-sucedida do PoC (Jun 2026), a DASA terá 3 opções:
 
 ---
 
-## ANEXOS
-
-### Anexo A: Especificação Técnica Detalhada
-(Disponível mediante solicitação)
-
-### Anexo B: Casos de Uso e User Stories
-(Disponível mediante solicitação)
-
-### Anexo C: Diagramas de Arquitetura
-(Disponível mediante solicitação)
-
-### Anexo D: Modelo de Contrato
-(Disponível mediante solicitação)
-
-### Anexo E: Referências e Cases de Sucesso
-(Disponível mediante solicitação)
-
----
-
 ## 16. CONSIDERAÇÕES FINAIS
 
 Esta proposta representa uma **oportunidade única** para a DASA transformar completamente seu Service Desk, eliminando um backlog de 140.000 tickets, reduzindo custos operacionais em 87% e melhorando drasticamente a satisfação dos usuários.
