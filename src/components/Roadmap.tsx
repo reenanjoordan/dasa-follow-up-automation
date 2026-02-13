@@ -41,7 +41,7 @@ export default function Roadmap() {
           title: 'Fase 2: Desenvolvimento Core',
           duration: '6 semanas',
           status: 'in_progress',
-          deliverables: ['API funcional', 'Dashboard operacional', 'Integração ServiceNow/Teams'],
+          deliverables: ['Azure Logic Apps configurado', 'Azure Functions (5) funcionais', 'Integração ServiceNow/Teams/Twilio'],
         },
         {
           title: 'Fase 3: Integração e Testes',
@@ -94,7 +94,7 @@ export default function Roadmap() {
           title: 'Dashboard Avançado',
           duration: '3 semanas',
           status: 'planned',
-          deliverables: ['Power BI integrado', 'Métricas em tempo real', 'Alertas configuráveis'],
+          deliverables: ['Power BI totalmente integrado', 'Azure Monitor + Application Insights', 'Alertas configuráveis Teams/Slack'],
         },
         {
           title: 'Integração WhatsApp',

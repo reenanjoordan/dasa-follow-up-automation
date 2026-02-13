@@ -36,17 +36,17 @@ export default function Timeline() {
       status: 'Planejado',
       color: 'from-cyan-600 to-cyan-400',
       activities: [
-        'Desenvolvimento do engine de IA',
-        'Integração ServiceNow TSM',
-        'Integração Teams API',
-        'Desenvolvimento de Edge Functions',
-        'Dashboard e visualizações',
+        'Desenvolvimento do engine de IA (Vertex AI + GPT-4)',
+        'Configuração Azure Logic Apps (workflows visuais)',
+        'Desenvolvimento Azure Functions (serverless)',
+        'Integração ServiceNow TSM + Teams API',
+        'Dashboard e visualizações em React',
       ],
       deliverables: [
-        'Backend totalmente funcional',
-        'APIs prontas para testes',
-        'Frontend parcialmente completo',
-        'Testes unitários',
+        'Azure Logic Apps workflows configurados',
+        'Azure Functions (5 funções) prontas',
+        'Azure SQL Database schemas criados',
+        'Frontend React parcialmente completo',
       ],
       team: '3 desenvolvedores',
       effort: '1000+ horas',
@@ -239,9 +239,10 @@ export default function Timeline() {
               <div>
                 <p className="text-sm text-slate-300 mb-2 font-medium">Críticas:</p>
                 <ul className="text-xs text-slate-400 space-y-1">
-                  <li>✓ Aprovação API ServiceNow</li>
-                  <li>✓ Acesso Teams API</li>
-                  <li>✓ Dados de AD sincronizados</li>
+                  <li>✓ Aprovação API ServiceNow TSM</li>
+                  <li>✓ Acesso Teams API via Graph API</li>
+                  <li>✓ Azure AD / Entra ID configurado</li>
+                  <li>✓ Azure SQL Database provisionado</li>
                 </ul>
               </div>
               <div className="border-t border-green-700 pt-3">

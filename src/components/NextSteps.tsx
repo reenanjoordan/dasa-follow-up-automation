@@ -32,7 +32,7 @@ export default function NextSteps() {
         owner: 'Renan + Tech Team',
         deadline: 'Terça/Quarta (18-19/02)',
         priority: 'ALTA',
-        description: 'Reunião técnica para validar integrações ServiceNow, Teams e AD',
+        description: 'Reunião técnica para validar Azure Logic Apps, Azure Functions, ServiceNow API, Teams Graph API e Azure AD',
         icon: Zap,
       },
       {
@@ -60,7 +60,7 @@ export default function NextSteps() {
         owner: 'DevOps',
         deadline: 'Semana de 24/02',
         priority: 'ALTA',
-        description: 'Provisionar dev, homolog e staging com acesso às APIs',
+        description: 'Provisionar Azure subscription, Logic Apps, Functions, SQL Database e acesso às APIs (ServiceNow, Teams)',
       },
       {
         id: 7,
@@ -76,7 +76,7 @@ export default function NextSteps() {
         owner: 'Security/Compliance',
         deadline: 'Semana de 24/02',
         priority: 'ALTA',
-        description: 'Definir RLS, criptografia e conformidade LGPD',
+        description: 'Definir RBAC (Azure AD), Secret Manager, TLS 1.3, audit log (Azure SQL) e conformidade LGPD',
       },
     ],
     governance: [

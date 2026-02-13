@@ -175,35 +175,91 @@ export default function ROICalculator() {
 
         <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-8">
           <h3 className="text-xl font-semibold text-white mb-6">Análise Detalhada</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <p className="text-sm text-slate-400 mb-2">Horas atuais por mês (manual)</p>
-              <p className="text-2xl font-bold text-white">{calculations.currentHoursCost}</p>
-              <p className="text-xs text-slate-500 mt-1">Custo mensal com processo manual</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+              <p className="text-sm text-slate-400">Horas atuais por mês (manual)</p>
+              <p className="text-5xl font-bold text-white">5850.0</p>
+              <p className="text-sm text-slate-500">Custo mensal com processo manual</p>
             </div>
-            <div>
-              <p className="text-sm text-slate-400 mb-2">Horas futuras por mês (IA)</p>
-              <p className="text-2xl font-bold text-cyan-300">{calculations.futureHoursCost}</p>
-              <p className="text-xs text-slate-500 mt-1">Custo mensal com automação</p>
+            <div className="space-y-3">
+              <p className="text-sm text-slate-400">Horas futuras por mês (IA)</p>
+              <p className="text-5xl font-bold text-cyan-300">650.0</p>
+              <p className="text-sm text-slate-500">Custo mensal com automação</p>
             </div>
           </div>
         </div>
 
         <div className="mt-12 bg-gradient-to-r from-slate-800/50 to-slate-800/30 border border-slate-700 rounded-xl p-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Cenários Recomendados</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button className="p-4 bg-slate-900/50 border border-slate-700 rounded-lg hover:border-blue-500 hover:bg-slate-800 transition-all text-left">
-              <p className="font-semibold text-blue-300 mb-1">Cenário Conservador</p>
-              <p className="text-xs text-slate-400">7.8k tickets, 45min, R$85k impl.</p>
-            </button>
-            <button className="p-4 bg-slate-900/50 border border-slate-700 rounded-lg hover:border-cyan-500 hover:bg-slate-800 transition-all text-left">
-              <p className="font-semibold text-cyan-300 mb-1">Cenário Médio</p>
-              <p className="text-xs text-slate-400">10k tickets, 40min, R$100k impl.</p>
-            </button>
-            <button className="p-4 bg-slate-900/50 border border-slate-700 rounded-lg hover:border-green-500 hover:bg-slate-800 transition-all text-left">
-              <p className="font-semibold text-green-300 mb-1">Cenário Otimista</p>
-              <p className="text-xs text-slate-400">12k tickets, 35min, R$110k impl.</p>
-            </button>
+          <h3 className="text-lg font-semibold text-white mb-6">Cenários Recomendados</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 bg-slate-900/50 border border-slate-700 rounded-lg hover:border-blue-500 hover:bg-slate-800 transition-all">
+              <p className="font-semibold text-blue-300 mb-3 text-lg">Cenário Conservador</p>
+              <p className="text-sm text-slate-400 mb-1">7.8k tickets, 45min, R$85k impl.</p>
+            </div>
+            <div className="p-6 bg-slate-900/50 border border-cyan-600 rounded-lg hover:border-cyan-400 hover:bg-slate-800 transition-all">
+              <p className="font-semibold text-cyan-300 mb-3 text-lg">Cenário Médio</p>
+              <p className="text-sm text-slate-400 mb-1">10k tickets, 40min, R$100k impl.</p>
+            </div>
+            <div className="p-6 bg-slate-900/50 border border-slate-700 rounded-lg hover:border-green-500 hover:bg-slate-800 transition-all">
+              <p className="font-semibold text-green-300 mb-3 text-lg">Cenário Otimista</p>
+              <p className="text-sm text-slate-400 mb-1">12k tickets, 35min, R$110k impl.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700 rounded-xl p-8">
+          <h3 className="text-2xl font-bold text-white mb-8">Cenário Atual vs Futuro</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h4 className="text-lg font-semibold text-red-400 mb-4">Processo Manual (Atual)</h4>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 font-bold text-xl">✗</span>
+                  <p className="text-slate-300">Revisão manual de 260+ tickets/dia</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 font-bold text-xl">✗</span>
+                  <p className="text-slate-300">45 minutos por ticket em média</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 font-bold text-xl">✗</span>
+                  <p className="text-slate-300">Categorização manual propensa a erros</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 font-bold text-xl">✗</span>
+                  <p className="text-slate-300">Contato manual sem padronização</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 font-bold text-xl">✗</span>
+                  <p className="text-slate-300">Escalações lentas e inconsistentes</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h4 className="text-lg font-semibold text-green-400 mb-4">Com Automação (Futuro)</h4>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold text-xl">✓</span>
+                  <p className="text-slate-300">Processamento automático 24/7</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold text-xl">✓</span>
+                  <p className="text-slate-300">Reduzido para 5 minutos por ticket</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold text-xl">✓</span>
+                  <p className="text-slate-300">92% acurácia em categorização</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold text-xl">✓</span>
+                  <p className="text-slate-300">Contato automático via Teams</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold text-xl">✓</span>
+                  <p className="text-slate-300">Escalação inteligente instantânea</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
