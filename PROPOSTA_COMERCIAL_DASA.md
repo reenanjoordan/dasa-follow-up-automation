@@ -1,11 +1,9 @@
 # PROPOSTA COMERCIAL
 ## Automação Inteligente de Service Desk para DASA
-### Stack 100% Azure/DASA
 
 **Apresentado por:** Leega Tecnologia
 **Data:** 13 de Fevereiro de 2026
 **Validade:** 30 dias
-**Versão:** 2.0
 
 ---
 
@@ -1293,9 +1291,4 @@ contato@leega.com.br
 **Esta proposta foi elaborada exclusivamente para DASA e é estritamente confidencial.**
 **Reprodução, distribuição ou divulgação não autorizada é proibida.**
 
----
-
-*Documento gerado em 13 de Fevereiro de 2026*
-*Versão 2.0 - Stack 100% Azure/DASA*
-*Validade: 30 dias (até 15 de Março de 2026)*
 *© 2026 Leega Tecnologia. Todos os direitos reservados.*
