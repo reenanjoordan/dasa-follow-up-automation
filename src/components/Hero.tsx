@@ -85,11 +85,12 @@ export default function Hero() {
           </button>
           <a
             href="/DASA_Service_Desk_Follow-Up_Automation_PoC_Site.pdf"
-            download="DASA_Service_Desk_Follow-Up_Automation_PoC_Site.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-500/25 transition-all flex items-center gap-2 justify-center"
           >
             <FileDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-            Baixar Proposta PDF
+            Proposta Comercial em PDF
           </a>
         </div>
 
