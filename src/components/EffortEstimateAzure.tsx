@@ -5,15 +5,15 @@ export default function EffortEstimateAzure() {
     {
       icon: Clock,
       label: 'Duração Total',
-      value: '16 semanas',
-      subtitle: '~4 meses de desenvolvimento',
+      value: '12 semanas',
+      subtitle: '~3 meses de desenvolvimento',
       color: 'blue'
     },
     {
       icon: Users,
       label: 'Equipe',
-      value: '3 devs',
-      subtitle: '1.920h totais',
+      value: '2 devs',
+      subtitle: '806h totais',
       color: 'cyan'
     },
     {
@@ -60,22 +60,16 @@ export default function EffortEstimateAzure() {
 
   const team = [
     {
-      name: 'Desenvolvedor Full-Stack Sênior 1',
-      role: 'Azure Architecture + Backend',
-      hours: '640h totais',
+      name: 'Flamarion Fogaça',
+      role: 'Desenvolvedor Full-Stack Sênior',
+      hours: '403h totais',
       color: 'blue'
     },
     {
-      name: 'Desenvolvedor Full-Stack Sênior 2',
-      role: 'Azure Functions + Integrations',
-      hours: '640h totais',
+      name: 'Renan Jordão',
+      role: 'Desenvolvedor Full-Stack Sênior',
+      hours: '403h totais',
       color: 'cyan'
-    },
-    {
-      name: 'Desenvolvedor Full-Stack Sênior 3',
-      role: 'Frontend React + Power BI',
-      hours: '640h totais',
-      color: 'purple'
     }
   ];
 
@@ -174,9 +168,9 @@ export default function EffortEstimateAzure() {
 
               <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-lg p-6 border border-blue-500/30">
                 <div className="text-white font-bold text-lg mb-2">Total da Equipe</div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">1.920 horas</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">806 horas</div>
                 <div className="text-slate-300 text-sm">
-                  3 profissionais seniores em tempo integral durante 16 semanas (4 meses)
+                  2 profissionais seniores em tempo integral durante 12 semanas (~3 meses)
                 </div>
                 <div className="mt-4 pt-4 border-t border-blue-500/30">
                   <div className="text-slate-400 text-sm mb-2">Dedicação 100% ao projeto DASA</div>

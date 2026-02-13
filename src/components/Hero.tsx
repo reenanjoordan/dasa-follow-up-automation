@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Zap, TrendingUp, Clock } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, Clock, FileDown } from 'lucide-react';
 
 export default function Hero() {
   const [ticketCount, setTicketCount] = useState(0);
@@ -83,6 +83,14 @@ export default function Hero() {
           >
             Ver Documentação
           </button>
+          <a
+            href="/DASA_Service_Desk_Follow-Up_Automation_PoC_Site.pdf"
+            download="DASA_Service_Desk_Follow-Up_Automation_PoC_Site.pdf"
+            className="group px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-500/25 transition-all flex items-center gap-2 justify-center"
+          >
+            <FileDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+            Baixar Proposta PDF
+          </a>
         </div>
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-slate-800">

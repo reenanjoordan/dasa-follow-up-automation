@@ -10,43 +10,40 @@ export default function PhaseTimeline() {
       color: 'blue',
       activities: [
         'Levantamento e análise de requisitos',
-        'Definição da arquitetura Azure técnica',
+        'Definição da arquitetura técnica',
         'Prototipação de interfaces (UI/UX)',
         'Planejamento de sprints e backlog',
         'Reuniões e alinhamentos'
       ],
       deliverables: [
-        'Documento de arquitetura Azure completo',
-        'Protótipos UI/UX (Figma)',
-        'Backlog priorizado (Jira)'
+        'Documento de arquitetura',
+        'Protótipos UI/UX',
+        'Backlog priorizado'
       ]
     },
     {
       id: 2,
       name: 'Fase 2: Desenvolvimento Core',
-      duration: '6 semanas',
+      duration: '5 semanas',
       hours: '416h',
       color: 'purple',
       activities: [
-        'Desenvolvimento engine IA (Vertex AI + Azure OpenAI GPT-4)',
-        'Configuração Azure Logic Apps (5+ workflows visuais)',
-        'Desenvolvimento Azure Functions (5 funções serverless)',
-        'Integração ServiceNow TSM + Teams Graph API + Twilio',
-        'Dashboard React com Power BI embarcado',
-        'Autenticação Azure AD e RBAC',
+        'Edge Functions e integrações (ServiceNow, Teams, AD, OpenAI)',
+        'Dashboard operacional e telas de gestão',
+        'Prototipação de interfaces (UI/UX)',
+        'Autenticação OAuth2 e RBAC',
         'Testes unitários (cobertura >80%)'
       ],
       deliverables: [
-        'Azure Logic Apps configurado',
-        '5 Azure Functions funcionais',
-        'Azure SQL schemas criados',
-        'Integração ServiceNow/Teams/Twilio'
+        'API funcional',
+        'Dashboard operacional',
+        'Integração ServiceNow/Teams'
       ]
     },
     {
       id: 3,
       name: 'Fase 3: Integração e Testes',
-      duration: '4 semanas',
+      duration: '2 semanas',
       hours: '156h',
       color: 'cyan',
       activities: [
@@ -63,7 +60,7 @@ export default function PhaseTimeline() {
     },
     {
       id: 4,
-      name: 'Fase 4: Piloto e Validação',
+      name: 'Fase 4: Piloto com Grupo Select',
       duration: '2 semanas',
       hours: '78h',
       color: 'green',
@@ -82,7 +79,7 @@ export default function PhaseTimeline() {
     {
       id: 5,
       name: 'Fase 5: Deploy e Go-Live',
-      duration: '2 semanas',
+      duration: '1 semana',
       hours: '52h',
       color: 'amber',
       activities: [
@@ -116,7 +113,7 @@ export default function PhaseTimeline() {
             <h2 className="text-4xl font-bold text-white">Cronograma de Fases</h2>
           </div>
           <p className="text-xl text-slate-300">
-            5 fases estruturadas para entrega completa em 16 semanas (4 meses)
+            5 fases estruturadas para entrega completa em 12 semanas (~3 meses)
           </p>
         </div>
 
@@ -144,11 +141,15 @@ export default function PhaseTimeline() {
               <div className="flex items-center gap-6">
                 <div className="text-right">
                   <div className="text-slate-400 text-xs">Duração</div>
-                  <div className="text-white text-xl font-bold">16 semanas</div>
+                  <div className="text-white text-xl font-bold">12 semanas</div>
                 </div>
                 <div className="text-right">
                   <div className="text-slate-400 text-xs">Esforço Total</div>
                   <div className="text-white text-xl font-bold">806h</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-slate-400 text-xs">Equipe</div>
+                  <div className="text-white text-xl font-bold">2 devs</div>
                 </div>
               </div>
             </div>
