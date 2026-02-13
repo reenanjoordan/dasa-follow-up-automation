@@ -6,84 +6,86 @@ export default function TechnicalScope() {
 
   const scopes = [
     {
-      id: 'input-channels',
-      title: 'Canais de Entrada Multicanal',
-      description: 'Voz, Chat e Mensageria via tecnologias já utilizadas na DASA',
-      stack: 'Twilio (URA/WhatsApp) + Microsoft Teams',
+      id: 'automated-monitoring',
+      title: 'Monitoramento Automático de Tickets',
+      description: 'Sistema que identifica e monitora tickets antigos',
+      stack: 'Supabase Edge Functions + Freshworks API',
       features: [
-        'Integração com Twilio para URA e WhatsApp (já utilizados)',
-        'Microsoft Teams para comunicação interna (já utilizado)',
-        'Captura de tickets de múltiplos canais',
-        'Normalização de dados de entrada',
-        'Rastreamento de origem do contato',
+        'Identificação de tickets com 7+ dias sem atualização',
+        'Análise de usuários inativos via Entra ID (Azure AD)',
+        'Trigger de escalação baseado em regras de negócio',
+        'Dashboard em tempo real com visibilidade de backlog',
+        'Integração com Freshworks para gestão de tickets',
       ],
     },
     {
-      id: 'cognitive-brain',
-      title: 'Cérebro Cognitivo (IA)',
-      description: 'Interpretação de intenção e decisão de ação com IA',
-      stack: 'Vertex AI Agent Builder + OpenAI GPT-4 (reserva B)',
+      id: 'smart-categorization',
+      title: 'Categorização Inteligente com IA',
+      description: 'Engine de IA para classificação automática',
+      stack: 'Vertex AI Agent Builder + OpenAI GPT-4 (reserva)',
       features: [
-        'Vertex AI Agent Builder como motor principal (já aprovado)',
-        'OpenAI GPT-4 como fallback e reserva B',
-        '92% de acurácia em categorização de tickets',
-        'Análise contextual e detecção de intenção',
-        'Aprendizado contínuo com feedback humano',
+        '92% de acurácia em categorização automática',
+        'Análise contextual de descrição do ticket',
         'Detecção de categorias ausentes no catálogo',
+        'Fila de revisão humana para 8% incertos',
+        'Aprendizado contínuo com feedback',
+        'Integração via Supabase Edge Functions',
       ],
     },
     {
-      id: 'orchestrator',
-      title: 'Orquestrador de Ações',
-      description: 'Execução de fluxos e integrações corporativas',
-      stack: 'Azure Logic Apps (aprovado, substitui n8n)',
+      id: 'teams-integration',
+      title: 'Integração com Microsoft Teams',
+      description: 'Comunicação automática e rastreada',
+      stack: 'Microsoft Graph API + Entra ID + Supabase',
       features: [
-        'Azure Logic Apps como orquestrador central',
-        'Automação de workflows complexos',
-        'Integração nativa com ecossistema Microsoft',
-        'Escalação baseada em regras de negócio',
-        'Monitoramento de SLA e tempo de resposta',
+        'Envio automático de mensagens via Microsoft Teams',
+        'Mensagens padronizadas e personalizáveis',
+        'Rastreamento de evidências de contato',
+        'Resposta automática com contexto do ticket',
+        'Autenticação via Entra ID (Azure AD)',
+        'Orquestração via Supabase Edge Functions',
       ],
     },
     {
-      id: 'microsoft-integrations',
-      title: 'Integrações Microsoft',
-      description: 'Execução de automações corporativas no ecossistema Microsoft',
-      stack: 'Graph API, Entra ID, Intune, Freshworks',
+      id: 'escalation-routing',
+      title: 'Roteamento e Escalação Inteligente',
+      description: 'Distribuição automática para grupos responsáveis',
+      stack: 'Supabase Edge Functions + Freshworks',
       features: [
-        'Microsoft Graph API para Teams e Office 365',
-        'Entra ID (Azure AD) para autenticação e usuários',
-        'Intune para validação de dispositivos',
-        'Freshworks para ticketing e knowledge base',
-        'Sincronização automática de dados de usuários',
+        'Roteamento baseado em criticidade do ticket',
+        'Escalação automática após 3 tentativas',
+        'Notificação do gestor da fila responsável via Teams',
+        'Rastreamento de SLA por grupo no Freshworks',
+        'Métricas de resposta por técnico',
+        'Regras de negócio configuráveis',
       ],
     },
     {
-      id: 'infrastructure-security',
-      title: 'Infraestrutura e Segurança',
-      description: 'Hospedagem, API Gateway, Secrets e IAM',
-      stack: 'Azure Functions, App Service, Secret Manager, RBAC OAuth2/JWT',
+      id: 'contact-attempts',
+      title: 'Gerenciamento de Tentativas de Contato',
+      description: 'Processo estruturado de 3 tentativas',
+      stack: 'Supabase Scheduler + Microsoft Teams',
       features: [
-        'Azure Functions para execução serverless',
-        'Azure App Service para hospedagem',
-        'Secret Manager para credenciais seguras',
-        'RBAC com OAuth2/JWT para controle de acesso',
-        'API Gateway para roteamento e throttling',
-        'Conformidade LGPD e segurança healthcare',
+        '1 tentativa por dia útil, durante 3 dias',
+        'Horário comercial (08:00-18:00, exceto 12:00-14:00)',
+        'Contato via Teams e telefone (Twilio)',
+        'Registro de evidências no chamado (Freshworks)',
+        'Encerramento automático após 3 tentativas sem retorno',
+        'Auditoria completa de todas as tentativas',
       ],
     },
     {
-      id: 'observability-metrics',
-      title: 'Observabilidade e Métricas',
-      description: 'Logs, auditoria e KPIs de performance',
-      stack: 'Freshworks, Power BI, Azure Monitor',
+      id: 'data-quality',
+      title: 'Qualidade de Dados e Limpeza',
+      description: 'Limpeza e validação contínua de dados',
+      stack: 'Supabase PostgreSQL + Entra ID',
       features: [
-        'Freshworks para rastreamento de tickets',
-        'Power BI para dashboards executivos',
-        'Azure Monitor para logs e alertas',
-        'Auditoria completa de ações e mudanças',
-        'KPIs em tempo real: automação, lead time, custo',
-        'Alertas proativos de degradação de performance',
+        'Identificação de usuários inativos via Entra ID',
+        'Validação de categorias de ticket',
+        'Detecção de tickets em "limbo"',
+        'Sincronização com Active Directory',
+        'Auditoria de mudanças de status',
+        'Relatórios de qualidade de dados em Power BI',
       ],
     },
   ];
@@ -137,16 +139,17 @@ export default function TechnicalScope() {
         <div className="mt-12 bg-green-900/20 border border-green-700 rounded-xl p-6 flex items-start gap-4">
           <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" />
           <div>
-            <h4 className="font-semibold text-green-300 mb-2">Governança e Aprovação DASA</h4>
+            <h4 className="font-semibold text-green-300 mb-2">Arquitetura Híbrida: Supabase + Ferramentas DASA</h4>
             <p className="text-green-200 text-sm mb-3">
-              Todas as tecnologias listadas estão <strong>alinhadas à governança DASA</strong> e já foram aprovadas ou estão em uso:
+              Solução que <strong>combina Supabase</strong> (backend eficiente e moderno) com <strong>ferramentas já utilizadas na DASA</strong>, reduzindo custos de sustentação:
             </p>
             <ul className="text-green-200 text-sm space-y-1.5">
-              <li>• Twilio + Microsoft Teams (já utilizados)</li>
-              <li>• Azure Logic Apps (aprovado como substituto do n8n)</li>
-              <li>• Vertex AI + OpenAI GPT-4 (aprovado com reserva B)</li>
-              <li>• Azure Functions + Secret Manager + RBAC OAuth2/JWT</li>
-              <li>• Freshworks, Power BI, Azure Monitor (já utilizados)</li>
+              <li>• <strong>Backend:</strong> Supabase (PostgreSQL + Edge Functions + RLS)</li>
+              <li>• <strong>IA:</strong> Vertex AI Agent Builder + OpenAI GPT-4 (aprovado)</li>
+              <li>• <strong>Comunicação:</strong> Microsoft Teams via Graph API (já utilizado)</li>
+              <li>• <strong>Ticketing:</strong> Freshworks (já utilizado)</li>
+              <li>• <strong>Identidade:</strong> Entra ID / Azure AD (já utilizado)</li>
+              <li>• <strong>Analytics:</strong> Power BI (já utilizado)</li>
             </ul>
           </div>
         </div>

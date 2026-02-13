@@ -79,31 +79,31 @@ export default function ExecutiveSummary() {
         <div className="bg-gradient-to-br from-green-900/20 to-blue-900/20 border border-green-700/50 rounded-xl p-8 mb-12">
           <div className="flex items-center gap-3 mb-4">
             <CheckCircle className="w-6 h-6 text-green-400" />
-            <h3 className="text-2xl font-bold text-white">Alinhamento à Governança DASA</h3>
+            <h3 className="text-2xl font-bold text-white">Arquitetura Híbrida: Moderno + DASA</h3>
           </div>
           <p className="text-slate-300 mb-6">
-            Esta solução utiliza <strong className="text-green-300">100% de tecnologias aprovadas e já em uso</strong> na DASA, garantindo compliance, redução de custos de sustentação e eficiência operacional máxima:
+            Solução que <strong className="text-green-300">combina backend moderno (Supabase)</strong> com <strong className="text-green-300">ferramentas já utilizadas na DASA</strong>, garantindo eficiência operacional e redução de custos de sustentação:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-              <p className="text-sm text-slate-400 mb-2">Canais de Comunicação</p>
-              <p className="text-cyan-300 font-semibold">Twilio + Microsoft Teams</p>
-              <span className="text-xs text-green-400">✓ Já utilizados</span>
+              <p className="text-sm text-slate-400 mb-2">Backend & Orquestração</p>
+              <p className="text-cyan-300 font-semibold">Supabase (PostgreSQL + Edge Functions)</p>
+              <span className="text-xs text-blue-400">✓ Moderno e eficiente</span>
             </div>
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
               <p className="text-sm text-slate-400 mb-2">IA Cognitiva</p>
               <p className="text-cyan-300 font-semibold">Vertex AI + OpenAI GPT-4</p>
-              <span className="text-xs text-blue-400">✓ Aprovado</span>
+              <span className="text-xs text-blue-400">✓ Aprovado pela DASA</span>
             </div>
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-              <p className="text-sm text-slate-400 mb-2">Orquestrador</p>
-              <p className="text-cyan-300 font-semibold">Azure Logic Apps</p>
-              <span className="text-xs text-blue-400">✓ Aprovado (substitui n8n)</span>
+              <p className="text-sm text-slate-400 mb-2">Ticketing & Analytics</p>
+              <p className="text-cyan-300 font-semibold">Freshworks + Power BI</p>
+              <span className="text-xs text-green-400">✓ Já utilizados na DASA</span>
             </div>
             <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-              <p className="text-sm text-slate-400 mb-2">Infraestrutura e Segurança</p>
-              <p className="text-cyan-300 font-semibold">Azure Functions + RBAC</p>
-              <span className="text-xs text-green-400">✓ Já utilizados</span>
+              <p className="text-sm text-slate-400 mb-2">Comunicação & Identidade</p>
+              <p className="text-cyan-300 font-semibold">Teams (Graph API) + Entra ID</p>
+              <span className="text-xs text-green-400">✓ Já utilizados na DASA</span>
             </div>
           </div>
         </div>

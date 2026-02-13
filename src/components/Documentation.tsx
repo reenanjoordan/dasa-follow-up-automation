@@ -40,16 +40,16 @@ export default function Documentation() {
       color: 'cyan',
       items: [
         {
-          title: 'Arquitetura em Camadas',
-          description: '6 camadas: (1) Canais via Twilio/Teams, (2) IA Cognitiva com Vertex AI + GPT-4, (3) Orquestrador Azure Logic Apps, (4) Integrações Microsoft, (5) Infraestrutura Azure, (6) Observabilidade com Freshworks/Power BI.',
+          title: 'Arquitetura Híbrida',
+          description: 'Sistema modular com backend Supabase (PostgreSQL + Edge Functions) integrando com ferramentas DASA. 4 camadas principais: Frontend, Edge Functions, Database & Storage, External APIs.',
         },
         {
-          title: 'Stack Tecnológica DASA',
-          description: 'Canais: Twilio + Microsoft Teams (já utilizados). IA: Vertex AI Agent Builder + OpenAI GPT-4 (aprovado). Orquestração: Azure Logic Apps (aprovado). Infraestrutura: Azure Functions + Secret Manager + RBAC OAuth2/JWT.',
+          title: 'Stack Tecnológica',
+          description: 'Backend: Supabase (PostgreSQL + Edge Functions + RLS). IA: Vertex AI Agent Builder + GPT-4 (aprovado). Comunicação: Microsoft Teams via Graph API. Ticketing: Freshworks. Analytics: Power BI.',
         },
         {
-          title: 'Integrações Aprovadas',
-          description: 'Microsoft Graph API, Entra ID (Azure AD), Intune, Freshworks para ticketing, Power BI para dashboards, Azure Monitor para logs e alertas. Todas as tecnologias alinhadas à governança DASA.',
+          title: 'Integrações',
+          description: 'Freshworks API para gestão de tickets (já utilizado), Microsoft Teams via Graph API (já utilizado), Entra ID para autenticação (já utilizado), Power BI para dashboards executivos (já utilizado).',
         },
       ],
     },
@@ -97,16 +97,16 @@ export default function Documentation() {
       color: 'green',
       items: [
         {
-          title: 'Stacks Aprovadas pela DASA',
-          description: 'Twilio + Microsoft Teams (já utilizados), Vertex AI + OpenAI GPT-4 (aprovado com reserva B), Azure Logic Apps (aprovado, substitui n8n), Azure Functions + Secret Manager + RBAC OAuth2/JWT.',
+          title: 'Arquitetura Híbrida Aprovada',
+          description: 'Backend moderno em Supabase (open-source, sem vendor lock-in) + Integrações com ferramentas DASA já utilizadas: Freshworks, Microsoft Teams via Graph API, Entra ID, Power BI.',
         },
         {
           title: 'Redução de Custos de Sustentação',
-          description: 'Uso exclusivo de tecnologias já licenciadas ou aprovadas pela DASA. Elimina necessidade de novos contratos, treinamentos ou processos de homologação. Reduz TCO (Total Cost of Ownership).',
+          description: 'Reutilização de ferramentas já licenciadas pela DASA (Freshworks, Teams, Entra ID, Power BI). Backend Supabase com custo previsível e escalável. Sem necessidade de novos contratos ou treinamentos.',
         },
         {
           title: 'Compliance e Auditoria',
-          description: 'Todas as integrações seguem políticas de segurança DASA. Logs centralizados no Azure Monitor. Auditoria completa de ações no Freshworks. Conformidade LGPD garantida.',
+          description: 'RLS em todas as tabelas Supabase. Autenticação via Entra ID (já utilizado). Auditoria completa no Freshworks. Logs imutáveis. Conformidade LGPD garantida.',
         },
       ],
     },
@@ -117,15 +117,15 @@ export default function Documentation() {
       items: [
         {
           title: 'Autenticação',
-          description: 'RBAC OAuth2/JWT com Entra ID (Azure AD). SSO corporativo integrado. Secret Manager para credenciais. Níveis de acesso: Admin, Analista, Viewer.',
+          description: 'OAuth2 com Entra ID (Azure AD) para SSO corporativo. RBAC (Role-Based Access Control) com níveis: Admin, Analista, Viewer. Row Level Security (RLS) em todas as tabelas Supabase.',
         },
         {
           title: 'Proteção de Dados',
-          description: 'Criptografia em trânsito (TLS 1.3) e em repouso via Azure. Conformidade LGPD com auditoria completa. API Gateway para controle de acesso e throttling.',
+          description: 'Criptografia em trânsito (TLS 1.3) e em repouso (AES-256). Conformidade LGPD com auditoria completa. Secrets gerenciados via Supabase Vault.',
         },
         {
           title: 'Monitoramento de Segurança',
-          description: 'Azure Monitor para detecção de anomalias. Alertas automáticos de tentativas de acesso não autorizado. Logs imutáveis para investigação forense.',
+          description: 'Logs completos de todas as operações. Alertas automáticos de anomalias. Auditoria de mudanças de dados. Conformidade com segurança healthcare.',
         },
       ],
     },
