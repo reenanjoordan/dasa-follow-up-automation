@@ -413,11 +413,8 @@ Azure Function: metrics-aggregator
 
 ## 📞 Contato
 
-- **Email**: daniel.gomes@dasa.com.br
-- **Teams**: DASA-FollowUp
-- **Tech Lead**: renan@dasa.com.br
-- **Próxima Reunião**: Terça/Quarta (18-19/02)
+- **Email**: contato@leega.com.br
 
 ## 📜 Licença
 
-© 2026 DASA Service Desk Automation PoC. Todos os direitos reservados.
+© 2026 Leega. Todos os direitos reservados.
