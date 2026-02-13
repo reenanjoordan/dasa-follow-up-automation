@@ -654,11 +654,17 @@ ROI 3 anos = 1.450%+
 ### 9.9 Conclusão da Análise Financeira
 
 ✅ **Payback ultra-rápido**: 6-8 semanas (1,5-2 meses)
+
 ✅ **ROI excepcional**: 1.098% em 3 anos (retorno de 11x)
+
 ✅ **Economia recorrente**: R$ 253.900/mês (R$ 3M+/ano)
+
 ✅ **Backlog eliminado**: R$ 4,6M de economia one-time
+
 ✅ **Equivalente a**: 32 analistas economizados
+
 ✅ **Stack Azure/DASA**: R$ 141.600/ano economizados em licenças
+
 ✅ **Risco muito baixo**: Mesmo com 20% menos economia, ROI ainda é 858%
 
 **Decisão clara: Investimento se paga em menos de 2 meses e gera retorno massivo!**
