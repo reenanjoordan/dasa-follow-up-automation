@@ -4,10 +4,14 @@ import Hero from './components/Hero';
 import ExecutiveSummary from './components/ExecutiveSummary';
 import TechnicalScope from './components/TechnicalScope';
 import Architecture from './components/Architecture';
+import WorkflowDiagram from './components/WorkflowDiagram';
 import KPIsDashboard from './components/KPIsDashboard';
 import ROICalculator from './components/ROICalculator';
 import InteractiveDemo from './components/InteractiveDemo';
 import EffortEstimate from './components/EffortEstimate';
+import EffortEstimateAzure from './components/EffortEstimateAzure';
+import PhaseTimeline from './components/PhaseTimeline';
+import ProjectTimeline from './components/ProjectTimeline';
 import Timeline from './components/Timeline';
 import PostPoC from './components/PostPoC';
 import NextSteps from './components/NextSteps';
@@ -62,7 +66,11 @@ function App() {
           <Architecture />
         </section>
 
-        <section id="kpis" className="snap-start">
+        <section id="workflows" className="snap-start">
+          <WorkflowDiagram />
+        </section>
+
+        <section id="kpis" className="snap-start bg-slate-900/50">
           <KPIsDashboard />
         </section>
 
@@ -74,11 +82,19 @@ function App() {
           <InteractiveDemo />
         </section>
 
-        <section id="effort-estimate" className="snap-start bg-slate-900/50">
-          <EffortEstimate />
+        <section id="effort-estimate-azure" className="snap-start">
+          <EffortEstimateAzure />
         </section>
 
-        <section id="timeline" className="snap-start">
+        <section id="phase-timeline" className="snap-start bg-slate-900/50">
+          <PhaseTimeline />
+        </section>
+
+        <section id="project-timeline" className="snap-start">
+          <ProjectTimeline />
+        </section>
+
+        <section id="timeline" className="snap-start bg-slate-900/50">
           <Timeline />
         </section>
 
