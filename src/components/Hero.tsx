@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Zap, TrendingUp, Clock, FileDown, Calendar } from 'lucide-react';
+import { Zap, TrendingUp, Clock, FileDown } from 'lucide-react';
 
 export default function Hero() {
   const [ticketCount, setTicketCount] = useState(0);
@@ -76,13 +76,6 @@ export default function Hero() {
           >
             <FileDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
             Cronograma Completo
-          </button>
-          <button
-            onClick={() => document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group px-8 py-4 bg-slate-800 text-white font-semibold rounded-xl border border-cyan-500/30 hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/10 transition-all flex items-center gap-2 justify-center"
-          >
-            <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            Timeline do Projeto
           </button>
           <a
             href="/DASA_Service_Desk_Follow-Up_Automation_PoC_Site.pdf"

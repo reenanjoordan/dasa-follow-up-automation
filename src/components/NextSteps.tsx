@@ -11,16 +11,16 @@ export default function NextSteps() {
       {
         id: 1,
         title: 'Aprovação do Escopo',
-        owner: 'Olavo Gomes, Daniel Gomes, Fabio Alexandre, Jônatan Magno',
+        owner: 'Stakeholders DASA',
         deadline: 'Até Segunda (17/02)',
         priority: 'CRÍTICA',
-        description: 'Revisão final do escopo técnico e funcional com stakeholders',
+        description: 'Revisão final do escopo técnico e funcional com Stack 100% Azure-DASA',
         icon: CheckSquare,
       },
       {
         id: 2,
         title: 'Documentação Detalhada',
-        owner: 'Jonathan Magno',
+        owner: 'Equipe de Processos',
         deadline: 'Até Segunda (17/02)',
         priority: 'CRÍTICA',
         description: 'Enviar planilha de Follow-Up, base de conhecimento e prints de tela',
@@ -29,7 +29,7 @@ export default function NextSteps() {
       {
         id: 3,
         title: 'Alinhamento de Arquitetura',
-        owner: 'Renan + Tech Team',
+        owner: 'Tech Team',
         deadline: 'Terça/Quarta (18-19/02)',
         priority: 'ALTA',
         description: 'Reunião técnica para validar Azure Logic Apps, Azure Functions, ServiceNow API, Teams Graph API e Azure AD',
@@ -41,40 +41,40 @@ export default function NextSteps() {
         owner: 'Gestão',
         deadline: 'Até Quarta (19/02)',
         priority: 'ALTA',
-        description: 'Definir recursos para desenvolvimento - 3 desenvolvedores',
+        description: 'Definir recursos para desenvolvimento - 2 desenvolvedores Full-Stack Sênior',
         icon: Users,
       },
     ],
     week2: [
       {
         id: 5,
-        title: 'Início do Design',
-        owner: 'Tech Lead + Architect',
-        deadline: 'Semana de 24/02',
+        title: 'Fase 1: Descoberta e Design',
+        owner: 'Equipe Leega',
+        deadline: 'Semana 1-2',
         priority: 'ALTA',
-        description: 'Iniciar design detalhado e arquitetura completa',
+        description: 'Análise de requisitos, definição de arquitetura Azure-DASA, prototipagem UI/UX e planejamento de sprints (104h)',
       },
       {
         id: 6,
-        title: 'Setup de Ambientes',
+        title: 'Setup de Ambientes Azure',
         owner: 'DevOps',
-        deadline: 'Semana de 24/02',
+        deadline: 'Semana 1-2',
         priority: 'ALTA',
         description: 'Provisionar Azure subscription, Logic Apps, Functions, SQL Database e acesso às APIs (ServiceNow, Teams)',
       },
       {
         id: 7,
         title: 'Prototipagem de IA',
-        owner: 'AI Team',
-        deadline: 'Semana de 24/02',
+        owner: 'Equipe de Desenvolvimento',
+        deadline: 'Semana 1-2',
         priority: 'MÉDIA',
-        description: 'Validar modelo de IA para categorização com dados reais',
+        description: 'Validar modelo Azure OpenAI GPT-4 para categorização com dados reais',
       },
       {
         id: 8,
         title: 'Plano de Segurança',
         owner: 'Security/Compliance',
-        deadline: 'Semana de 24/02',
+        deadline: 'Semana 1-2',
         priority: 'ALTA',
         description: 'Definir RBAC (Azure AD), Secret Manager, TLS 1.3, audit log (Azure SQL) e conformidade LGPD',
       },
@@ -83,7 +83,7 @@ export default function NextSteps() {
       {
         id: 9,
         title: 'Comitê de Aprovação',
-        owner: 'Ana Terra',
+        owner: 'Gestão DASA',
         deadline: 'Semanal',
         priority: 'CRÍTICA',
         description: 'Reunião de gestão de incidentes com exposição de backlog',
@@ -91,7 +91,7 @@ export default function NextSteps() {
       {
         id: 10,
         title: 'Reunião Técnica',
-        owner: 'Daniel + Tech Lead',
+        owner: 'Tech Lead',
         deadline: 'Bi-semanal',
         priority: 'ALTA',
         description: 'Review técnico de progresso e resolução de blockers',
@@ -107,10 +107,10 @@ export default function NextSteps() {
       {
         id: 12,
         title: 'Painel de Métricas',
-        owner: 'Renan',
+        owner: 'Equipe de Desenvolvimento',
         deadline: 'Semanal',
         priority: 'MÉDIA',
-        description: 'Acompanhar KPIs do projeto vs. planejado',
+        description: 'Acompanhar KPIs do projeto vs. planejado via Azure Monitor',
       },
     ],
   };
@@ -234,23 +234,23 @@ export default function NextSteps() {
             <ul className="space-y-2 text-sm text-blue-200">
               <li className="flex items-center gap-2">
                 <span className="text-blue-400">!</span>
-                Aprovar escopo e timeline final
+                Aprovar escopo e timeline final (12 semanas)
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-blue-400">!</span>
-                Alocar recursos (3 desenvolvedores)
+                Alocar recursos (2 desenvolvedores Full-Stack)
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-blue-400">!</span>
-                Definir grupo piloto
+                Definir grupo piloto para Fase 4
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-blue-400">!</span>
-                Orçamento de investimento
+                Aprovar orçamento de investimento
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-blue-400">!</span>
-                Data de go-live objetivo
+                Confirmar data de go-live (Semana 12)
               </li>
             </ul>
           </div>

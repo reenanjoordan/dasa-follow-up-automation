@@ -239,7 +239,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 
 ### Duração Total: 12 semanas (3 meses)
 
-#### Fase 1: Descoberta e Design (2 semanas) - 180h
+#### Fase 1: Descoberta e Design (2 semanas) - 104h
 - Análise detalhada dos requisitos
 - Definição da arquitetura técnica Azure-DASA
 - Prototipação de interfaces
@@ -247,8 +247,8 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - Planejamento de sprints
 - **Entregáveis**: Documento de arquitetura Azure-DASA, Protótipos UI/UX, Backlog priorizado
 
-#### Fase 2: Desenvolvimento Core (5 semanas) - 620h
-- Desenvolvimento engine IA (Vertex AI + Azure OpenAI GPT-4)
+#### Fase 2: Desenvolvimento Core (5 semanas) - 416h
+- Desenvolvimento engine IA (Azure OpenAI GPT-4)
 - Configuração Azure Logic Apps (workflows visuais)
 - Desenvolvimento Azure Functions (5 funções serverless)
 - Módulos 1-6: monitoramento, categorização IA, Teams, escalação, contatos, qualidade
@@ -257,7 +257,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - Implementação dashboard React com Power BI embarcado
 - **Entregáveis**: Azure Logic Apps configurado, Azure Functions completas, Azure SQL schemas criados, Dashboard operacional completo
 
-#### Fase 3: Integração e Testes (2 semanas) - 220h
+#### Fase 3: Integração e Testes (2 semanas) - 156h
 - Testes de integração E2E completos
 - Testes de carga e performance
 - Testes de segurança (LGPD/RBAC)
@@ -265,7 +265,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - Documentação técnica completa
 - **Entregáveis**: Sistema integrado e validado, Relatórios de testes, Documentação técnica completa
 
-#### Fase 4: Piloto com Grupo Select (2 semanas) - 160h
+#### Fase 4: Piloto com Grupo Select (2 semanas) - 78h
 - Deploy em ambiente de homologação
 - Treinamento do grupo piloto
 - Testes com usuários reais
@@ -273,7 +273,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - Validação de métricas e KPIs
 - **Entregáveis**: Sistema validado em homologação, Relatório de piloto com métricas, Plano de rollout detalhado
 
-#### Fase 5: Deploy e Go-Live (1 semana) - 103h
+#### Fase 5: Deploy e Go-Live (1 semana) - 52h
 - Deploy em produção
 - Monitoramento intensivo 24/7
 - Ajustes em tempo real
@@ -281,7 +281,7 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 - Treinamento equipe de sustentação
 - **Entregáveis**: Sistema em produção, Documentação completa, Plano de suporte e sustentação
 
-**Esforço Total: 1,283 horas** (180h + 620h + 220h + 160h + 103h)
+**Esforço Total: 806 horas** (104h + 416h + 156h + 78h + 52h)
 
 ### Metodologia
 - **Framework**: Scrum (sprints de 2 semanas)
@@ -293,28 +293,24 @@ Sistema de automação inteligente para Service Desk utilizando **100% Stack Azu
 
 ## 7. EQUIPE LEEGA
 
-### Time Dedicado (3 Profissionais)
+### Time Dedicado (2 Desenvolvedores Full-Stack Sênior)
 
-- **Flamarion Fogaça** - Project Manager / Tech Lead
-  - Gerenciamento ágil do projeto (Scrum)
-  - Arquitetura técnica e decisões estratégicas
-  - Ponto focal com stakeholders DASA
-  - Revisão de código e garantia de qualidade
-
-- **Renan Jordão** - Desenvolvedor Full Stack Sênior
+- **Flamarion Fogaça** - Desenvolvedor Full-Stack Sênior
   - Azure Architecture + Backend (Azure Logic Apps, Functions, SQL)
-  - Desenvolvimento engine IA (Vertex AI + Azure OpenAI GPT-4)
+  - Desenvolvimento engine IA (Azure OpenAI GPT-4)
   - Integração ServiceNow TSM + Teams Graph API
+  - **403h totais**
 
-- **Jhonathan Ducatti** - Desenvolvedor Full Stack Sênior
+- **Renan Jordão** - Desenvolvedor Full-Stack Sênior
   - Frontend React + Dashboard operacional
   - Azure Functions + Integrações (Twilio, Azure AD)
   - Power BI embarcado + Analytics
+  - **403h totais**
 
 ### Carga Total
-- **1,283 horas** de esforço total (distribuídas em 12 semanas)
-- **3 profissionais dedicados** ao projeto DASA
-- **Dedicação em tempo integral** durante 12 semanas (3 meses)
+- **806 horas** de esforço total (403h x 2 desenvolvedores)
+- **2 profissionais seniores dedicados** ao projeto DASA
+- **Dedicação 100%** em tempo integral durante 12 semanas (~3 meses)
 
 ### Expertise do Time
 
@@ -963,59 +959,66 @@ Taxa de resposta: 85-90% (processo padronizado e insistente)
 
 ---
 
-## 13.1. SUSTENTAÇÃO PÓS-POC - CUSTOS RECORRENTES
+## 13.1. SUSTENTAÇÃO PÓS-POC - CUSTOS RECORRENTES (OTIMIZADO)
 
-Após o go-live, será necessário manter a infraestrutura e o suporte técnico para garantir a operação contínua e evolução da plataforma.
+Após o go-live, será necessário manter a infraestrutura e o suporte técnico para garantir a operação contínua e evolução da plataforma. **Com a stack 100% Azure-DASA, os custos foram significativamente otimizados.**
 
 ### Composição de Custos Mensais de Sustentação
 
-#### Infraestrutura Azure
+#### Infraestrutura Azure (ABSORVIDA PELA DASA)
 | Item | Custo Mensal | Descrição |
 |------|--------------|-----------|
-| Azure Functions (consumo) | R$ 800/mês | ~1M execuções/mês |
-| Azure Logic Apps | R$ 1.200/mês | ~50K workflows/mês |
-| Azure SQL Database (S3) | R$ 1.500/mês | 100 DTUs, 250GB |
-| Azure Monitor + Insights | R$ 400/mês | Logs e telemetria |
-| **Subtotal Infraestrutura** | **R$ 3.900/mês** | |
+| Azure Functions (consumo) | **R$ 0** | Incluso na subscription DASA |
+| Azure Logic Apps | **R$ 0** | Incluso na subscription DASA |
+| Azure SQL Database (S3) | **R$ 0** | Incluso na subscription DASA |
+| Azure Monitor + Insights | **R$ 0** | Incluso na subscription DASA |
+| **Subtotal Infraestrutura** | **R$ 0/mês** | *DASA já possui 100% Azure* |
 
-#### Serviços de IA
+#### Azure OpenAI (IA Unificada)
 | Item | Custo Mensal | Descrição |
 |------|--------------|-----------|
-| OpenAI GPT-4 API | R$ 2.000/mês | ~300K tokens/dia |
-| Vertex AI Agent Builder | R$ 1.500/mês | Categorização IA |
-| **Subtotal IA** | **R$ 3.500/mês** | |
+| Azure OpenAI GPT-4 | R$ 2.500/mês | ~400K tokens/dia - Categorização + Análise |
+| **Subtotal IA** | **R$ 2.500/mês** | *IA consolidada em Azure OpenAI* |
 
-#### Suporte e Manutenção Técnica
+**Nota sobre IA**: Consolidamos em uma única solução (Azure OpenAI) ao invés de duas (GPT-4 + Vertex AI), pois a DASA já possui 100% Azure. Isso simplifica a arquitetura, reduz custos e mantém toda a stack unificada.
+
+#### Suporte e Manutenção (Otimizado para Excelência)
 | Item | Custo Mensal | Descrição |
 |------|--------------|-----------|
-| Suporte Técnico (40h/mês) | R$ 8.000/mês | Desenvolvedor dedicado |
-| Gerenciamento de Projeto | R$ 4.000/mês | 20h/mês PM/Tech Lead |
-| Monitoramento e Incidentes | R$ 2.000/mês | On-call 8x5 |
-| **Subtotal Suporte** | **R$ 14.000/mês** | |
+| Suporte Técnico On-Demand (20h/mês) | R$ 4.000/mês | Desenvolvedor sob demanda |
+| Monitoramento Automático | R$ 1.000/mês | Azure Monitor + alertas automáticos |
+| **Subtotal Suporte** | **R$ 5.000/mês** | *Modelo otimizado para excelência* |
 
-### Investimento Total de Sustentação
+### Investimento Total de Sustentação (OTIMIZADO)
 
 | Categoria | Valor Mensal | Valor Anual |
 |-----------|--------------|-------------|
-| Infraestrutura Azure | R$ 3.900 | R$ 46.800 |
-| Serviços de IA | R$ 3.500 | R$ 42.000 |
-| Suporte e Manutenção | R$ 14.000 | R$ 168.000 |
-| **TOTAL** | **R$ 21.400/mês** | **R$ 256.800/ano** |
+| Infraestrutura Azure | **R$ 0** | **R$ 0** |
+| Azure OpenAI (IA Unificada) | R$ 2.500 | R$ 30.000 |
+| Suporte e Manutenção | R$ 5.000 | R$ 60.000 |
+| **TOTAL** | **R$ 7.500/mês** | **R$ 90.000/ano** |
 
-### Análise de ROI com Sustentação
+### Comparativo: Modelo Original vs Otimizado
+
+| | Modelo Original | Modelo Otimizado | Economia |
+|--|-----------------|------------------|----------|
+| Custo Mensal | R$ 21.400 | R$ 7.500 | **-65%** |
+| Custo Anual | R$ 256.800 | R$ 90.000 | **-R$ 166.800/ano** |
+
+### Análise de ROI com Sustentação Otimizada
 
 **Economia Mensal com Automação**: R$ 253.900/mês
-**Custo de Sustentação**: R$ 21.400/mês
-**Economia Líquida Mensal**: R$ 232.500/mês (R$ 2.790.000/ano)
+**Custo de Sustentação**: R$ 7.500/mês
+**Economia Líquida Mensal**: R$ 246.400/mês (R$ 2.956.800/ano)
 
-**Benefícios**:
+**Benefícios do Modelo Otimizado**:
 - ✅ Processamento de ~260 tickets/dia automaticamente
 - ✅ Redução de 45 minutos/ticket → economia de ~195 horas/mês
-- ✅ ROI positivo sustentado: cada R$ 1 investido em sustentação gera R$ 11,85 de economia
-- ✅ Monitoramento 24/7 e suporte dedicado
-- ✅ Evolução contínua da plataforma
-
-**Observação Importante**: Os custos de infraestrutura Azure (Logic Apps, Functions, SQL, Monitor) podem ser absorvidos pela subscription Azure existente da DASA, reduzindo potencialmente o custo de sustentação em até R$ 3.900/mês.
+- ✅ **ROI 33x**: cada R$ 1 investido em sustentação gera R$ 33 de economia
+- ✅ Stack 100% Azure unificada - menos complexidade operacional
+- ✅ IA consolidada em Azure OpenAI - manutenção simplificada
+- ✅ Monitoramento automático via Azure Monitor - menos intervenção manual
+- ✅ Suporte on-demand ao invés de dedicado - flexibilidade e economia
 
 ---
 

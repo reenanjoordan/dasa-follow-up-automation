@@ -154,35 +154,36 @@ export default function PostPoC() {
 
   const sustainabilityCosts = [
     {
-      category: 'Infraestrutura Azure',
+      category: 'Infraestrutura Azure (DASA)',
       items: [
-        { name: 'Azure Functions (consumo)', cost: 'R$ 800/mês', description: '~1M execuções/mês' },
-        { name: 'Azure Logic Apps', cost: 'R$ 1.200/mês', description: '~50K workflows/mês' },
-        { name: 'Azure SQL Database (S3)', cost: 'R$ 1.500/mês', description: '100 DTUs, 250GB' },
-        { name: 'Azure Monitor + Insights', cost: 'R$ 400/mês', description: 'Logs e telemetria' },
+        { name: 'Azure Functions (consumo)', cost: 'R$ 0', description: 'Incluso na subscription DASA' },
+        { name: 'Azure Logic Apps', cost: 'R$ 0', description: 'Incluso na subscription DASA' },
+        { name: 'Azure SQL Database (S3)', cost: 'R$ 0', description: 'Incluso na subscription DASA' },
+        { name: 'Azure Monitor + Insights', cost: 'R$ 0', description: 'Incluso na subscription DASA' },
       ],
-      subtotal: 'R$ 3.900/mês',
+      subtotal: 'R$ 0/mês',
+      note: 'DASA já possui 100% Azure',
     },
     {
-      category: 'Serviços de IA',
+      category: 'Azure OpenAI (IA Unificada)',
       items: [
-        { name: 'OpenAI GPT-4 API', cost: 'R$ 2.000/mês', description: '~300K tokens/dia' },
-        { name: 'Vertex AI Agent Builder', cost: 'R$ 1.500/mês', description: 'Categorização IA' },
+        { name: 'Azure OpenAI GPT-4', cost: 'R$ 2.500/mês', description: '~400K tokens/dia - Categorização + Análise' },
       ],
-      subtotal: 'R$ 3.500/mês',
+      subtotal: 'R$ 2.500/mês',
+      note: 'IA consolidada em Azure OpenAI',
     },
     {
-      category: 'Suporte e Manutenção',
+      category: 'Suporte e Manutenção (Otimizado)',
       items: [
-        { name: 'Suporte Técnico (40h/mês)', cost: 'R$ 8.000/mês', description: 'Desenvolvedor dedicado' },
-        { name: 'Gerenciamento de Projeto', cost: 'R$ 4.000/mês', description: '20h/mês PM/Tech Lead' },
-        { name: 'Monitoramento e Incidentes', cost: 'R$ 2.000/mês', description: 'On-call 8x5' },
+        { name: 'Suporte Técnico On-Demand (20h/mês)', cost: 'R$ 4.000/mês', description: 'Desenvolvedor sob demanda' },
+        { name: 'Monitoramento Automático', cost: 'R$ 1.000/mês', description: 'Azure Monitor + alertas' },
       ],
-      subtotal: 'R$ 14.000/mês',
+      subtotal: 'R$ 5.000/mês',
+      note: 'Modelo otimizado para excelência',
     },
   ];
 
-  const totalMonthlyCost = 21400;
+  const totalMonthlyCost = 7500;
   const totalYearlyCost = totalMonthlyCost * 12;
 
   return (
@@ -215,13 +216,16 @@ export default function PostPoC() {
           <div className="space-y-6 mb-6">
             {sustainabilityCosts.map((section, idx) => (
               <div key={idx} className="bg-slate-900/50 border border-slate-700 rounded-lg p-6">
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-2">
                   <h4 className="text-lg font-semibold text-white flex items-center gap-2">
                     <Server className="w-5 h-5 text-cyan-400" />
                     {section.category}
                   </h4>
-                  <span className="text-xl font-bold text-green-400">{section.subtotal}</span>
+                  <span className={`text-xl font-bold ${section.subtotal === 'R$ 0/mês' ? 'text-emerald-400' : 'text-green-400'}`}>{section.subtotal}</span>
                 </div>
+                {section.note && (
+                  <p className="text-xs text-emerald-400 mb-4 bg-emerald-900/20 px-3 py-1 rounded-full inline-block">{section.note}</p>
+                )}
                 <div className="space-y-3">
                   {section.items.map((item, itemIdx) => (
                     <div key={itemIdx} className="flex items-center justify-between text-sm border-l-2 border-cyan-600/30 pl-4 py-2">
@@ -229,7 +233,7 @@ export default function PostPoC() {
                         <p className="text-slate-300 font-medium">{item.name}</p>
                         <p className="text-slate-500 text-xs">{item.description}</p>
                       </div>
-                      <span className="text-slate-300 font-mono font-semibold">{item.cost}</span>
+                      <span className={`font-mono font-semibold ${item.cost === 'R$ 0' ? 'text-emerald-400' : 'text-slate-300'}`}>{item.cost}</span>
                     </div>
                   ))}
                 </div>
@@ -252,14 +256,14 @@ export default function PostPoC() {
             </div>
           </div>
 
-          <div className="mt-6 bg-cyan-900/20 border border-cyan-700/50 rounded-lg p-4">
+          <div className="mt-6 bg-emerald-900/20 border border-emerald-700/50 rounded-lg p-4">
             <div className="flex items-start gap-3">
-              <Shield className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <Shield className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
               <div className="text-sm">
-                <p className="text-cyan-300 font-semibold mb-1">ROI Esperado</p>
+                <p className="text-emerald-300 font-semibold mb-1">ROI Otimizado com Stack 100% Azure-DASA</p>
                 <p className="text-slate-300">
-                  Redução de <strong className="text-cyan-400">45 minutos/ticket</strong> equivale a economia de <strong className="text-cyan-400">~195 horas/mês</strong> de trabalho manual,
-                  representando <strong className="text-green-400">ROI positivo em 4-6 meses</strong> considerando custo/hora de analista.
+                  Com infraestrutura Azure 100% absorvida pela DASA e IA unificada em Azure OpenAI, o custo de sustentação foi <strong className="text-emerald-400">reduzido de R$ 21.400 para R$ 7.500/mês</strong> (-65%).
+                  Economia de <strong className="text-cyan-400">~195 horas/mês</strong> de trabalho manual representa <strong className="text-green-400">ROI positivo imediato</strong>.
                 </p>
               </div>
             </div>

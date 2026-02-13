@@ -17,8 +17,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
     { id: 'kpis', label: 'KPIs' },
     { id: 'roi', label: 'ROI' },
     { id: 'demo', label: 'Demo' },
-    { id: 'effort-estimate', label: 'Cronograma' },
-    { id: 'timeline', label: 'Timeline' },
+    { id: 'cronograma', label: 'Cronograma' },
     { id: 'post-poc', label: 'Pós-PoC' },
     { id: 'next-steps', label: 'Próximos Passos' },
   ];
