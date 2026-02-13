@@ -11,7 +11,6 @@ import InteractiveDemo from './components/InteractiveDemo';
 import EffortEstimate from './components/EffortEstimate';
 import EffortEstimateAzure from './components/EffortEstimateAzure';
 import PhaseTimeline from './components/PhaseTimeline';
-import Timeline from './components/Timeline';
 import PostPoC from './components/PostPoC';
 import NextSteps from './components/NextSteps';
 import Footer from './components/Footer';
@@ -89,11 +88,7 @@ function App() {
           <PhaseTimeline />
         </section>
 
-        <section id="timeline" className="snap-start">
-          <Timeline />
-        </section>
-
-        <section id="post-poc" className="snap-start bg-slate-900/50">
+        <section id="post-poc" className="snap-start">
           <PostPoC />
         </section>
 
