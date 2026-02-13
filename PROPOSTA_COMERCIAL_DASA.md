@@ -1084,8 +1084,6 @@ Taxa de resposta: 85-90% (processo padronizado e insistente)
 - **Disponibilidade**: Segunda a Sexta, 9h-18h
 - **Reuniões**: Agendamento via email ou Teams
 
-**Para aprovação formal e assinatura de contrato**, aguardamos retorno da DASA até **17/02/2026**.
-
 ---
 
 ## 15. CONTATOS
@@ -1094,13 +1092,6 @@ Taxa de resposta: 85-90% (processo padronizado e insistente)
 
 **Contato Comercial**
 Email: contato@leega.com.br
-Telefone: +55 11 XXXX-XXXX
-
-**Endereço**
-[Endereço comercial Leega]
-CNPJ: XX.XXX.XXX/XXXX-XX
-
----
 
 ## 15. ROADMAP ESTRATÉGICO 2026-2027 (Pós-PoC)
 
@@ -1274,27 +1265,9 @@ Esta proposta representa uma **oportunidade única** para a DASA transformar com
 - ✅ **Parceria de Longo Prazo**: Não apenas entregamos código, construímos capacidade interna
 - ✅ **Garantias Sólidas**: 60 dias de garantia, SLA definido, acurácia IA garantida
 
-### Próximo Passo
-
-Estamos prontos para iniciar este projeto transformador assim que recebermos a aprovação da DASA.
-
-**Aguardamos retorno até 17/02/2026** para:
-- Aprovação do escopo técnico e financeiro
-- Definição do modelo de pagamento
-- Agendamento do Kick-off Meeting
-
-Estamos à disposição para esclarecer quaisquer dúvidas e ajustar a proposta conforme necessário.
-
----
-
-**Atenciosamente,**
-
 **Equipe Leega Tecnologia**
 contato@leega.com.br
 
 ---
-
-**Esta proposta foi elaborada exclusivamente para DASA e é estritamente confidencial.**
-**Reprodução, distribuição ou divulgação não autorizada é proibida.**
 
 *© 2026 Leega Tecnologia. Todos os direitos reservados.*
